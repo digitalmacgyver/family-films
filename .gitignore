@@ -52,7 +52,6 @@ Thumbs.db
 
 # Media files (these can be large)
 media/
-static/thumbnails/
 staticfiles/
 
 # Environment variables
