@@ -1,0 +1,16 @@
+1. So far this UI is read only. Add these features for editing film and chapter metadata:
+  * on the Film detail page to allow for adding and removing the People, Locations, Years and tags for the Film
+    + When adding a new item, the interface is a text box. As text is entered autocomplete options matching the text appear. If the user clicks on an autocomplete option it is added. If the user hits enter and their text is an exact match for an existing item that item is selected. If the user hits enter and their text is not an exact match for an existing item a new item is created with that text.
+  * on the Film details page, allow for adding and removing per-chapter metadata for People, Locations, Years and tags with a similar UI to the overall film metedata. This UI element is loaded and pertains to the currently selected chapter, if any.
+  * On the Film detail page, add an open text area to add free text notes for  chapter and/or edit the existing notes for that chapter. Include an aggregate read only list of all the notes for all the chapters below the film.
+
+2. For the main Films page and search functions, a film is considered to have the union of all People, Locations, Years, and tags of the Film and all it's chapters. Example: If a film has chapter 1, and the Film has People: PersonA, PersonB; and chapter 1 has People: PersonA, PersonC; then the Film is considered to have: PersonA, PersonB, and PersonC, while chapter 1 is considered to have only PersonA and PersonC.
+
+3. Revise the animated thumbnail generation to have one thumbnail for each chapter, drawn from the film as of the chapter start time. IF there are fewer than 4 chapters, add additional thumnails evenly spaced throughout the duration of the film so there are at leasst 4 thumbnails total.
+
+4. On the Film detail page, add a small thumbnail chapter to each of the chapter navigation entries.
+
+5. Only authenticated users can use any of the edit functionality that changes film or clip metadata. Use an existing authentication module, plugin, or library and configure it for these behaviors:
+  * Users can not self register, the Django admin user will create all user accounts either explicitly or via an invitation mechanism
+  * Invited users have access to a forgotten account name and password reset workflow.
+  * Unauthenticated users can still see all the read only features of the site, and can authenticate by clicking a log in button in the top header

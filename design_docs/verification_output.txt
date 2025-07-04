@@ -1,0 +1,295 @@
+=== VERIFYING ALL YOUTUBE MAPPINGS ===
+
+Using yt-dlp at: /home/viblio/.local/bin/yt-dlp
+
+Found 46 films with YouTube mappings
+
+[1/46] Checking 57-PT_FROS -> rmHlOwO84XU
+  ❌ INCORRECT: Database has 57-PT_FROS but YouTube has HR-1-4_FROS
+[2/46] Checking 58-V1-FROS -> vDkbT5gO1T8
+  ❌ INCORRECT: Database has 58-V1-FROS but YouTube has 57-PT_FROS
+[3/46] Checking 58-V2_FROS -> b_rIJqRTi_k
+  ❌ INCORRECT: Database has 58-V2_FROS but YouTube has 58-V1-FROS
+[4/46] Checking 59-HI_FROS -> tcS1VdrevYQ
+  ❌ INCORRECT: Database has 59-HI_FROS but YouTube has 58-V2_FROS
+[5/46] Checking 62-SF_FROS -> 0MADtWjYWLI
+  ❌ INCORRECT: Database has 62-SF_FROS but YouTube has P-60_FROS
+[6/46] Checking HR-1-4_FROS -> uzOGqPe84w8
+  ❌ INCORRECT: Database has HR-1-4_FROS but YouTube has PB-01_FROS
+[7/46] Checking KO-1_FROS -> VU-VAuj1Uv8
+  ❌ INCORRECT: Database has KO-1_FROS but YouTube has PBA-02_FROS
+[8/46] Checking KO-2_FROS -> 21eo_jp93vk
+  ❌ INCORRECT: Database has KO-2_FROS but YouTube has KO-1_FROS
+[9/46] Checking L-52_FROS -> iDN9Q7fUQLY
+  ❌ INCORRECT: Database has L-52_FROS but YouTube has RLB-01_FROS
+[10/46] Checking L-53_FROS -> DOBXIdB1-Yk
+  ❌ INCORRECT: Database has L-53_FROS but YouTube has RLA-02_FROS
+[11/46] Checking L-55A_FROS -> dKtcJUovlY0
+  ❌ INCORRECT: Database has L-55A_FROS but YouTube has L-53_FROS
+[12/46] Checking L-55B_FROS -> ZkGHmbdsvcw
+  ❌ INCORRECT: Database has L-55B_FROS but YouTube has L-55A_FROS
+[13/46] Checking L-55C_FROS -> Rj2A2fvTZgc
+  ❌ INCORRECT: Database has L-55C_FROS but YouTube has L-55B_FROS
+[14/46] Checking L-56A_FROS -> 5U37bNfl5_s
+  ❌ INCORRECT: Database has L-56A_FROS but YouTube has L-55C_FROS
+[15/46] Checking L-56B_FROS -> XTC2su-NbOU
+  ❌ INCORRECT: Database has L-56B_FROS but YouTube has L-56A_FROS
+[16/46] Checking L-58_FROS -> TljSbghAytg
+  ❌ INCORRECT: Database has L-58_FROS but YouTube has L-56B_FROS
+[17/46] Checking L-59_FROS -> SqZu4ob5p_E
+  ❌ INCORRECT: Database has L-59_FROS but YouTube has L-58_FROS
+[18/46] Checking L-63_FROS -> c2g2yMwptoY
+  ❌ INCORRECT: Database has L-63_FROS but YouTube has L-59_FROS
+[19/46] Checking L-65_FROS -> _Tqn7OeCbbc
+  ❌ INCORRECT: Database has L-65_FROS but YouTube has L-63_FROS
+[20/46] Checking P-09-02_FROS -> -NjKNcZguPE
+  ❌ INCORRECT: Database has P-09-02_FROS but YouTube has P-09-11_FROS
+[21/46] Checking P-09-11_FROS -> g96lX_kU9Fs
+  ❌ INCORRECT: Database has P-09-11_FROS but YouTube has PB-05_FROS
+[22/46] Checking P-50_FROS -> 7wNQSleKT3g
+  ❌ INCORRECT: Database has P-50_FROS but YouTube has PA-02_FROS
+[23/46] Checking P-53_FROS -> SzMqT8XEGQk
+  ❌ INCORRECT: Database has P-53_FROS but YouTube has PB-04_FROS
+[24/46] Checking P-56_FROS -> x-Yljn76e-g
+  ✅ CORRECT mapping confirmed
+[25/46] Checking P-60_FROS -> rARxYXJQYvE
+  ❌ INCORRECT: Database has P-60_FROS but YouTube has 59-HI_FROS
+[26/46] Checking P-61_FROS -> YFIDOmMvxiY
+  ❌ INCORRECT: Database has P-61_FROS but YouTube has PB-14_FROS
+[27/46] Checking P-CC1_FROS -> VbYyF_IS83g
+  ❌ INCORRECT: Database has P-CC1_FROS but YouTube has P-50_FROS
+[28/46] Checking P-CC2_FROS -> oBXSxjnrhyk
+  ❌ INCORRECT: Database has P-CC2_FROS but YouTube has PA-01_FROS
+[29/46] Checking PA-01_FROS -> PgACRbYj6PM
+  ❌ INCORRECT: Database has PA-01_FROS but YouTube has P-CC1_FROS
+[30/46] Checking PA-02_FROS -> XZhycmFm3Bg
+  ❌ INCORRECT: Database has PA-02_FROS but YouTube has P-09-02_FROS
+[31/46] Checking PA-03_FROS -> YyqFwqQ7btU
+  ❌ INCORRECT: Database has PA-03_FROS but YouTube has P-CC2_FROS
+[32/46] Checking PB-01_FROS -> Bm5TYA163YU
+  ❌ INCORRECT: Database has PB-01_FROS but YouTube has PB-08_FROS
+[33/46] Checking PB-04_FROS -> gDYaTp84HeM
+  ❌ INCORRECT: Database has PB-04_FROS but YouTube has PA-03_FROS
+[34/46] Checking PB-05_FROS -> toUwBlFfoq8
+  ❌ INCORRECT: Database has PB-05_FROS but YouTube has SL-72_FROS
+[35/46] Checking PB-06_FROS -> GwVQqPKoaKI
+  ❌ INCORRECT: Database has PB-06_FROS but YouTube has 62-SF_FROS
+[36/46] Checking PB-07_FROS -> I0XEIwKOd9E
+  ❌ INCORRECT: Database has PB-07_FROS but YouTube has KO-2_FROS
+[37/46] Checking PB-08_FROS -> Ox4Wew6h070
+  ❌ INCORRECT: Database has PB-08_FROS but YouTube has PB-07_FROS
+[38/46] Checking PBA-01_FROS -> X3N2A48_62E
+  ❌ INCORRECT: Database has PBA-01_FROS but YouTube has P-53_FROS
+[39/46] Checking PBA-02_FROS -> Vf7waQlaiIg
+  ❌ INCORRECT: Database has PBA-02_FROS but YouTube has PBA-01_FROS
+[40/46] Checking RLA-01_FROS -> yoC6HK6UTIo
+  ❌ INCORRECT: Database has RLA-01_FROS but YouTube has L-65_FROS
+[41/46] Checking RLA-02_FROS -> ET9fqZKnqYg
+  ❌ INCORRECT: Database has RLA-02_FROS but YouTube has SLB-01_FROS
+[42/46] Checking RLB-01_FROS -> km8G_fx38oU
+  ❌ INCORRECT: Database has RLB-01_FROS but YouTube has SL-71X_FROS
+[43/46] Checking SL-71X_FROS -> tr3UssCdUiQ
+  ❌ INCORRECT: Database has SL-71X_FROS but YouTube has PB-06_FROS
+[44/46] Checking SL-72_FROS -> brPYVHx8rhw
+  ❌ INCORRECT: Database has SL-72_FROS but YouTube has P-61_FROS
+[45/46] Checking SLB-01_FROS -> hVyerzEGQYA
+  ❌ INCORRECT: Database has SLB-01_FROS but YouTube has SLB-02_FROS
+[46/46] Checking SLB-02_FROS -> GosLiczgdH8
+  ❌ INCORRECT: Database has SLB-02_FROS but YouTube has L-52_FROS
+
+============================================================
+VERIFICATION SUMMARY
+============================================================
+Total films checked: 46
+Successful YouTube fetches: 46
+Failed YouTube fetches: 0
+✅ Correct mappings: 1
+❌ Incorrect mappings: 45
+⚠️  No File ID in description: 0
+
+============================================================
+INCORRECT MAPPINGS (NEED FIXING)
+============================================================
+
+YouTube Video: https://www.youtube.com/watch?v=rmHlOwO84XU
+  Database says: 57-PT_FROS - "Josephine Hayward (nee Myre) Arizona Trip 1957"
+  YouTube says:  HR-1-4_FROS - "Hayward Family Holidays, Fairs, Parks, and Parades: Knott's Berry Farm, Santa's Village, Rose Parade"
+
+YouTube Video: https://www.youtube.com/watch?v=vDkbT5gO1T8
+  Database says: 58-V1-FROS - "Road Trip to Nevada, Utah and Wyoming, and Michigan with Josephine, John Jr., Joy, Mark & James 1958"
+  YouTube says:  57-PT_FROS - "Josephine Hayward (nee Myre) Arizona Trip 1957"
+
+YouTube Video: https://www.youtube.com/watch?v=b_rIJqRTi_k
+  Database says: 58-V2_FROS - "Road Trip to Montana, Victoria BC with Hayward Family - 1958"
+  YouTube says:  58-V1-FROS - "Road Trip to Nevada, Utah and Wyoming, and Michigan with Josephine, John Jr., Joy, Mark & James 1958"
+
+YouTube Video: https://www.youtube.com/watch?v=tcS1VdrevYQ
+  Database says: 59-HI_FROS - "Hawaii 1959 - Trip with John and Josephine Hayward, and their eldest children John Jr. and Joy"
+  YouTube says:  58-V2_FROS - "Road Trip to Montana, Victoria BC with Hayward Family - 1958"
+
+YouTube Video: https://www.youtube.com/watch?v=0MADtWjYWLI
+  Database says: 62-SF_FROS - "1962 Seattle World's Fair - Haywards Trip"
+  YouTube says:  P-60_FROS - "Train from CA to MI, Earl and Rosabell Hayward 50th Wedding Anniversary, San Francisco with Wrens"
+
+YouTube Video: https://www.youtube.com/watch?v=uzOGqPe84w8
+  Database says: HR-1-4_FROS - "Hayward Family Holidays, Fairs, Parks, and Parades: Knott's Berry Farm, Santa's Village, Rose Parade"
+  YouTube says:  PB-01_FROS - "Reedley and Southern CA Adventures with Haywards and Wrens, Mark's Birthday 1956-1958"
+
+YouTube Video: https://www.youtube.com/watch?v=VU-VAuj1Uv8
+  Database says: KO-1_FROS - "South Korea - 1953 - John Hayward Medical Mission Trip, Part 1 of 2"
+  YouTube says:  PBA-02_FROS - "Christmas 1952 and John Jr. and Joy's 3rd Birthday in New Orleans"
+
+YouTube Video: https://www.youtube.com/watch?v=21eo_jp93vk
+  Database says: KO-2_FROS - "South Korea - 1953 - John Hayward Medical Mission Trip, Part 2 of 2"
+  YouTube says:  KO-1_FROS - "South Korea - 1953 - John Hayward MD - Medical Mission Trip, Part 1 of 2"
+
+YouTube Video: https://www.youtube.com/watch?v=iDN9Q7fUQLY
+  Database says: L-52_FROS - "John Sr., Josephine, and Rosabell in Michigan (Damaged)"
+  YouTube says:  RLB-01_FROS - "Hayward Family Pool at Reed Ave. Home in Reedley, CA (Damaged)"
+
+YouTube Video: https://www.youtube.com/watch?v=DOBXIdB1-Yk
+  Database says: L-53_FROS - "Bob Linder's Family Films Part 1 - Rock City Georgia and Bible Camp with Rosabell Hayward and her daughter Marjorie who married Bob"
+  YouTube says:  RLA-02_FROS - "Unknown Families - Most Likely Bob Lindner's Extended Family"
+
+YouTube Video: https://www.youtube.com/watch?v=dKtcJUovlY0
+  Database says: L-55A_FROS - "Bob Linder's Family Films Part 2 - House fire, Moving, Ferry Boats and Locks"
+  YouTube says:  L-53_FROS - "Bob Linder's Family Films Part 1 - Rock City Georgia and Bible Camp with Rosabell Hayward & Marjorie"
+
+YouTube Video: https://www.youtube.com/watch?v=ZkGHmbdsvcw
+  Database says: L-55B_FROS - "Bob Linder's Family Films Part 3 - Parade in Battle Creek, Michigan"
+  YouTube says:  L-55A_FROS - "Bob Linder's Family Films Part 2 - House fire, Moving, Ferry Boats and Locks"
+
+YouTube Video: https://www.youtube.com/watch?v=Rj2A2fvTZgc
+  Database says: L-55C_FROS - "Bob Linder's Family Films Part 4 - Lindner Home in Coldwater, Michigan"
+  YouTube says:  L-55B_FROS - "Bob Linder's Family Films Part 3 - Parade in Battle Creek, Michigan"
+
+YouTube Video: https://www.youtube.com/watch?v=5U37bNfl5_s
+  Database says: L-56A_FROS - "Bob Linder's Family Films Part 5 - Niagara Falls"
+  YouTube says:  L-55C_FROS - "Bob Linder's Family Films Part 4 - Lindner Home in Coldwater, Michigan"
+
+YouTube Video: https://www.youtube.com/watch?v=XTC2su-NbOU
+  Database says: L-56B_FROS - "Bob Linder's Family Films Part 6 - Damaged Film of Boats and Cars"
+  YouTube says:  L-56A_FROS - "Bob Linder's Family Films Part 5 - Niagara Falls"
+
+YouTube Video: https://www.youtube.com/watch?v=TljSbghAytg
+  Database says: L-58_FROS - "Bob Linder's Family Films Part 7 - Trip from Michigan to Cypress Gardens Florida"
+  YouTube says:  L-56B_FROS - "Bob Linder's Family Films Part 6 - Damaged Film of Boats and Cars"
+
+YouTube Video: https://www.youtube.com/watch?v=SqZu4ob5p_E
+  Database says: L-59_FROS - "Bob Linder's Family Films Part 8 - Parade in Battle Creek, Michigan"
+  YouTube says:  L-58_FROS - "Bob Linder's Family Films Part 7 - Trip from Michigan to Cypress Gardens Florida"
+
+YouTube Video: https://www.youtube.com/watch?v=c2g2yMwptoY
+  Database says: L-63_FROS - "Bob Linder's Family Films Part 9 - Baseball Game and Squirrel"
+  YouTube says:  L-59_FROS - "Bob Linder's Family Films Part 8 - 100th Anniversary Parade in Battle Creek, Michigan 1959"
+
+YouTube Video: https://www.youtube.com/watch?v=_Tqn7OeCbbc
+  Database says: L-65_FROS - "Bob Linder's Family Films Part 10 - Summer Bible School and Flower Garden"
+  YouTube says:  L-63_FROS - "Bob Linder's Family Films Part 9 - Baseball Game and Squirrel"
+
+YouTube Video: https://www.youtube.com/watch?v=-NjKNcZguPE
+  Database says: P-09-02_FROS - "Hayward and Myre Great Grandparents in Michigan and Seattle"
+  YouTube says:  P-09-11_FROS - "John Sr. and Josephine with Josephine's parent and the Wrens"
+
+YouTube Video: https://www.youtube.com/watch?v=g96lX_kU9Fs
+  Database says: P-09-11_FROS - "John Sr. and Josephine with Josephine's parent and the Wrens"
+  YouTube says:  PB-05_FROS - "Haywards in Tulare and Reedley CA, Trip to Death Valley Nevada and Rhyolite Ghost Town with Wrens"
+
+YouTube Video: https://www.youtube.com/watch?v=7wNQSleKT3g
+  Database says: P-50_FROS - "John and Josephine Hayward visit Jo's family, the Myres, in Washington"
+  YouTube says:  PA-02_FROS - "John and Josephine Hayward and their twin children, and Jo's family the Myres in 1949-50"
+
+YouTube Video: https://www.youtube.com/watch?v=SzMqT8XEGQk
+  Database says: P-53_FROS - "John Sr., Josephine and Twins New Orleans year and Earl and Rosabell Hayward visit"
+  YouTube says:  PB-04_FROS - "John Sr. and Family Road Trip From Seattle to New Orleans"
+
+YouTube Video: https://www.youtube.com/watch?v=rARxYXJQYvE
+  Database says: P-60_FROS - "Train from CA to MI, Earl and Rosabell Hayward 50th Wedding Anniversary, San Francisco Trip with Irwin and Arlene Wren and Family"
+  YouTube says:  59-HI_FROS - "Hawaii 1959 - Trip with John and Josephine Hayward, and their eldest children John Jr. and Joy"
+
+YouTube Video: https://www.youtube.com/watch?v=YFIDOmMvxiY
+  Database says: P-61_FROS - "1961 Family Celebrations - Disneyland and other parks with Wrens and Myres"
+  YouTube says:  PB-14_FROS - "Disneyland, Knott's Berry Farm, Marineland, Hearst Castle Trips in 1959, Family Cabin Construction"
+
+YouTube Video: https://www.youtube.com/watch?v=VbYyF_IS83g
+  Database says: P-CC1_FROS - "Great Lakes trips with Earl and Rosabell Hayward, Lindners, and David and Gloria Myre"
+  YouTube says:  P-50_FROS - "John and Josephine Hayward visit Jo's family, the Myres, in Washington"
+
+YouTube Video: https://www.youtube.com/watch?v=oBXSxjnrhyk
+  Database says: P-CC2_FROS - "Michigan Home near Copper Mine in 1951-1952"
+  YouTube says:  PA-01_FROS - "Christmas & Family Gatherings with Myres, Haywards, in-laws and cousins to John Sr. and Josephine"
+
+YouTube Video: https://www.youtube.com/watch?v=PgACRbYj6PM
+  Database says: PA-01_FROS - "Christmas & Family Gatherings with Myres, Haywards, in-laws and cousins to John Sr. and Josephine"
+  YouTube says:  P-CC1_FROS - "Great Lakes trips with Earl and Rosabell Hayward, Lindners, and David and Gloria Myre"
+
+YouTube Video: https://www.youtube.com/watch?v=XZhycmFm3Bg
+  Database says: PA-02_FROS - "John and Josephine Hayward and their twin children, and Jo's family the Myres in 1949-50"
+  YouTube says:  P-09-02_FROS - "Hayward and Myre Great Grandparents in Michigan and Seattle"
+
+YouTube Video: https://www.youtube.com/watch?v=YyqFwqQ7btU
+  Database says: PA-03_FROS - "Beattie Family in New Jersey, and Hayward Family Copper Mine Home in Michigan"
+  YouTube says:  P-CC2_FROS - "Michigan Home near Copper Mine in 1951-1952"
+
+YouTube Video: https://www.youtube.com/watch?v=Bm5TYA163YU
+  Database says: PB-01_FROS - "Reedley and Southern CA Adventures with Haywards and Wrens, Mark's Birthday 1956-1958"
+  YouTube says:  PB-08_FROS - "Hayward Kids California Adventures 1956-1958 Part 2"
+
+YouTube Video: https://www.youtube.com/watch?v=gDYaTp84HeM
+  Database says: PB-04_FROS - "John Sr. and Family Road Trip From Seattle to New Orleans"
+  YouTube says:  PA-03_FROS - "Beattie Family in New Jersey, and Hayward Family Copper Mine Home in Michigan"
+
+YouTube Video: https://www.youtube.com/watch?v=toUwBlFfoq8
+  Database says: PB-05_FROS - "Haywards in Tulare and Reedley CA, Trip to Death Valley Nevada and Rhyolite Ghost Town with Wrens"
+  YouTube says:  SL-72_FROS - "Disneyland Trip 1972"
+
+YouTube Video: https://www.youtube.com/watch?v=GwVQqPKoaKI
+  Database says: PB-06_FROS - "John Sr. & Josephine travel to Yosemite with John Jr., Joy, and Mark - Wren Family Joins towards End"
+  YouTube says:  62-SF_FROS - "1962 Seattle World's Fair - Haywards Trip"
+
+YouTube Video: https://www.youtube.com/watch?v=I0XEIwKOd9E
+  Database says: PB-07_FROS - "Hayward Kids California Adventures 1956-1958 Part 1"
+  YouTube says:  KO-2_FROS - "South Korea - 1953 - John Hayward, MD - Medical Mission Trip, Part 2 of 2"
+
+YouTube Video: https://www.youtube.com/watch?v=Ox4Wew6h070
+  Database says: PB-08_FROS - "Hayward Kids California Adventures 1956-1958 Part 2"
+  YouTube says:  PB-07_FROS - "Hayward Kids California Adventures 1956-1958 Part 1"
+
+YouTube Video: https://www.youtube.com/watch?v=X3N2A48_62E
+  Database says: PBA-01_FROS - "Haywards move to New Orleans in 1952, Sightseeing with Rosabell Hayward"
+  YouTube says:  P-53_FROS - "John Sr., Josephine and Twins New Orleans year and Earl and Rosabell Hayward visit"
+
+YouTube Video: https://www.youtube.com/watch?v=Vf7waQlaiIg
+  Database says: PBA-02_FROS - "Christmas 1952 and John Jr. and Joy's 3rd Birthday in New Orleans"
+  YouTube says:  PBA-01_FROS - "Haywards move to New Orleans in 1952, Sightseeing with Rosabell Hayward"
+
+YouTube Video: https://www.youtube.com/watch?v=yoC6HK6UTIo
+  Database says: RLA-01_FROS - "Victor Beattie's Church Camp (Largely Damaged Film)"
+  YouTube says:  L-65_FROS - "Bob Linder's Family Films Part 10 - Summer Bible School and Flower Garden"
+
+YouTube Video: https://www.youtube.com/watch?v=ET9fqZKnqYg
+  Database says: RLA-02_FROS - "Unknown Families - Most Likely Bob Lindner's Extended Family"
+  YouTube says:  SLB-01_FROS - "Jerusalem Footage of Bob Lindner - 1970"
+
+YouTube Video: https://www.youtube.com/watch?v=km8G_fx38oU
+  Database says: RLB-01_FROS - "Hayward Family Pool at Reed Ave. Home in Reedley, CA"
+  YouTube says:  SL-71X_FROS - "1971 Hayward Family Christmas"
+
+YouTube Video: https://www.youtube.com/watch?v=tr3UssCdUiQ
+  Database says: SL-71X_FROS - "1971 Hayward Family Christmas"
+  YouTube says:  PB-06_FROS - "John Sr. & Josephine travel to Yosemite with John Jr., Joy, and Mark - Wren Family Joins towards End"
+
+YouTube Video: https://www.youtube.com/watch?v=brPYVHx8rhw
+  Database says: SL-72_FROS - "Disneyland Trip 1972"
+  YouTube says:  P-61_FROS - "1961 Family Celebrations - Disneyland and other parks with Wrens and Myres"
+
+YouTube Video: https://www.youtube.com/watch?v=hVyerzEGQYA
+  Database says: SLB-01_FROS - "Jerusalem Footage of Bob Lindner - 1970"
+  YouTube says:  SLB-02_FROS - "Hayward Family Home at Reed Ave in Reedley, CA (Mostly damaged film)"
+
+YouTube Video: https://www.youtube.com/watch?v=GosLiczgdH8
+  Database says: SLB-02_FROS - "Hayward Family Home at Reed Ave in Reedley, CA (Mostly damaged film)"
+  YouTube says:  L-52_FROS - "John Sr., Josephine, and Rosabell in Michigan (Damaged)"
+
+✓ Detailed results saved to: youtube_verification_results.json
+✓ Suggested fixes saved to: youtube_mapping_fixes.txt

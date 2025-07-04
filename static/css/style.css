@@ -1,0 +1,39 @@
+/* Custom styles for Family Films website */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .card-img-top {
+        height: 150px !important;
+    }
+}

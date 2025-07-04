@@ -1,0 +1,113 @@
+{% extends 'films/base.html' %}
+
+{% block title %}Locations - Family Films{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1><i class="bi bi-geo-alt"></i> Filming Locations</h1>
+                <div class="text-muted">
+                    {% if page_obj %}
+                        Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }} locations
+                    {% endif %}
+                </div>
+            </div>
+            
+            {% if locations %}
+                <div class="row">
+                    {% for location in locations %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                            <div class="card h-100 location-card">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">{{ location.name }}</h5>
+                                    
+                                    <div class="mb-2">
+                                        <small class="text-muted">
+                                            <i class="bi bi-film"></i> 
+                                            {{ location.film_count }} film{{ location.film_count|pluralize }}
+                                        </small>
+                                    </div>
+                                    
+                                    {% if location.city or location.state %}
+                                        <div class="mb-2">
+                                            <small class="text-muted">
+                                                <i class="bi bi-map"></i> 
+                                                {% if location.city %}{{ location.city }}{% endif %}{% if location.city and location.state %}, {% endif %}{% if location.state %}{{ location.state }}{% endif %}
+                                                {% if location.country != "USA" %}, {{ location.country }}{% endif %}
+                                            </small>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    {% if location.description %}
+                                        <div class="mb-2">
+                                            <small class="text-muted">{{ location.description|truncatechars:100 }}</small>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <div class="mt-auto">
+                                        <a href="{% url 'locations:detail' location.pk %}" class="btn btn-primary btn-sm">
+                                            <i class="bi bi-geo-alt"></i> View Films
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Pagination -->
+                {% if page_obj.has_other_pages %}
+                    <nav aria-label="Page navigation" class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                </li>
+                            {% endif %}
+                            
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+            {% else %}
+                <div class="text-center py-5">
+                    <i class="bi bi-geo-alt display-1 text-muted"></i>
+                    <h3 class="mt-3">No Locations Found</h3>
+                    <p class="text-muted">There are no filming locations in the database yet.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.location-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+</style>
+{% endblock %}

@@ -1,0 +1,215 @@
+{% extends 'films/base.html' %}
+
+{% block title %}Search by Year - Family Films{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Years Search Sidebar -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-calendar"></i> Browse by Year</h5>
+                </div>
+                <div class="card-body">
+                    <form method="get" id="years-search-form">
+                        <!-- Decades -->
+                        {% for decade_start, years in decades.items %}
+                            <div class="mb-3">
+                                <h6 class="text-muted">{{ decade_start }}s</h6>
+                                {% for year_data in years %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" 
+                                               name="years" value="{{ year_data.year }}" 
+                                               id="year-{{ year_data.year }}"
+                                               {% if year_data.year|stringformat:"s" in selected_years %}checked{% endif %}>
+                                        <label class="form-check-label" for="year-{{ year_data.year }}">
+                                            {{ year_data.year }}
+                                            <small class="text-muted">({{ year_data.count }} films)</small>
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Search Films</button>
+                            <a href="{% url 'search:years' %}" class="btn btn-outline-secondary">Clear All</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1>Browse Films by Year</h1>
+                {% if selected_years %}
+                    <div class="text-muted">
+                        {{ films.paginator.count }} film{{ films.paginator.count|pluralize }} found
+                    </div>
+                {% endif %}
+            </div>
+            
+            {% if selected_years %}
+                <!-- Selected Years -->
+                <div class="mb-4">
+                    <h5>Showing films from:</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for year in selected_years %}
+                            <span class="badge bg-info">{{ year }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Films Results -->
+                {% if films %}
+                    <div class="row">
+                        {% for film in films %}
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100 film-card">
+                                    <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
+                                        {% if film.has_animated_thumbnail %}
+                                            <div class="animated-thumbnail" 
+                                                 data-sprite-url="{{ film.preview_sprite_url }}"
+                                                 data-frame-count="{{ film.preview_frame_count }}"
+                                                 data-frame-interval="{{ film.preview_frame_interval }}"
+                                                 data-sprite-width="{{ film.preview_sprite_width }}"
+                                                 data-sprite-height="{{ film.preview_sprite_height }}">
+                                                <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
+                                                <div class="sprite-overlay"></div>
+                                            </div>
+                                        {% else %}
+                                            <img src="{{ film.thumbnail_url }}" class="card-img-top" alt="{{ film.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h6 class="card-title">{{ film.title|truncatechars:50 }}</h6>
+                                        
+                                        <div class="film-metadata mb-2">
+                                            {% if film.years %}
+                                                <small class="text-muted"><i class="bi bi-calendar"></i> {{ film.years }}</small><br>
+                                            {% endif %}
+                                        </div>
+                                        
+                                        <!-- People -->
+                                        {% if film.people.all %}
+                                            <div class="mb-2">
+                                                {% for person in film.people.all|slice:":3" %}
+                                                    <span class="badge bg-info">{{ person.full_name }}</span>
+                                                {% endfor %}
+                                                {% if film.people.count > 3 %}
+                                                    <span class="badge bg-secondary" 
+                                                          data-bs-toggle="tooltip" 
+                                                          data-bs-placement="top" 
+                                                          title="{% for person in film.people.all|slice:"3:" %}{{ person.full_name }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                                                        +{{ film.people.count|add:"-3" }} more
+                                                    </span>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                        
+                                        <div class="mt-auto">
+                                            <a href="{% url 'films:detail' film.file_id %}" class="btn btn-primary btn-sm">
+                                                <i class="bi bi-play-circle"></i> Watch Film
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Pagination -->
+                    {% if films.has_other_pages %}
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                {% if films.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ films.previous_page_number }}">Previous</a>
+                                    </li>
+                                {% endif %}
+                                
+                                {% for num in films.paginator.page_range %}
+                                    {% if films.number == num %}
+                                        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                    {% elif num > films.number|add:'-3' and num < films.number|add:'3' %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ num }}">{{ num }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if films.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ films.next_page_number }}">Next</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %}
+                {% else %}
+                    <div class="text-center py-5">
+                        <i class="bi bi-film display-1 text-muted"></i>
+                        <h3 class="mt-3">No Films Found</h3>
+                        <p class="text-muted">No films found from the selected years.</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <!-- Timeline Overview -->
+                <div class="mb-4">
+                    <h3>Family Films Timeline</h3>
+                    <p class="text-muted">Select years from the sidebar to browse films from specific time periods.</p>
+                </div>
+                
+                <!-- Decades Overview -->
+                <div class="row">
+                    {% for decade_start, years in decades.items %}
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>{{ decade_start }}s</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-2">
+                                        <strong>{{ years|length }} years</strong> with films
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-1">
+                                        {% for year_data in years %}
+                                            <a href="?years={{ year_data.year }}" class="badge bg-primary text-decoration-none">
+                                                {{ year_data.year }}
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Auto-submit form when checkboxes change
+    const form = document.getElementById('years-search-form');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            form.submit();
+        });
+    });
+});
+</script>
+{% endblock %}

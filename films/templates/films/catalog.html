@@ -1,0 +1,301 @@
+{% extends 'films/base.html' %}
+
+{% block title %}Film Catalog - Family Films{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Filter Sidebar -->
+    <div class="col-md-3">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5><i class="bi bi-funnel"></i> Filters</h5>
+            </div>
+            <div class="card-body">
+                <form method="get" id="filter-form">
+                    <!-- Search Query -->
+                    {% if search_query %}
+                        <div class="mb-3">
+                            <label class="form-label">Search:</label>
+                            <div class="bg-light p-2 rounded">{{ search_query }}</div>
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Year Filter -->
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <select class="form-select" name="year" id="year">
+                            <option value="">All Years</option>
+                            {% for year in filter_options.years %}
+                                <option value="{{ year }}" {% if current_filters.year == year|stringformat:"s" %}selected{% endif %}>
+                                    {{ year }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Person Filter -->
+                    <div class="mb-3">
+                        <label for="person" class="form-label">Person</label>
+                        <select class="form-select" name="person" id="person">
+                            <option value="">All People</option>
+                            {% for person in filter_options.people %}
+                                <option value="{{ person.id }}" {% if current_filters.person == person.id|stringformat:"s" %}selected{% endif %}>
+                                    {{ person.full_name }} ({{ person.film_count }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Location Filter -->
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <select class="form-select" name="location" id="location">
+                            <option value="">All Locations</option>
+                            {% for location in filter_options.locations %}
+                                <option value="{{ location.id }}" {% if current_filters.location == location.id|stringformat:"s" %}selected{% endif %}>
+                                    {{ location.name }} ({{ location.film_count }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Tag Filter -->
+                    <div class="mb-3">
+                        <label for="tag" class="form-label">Tag</label>
+                        <select class="form-select" name="tag" id="tag">
+                            <option value="">All Tags</option>
+                            {% for tag in filter_options.tags %}
+                                <option value="{{ tag.tag }}" {% if current_filters.tag == tag.tag %}selected{% endif %}>
+                                    {{ tag.tag }} ({{ tag.film_count }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                        <a href="{% url 'films:catalog' %}" class="btn btn-outline-secondary">Clear All</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Films Grid -->
+    <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Film Catalog</h1>
+            <div class="text-muted">
+                {% if page_obj %}
+                    Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }} films
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Sort Controls -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <strong>Sort by:</strong>
+                <div class="btn-group ms-2" role="group">
+                    <button type="button" class="btn {% if current_filters.sort == 'playlist' or not current_filters.sort %}btn-primary{% else %}btn-outline-primary{% endif %} sort-btn" 
+                            data-sort="playlist" data-direction="asc">
+                        Playlist Order
+                        <i class="bi bi-arrow-{% if current_filters.sort_dir == 'desc' %}down{% else %}up{% endif %} ms-1"></i>
+                    </button>
+                    <button type="button" class="btn {% if current_filters.sort == 'year' %}btn-primary{% else %}btn-outline-primary{% endif %} sort-btn" 
+                            data-sort="year" data-direction="{% if current_filters.sort == 'year' and current_filters.sort_dir == 'asc' %}desc{% else %}asc{% endif %}">
+                        Year
+                        <i class="bi bi-arrow-{% if current_filters.sort == 'year' and current_filters.sort_dir == 'desc' %}down{% else %}up{% endif %} ms-1"></i>
+                    </button>
+                    <button type="button" class="btn {% if current_filters.sort == 'title' %}btn-primary{% else %}btn-outline-primary{% endif %} sort-btn" 
+                            data-sort="title" data-direction="{% if current_filters.sort == 'title' and current_filters.sort_dir == 'asc' %}desc{% else %}asc{% endif %}">
+                        Title
+                        <i class="bi bi-arrow-{% if current_filters.sort == 'title' and current_filters.sort_dir == 'desc' %}down{% else %}up{% endif %} ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        {% if films %}
+            <div class="row" id="films-grid">
+                {% for film in films %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 film-card">
+                            <a href="{% url 'films:detail' film.file_id %}" class="text-decoration-none">
+                                <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
+                                    {% if film.has_animated_thumbnail %}
+                                        <div class="animated-thumbnail" 
+                                             data-sprite-url="{{ film.preview_sprite_url }}"
+                                             data-frame-count="{{ film.preview_frame_count }}"
+                                             data-frame-interval="{{ film.preview_frame_interval }}"
+                                             data-sprite-width="{{ film.preview_sprite_width }}"
+                                             data-sprite-height="{{ film.preview_sprite_height }}">
+                                            <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
+                                            <div class="sprite-overlay"></div>
+                                        </div>
+                                    {% else %}
+                                        <img src="{{ film.thumbnail_url }}" class="card-img-top" alt="{{ film.title }}">
+                                    {% endif %}
+                                </div>
+                            </a>
+                            <div class="card-body d-flex flex-column">
+                                <h6 class="card-title">{{ film.title|truncatechars:50 }}</h6>
+                                
+                                <div class="film-metadata mb-2">
+                                    {% if film.all_years %}
+                                        <small class="text-muted">
+                                            <i class="bi bi-calendar"></i> 
+                                            {% for year in film.all_years %}
+                                                <a href="{% url 'search:years' %}?years={{ year }}" class="text-decoration-none">{{ year }}</a>{% if not forloop.last %}, {% endif %}
+                                            {% endfor %}
+                                        </small><br>
+                                    {% endif %}
+                                    {% if film.duration %}
+                                        <small class="text-muted"><i class="bi bi-clock"></i> {{ film.duration }}</small>
+                                    {% endif %}
+                                </div>
+                                
+                                <!-- People -->
+                                {% if film.all_people %}
+                                    <div class="mb-2">
+                                        {% for person in film.all_people|slice:":3" %}
+                                            <a href="{% url 'search:people' %}?people={{ person.id }}" class="badge bg-info text-decoration-none text-white">{{ person.full_name }}</a>
+                                        {% endfor %}
+                                        {% if film.all_people|length > 3 %}
+                                            <span class="badge bg-secondary" 
+                                                  data-bs-toggle="tooltip" 
+                                                  data-bs-placement="top" 
+                                                  title="{% for person in film.all_people|slice:"3:" %}{{ person.full_name }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                                                +{{ film.all_people|length|add:"-3" }} more
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Locations -->
+                                {% if film.all_locations %}
+                                    <div class="mb-2">
+                                        {% for location in film.all_locations|slice:":2" %}
+                                            <a href="{% url 'search:locations' %}?locations={{ location.id }}" class="badge bg-success text-decoration-none text-white">
+                                                <i class="bi bi-geo-alt"></i> {{ location.name }}
+                                            </a>
+                                        {% endfor %}
+                                        {% if film.all_locations|length > 2 %}
+                                            <span class="badge bg-secondary" 
+                                                  data-bs-toggle="tooltip" 
+                                                  data-bs-placement="top" 
+                                                  title="{% for location in film.all_locations|slice:"2:" %}{{ location.name }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                                                +{{ film.all_locations|length|add:"-2" }} more
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <!-- Tags -->
+                                {% if film.all_tags %}
+                                    <div class="mb-2">
+                                        {% for tag in film.all_tags|slice:":3" %}
+                                            <a href="{% url 'search:tags' %}?tags={{ tag.tag }}" class="badge bg-secondary text-decoration-none text-white">{{ tag.tag }}</a>
+                                        {% endfor %}
+                                        {% if film.all_tags|length > 3 %}
+                                            <span class="badge bg-secondary" 
+                                                  data-bs-toggle="tooltip" 
+                                                  data-bs-placement="top" 
+                                                  title="{% for tag in film.all_tags|slice:"3:" %}{{ tag.tag }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                                                +{{ film.all_tags|length|add:"-3" }} more
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                
+                                <div class="mt-auto">
+                                    <a href="{% url 'films:detail' film.file_id %}" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-play-circle"></i> Watch Film
+                                    </a>
+                                    {% if film.chapters.count > 0 %}
+                                        <small class="text-muted ms-2">{{ film.chapters.count }} chapters</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.previous_page_number }}">Previous</a>
+                            </li>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ num }}">{{ num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ page_obj.next_page_number }}">Next</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        {% else %}
+            <div class="text-center py-5">
+                <h3>No films found</h3>
+                <p class="text-muted">Try adjusting your search criteria or filters.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Auto-submit filter form when values change
+document.addEventListener('DOMContentLoaded', function() {
+    const filterForm = document.getElementById('filter-form');
+    const selects = filterForm.querySelectorAll('select');
+    
+    selects.forEach(select => {
+        select.addEventListener('change', function() {
+            filterForm.submit();
+        });
+    });
+    
+    // Initialize Bootstrap tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Handle sort button clicks
+    const sortButtons = document.querySelectorAll('.sort-btn');
+    sortButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const sort = this.dataset.sort;
+            const direction = this.dataset.direction;
+            
+            // Build URL with current filters and new sort
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('sort', sort);
+            urlParams.set('sort_dir', direction);
+            
+            // Navigate to new URL
+            window.location.href = '?' + urlParams.toString();
+        });
+    });
+});
+</script>
+{% endblock %}

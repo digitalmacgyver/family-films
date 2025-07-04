@@ -1,0 +1,239 @@
+{
+  "timestamp": "2025-07-03 06:41:07",
+  "total_checked": 46,
+  "correct_mappings": [],
+  "incorrect_mappings": [],
+  "no_file_id_found": [],
+  "errors": [
+    {
+      "file_id": "57-PT_FROS",
+      "youtube_id": "rmHlOwO84XU",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=rmHlOwO84XU']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "58-V1-FROS",
+      "youtube_id": "vDkbT5gO1T8",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=vDkbT5gO1T8']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "58-V2_FROS",
+      "youtube_id": "b_rIJqRTi_k",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=b_rIJqRTi_k']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "59-HI_FROS",
+      "youtube_id": "tcS1VdrevYQ",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=tcS1VdrevYQ']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "62-SF_FROS",
+      "youtube_id": "0MADtWjYWLI",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=0MADtWjYWLI']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "HR-1-4_FROS",
+      "youtube_id": "uzOGqPe84w8",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=uzOGqPe84w8']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "KO-1_FROS",
+      "youtube_id": "VU-VAuj1Uv8",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=VU-VAuj1Uv8']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "KO-2_FROS",
+      "youtube_id": "21eo_jp93vk",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=21eo_jp93vk']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-52_FROS",
+      "youtube_id": "iDN9Q7fUQLY",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=iDN9Q7fUQLY']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-53_FROS",
+      "youtube_id": "DOBXIdB1-Yk",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=DOBXIdB1-Yk']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-55A_FROS",
+      "youtube_id": "dKtcJUovlY0",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=dKtcJUovlY0']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-55B_FROS",
+      "youtube_id": "ZkGHmbdsvcw",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=ZkGHmbdsvcw']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-55C_FROS",
+      "youtube_id": "Rj2A2fvTZgc",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=Rj2A2fvTZgc']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-56A_FROS",
+      "youtube_id": "5U37bNfl5_s",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=5U37bNfl5_s']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-56B_FROS",
+      "youtube_id": "XTC2su-NbOU",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=XTC2su-NbOU']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-58_FROS",
+      "youtube_id": "TljSbghAytg",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=TljSbghAytg']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-59_FROS",
+      "youtube_id": "SqZu4ob5p_E",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=SqZu4ob5p_E']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-63_FROS",
+      "youtube_id": "c2g2yMwptoY",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=c2g2yMwptoY']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "L-65_FROS",
+      "youtube_id": "_Tqn7OeCbbc",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=_Tqn7OeCbbc']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-09-02_FROS",
+      "youtube_id": "-NjKNcZguPE",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=-NjKNcZguPE']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-09-11_FROS",
+      "youtube_id": "g96lX_kU9Fs",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=g96lX_kU9Fs']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-50_FROS",
+      "youtube_id": "7wNQSleKT3g",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=7wNQSleKT3g']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-53_FROS",
+      "youtube_id": "SzMqT8XEGQk",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=SzMqT8XEGQk']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-56_FROS",
+      "youtube_id": "x-Yljn76e-g",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=x-Yljn76e-g']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-60_FROS",
+      "youtube_id": "rARxYXJQYvE",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=rARxYXJQYvE']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-61_FROS",
+      "youtube_id": "YFIDOmMvxiY",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=YFIDOmMvxiY']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-CC1_FROS",
+      "youtube_id": "VbYyF_IS83g",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=VbYyF_IS83g']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "P-CC2_FROS",
+      "youtube_id": "oBXSxjnrhyk",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=oBXSxjnrhyk']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PA-01_FROS",
+      "youtube_id": "PgACRbYj6PM",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=PgACRbYj6PM']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PA-02_FROS",
+      "youtube_id": "XZhycmFm3Bg",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=XZhycmFm3Bg']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PA-03_FROS",
+      "youtube_id": "YyqFwqQ7btU",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=YyqFwqQ7btU']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PB-01_FROS",
+      "youtube_id": "Bm5TYA163YU",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=Bm5TYA163YU']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PB-04_FROS",
+      "youtube_id": "gDYaTp84HeM",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=gDYaTp84HeM']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PB-05_FROS",
+      "youtube_id": "toUwBlFfoq8",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=toUwBlFfoq8']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PB-06_FROS",
+      "youtube_id": "GwVQqPKoaKI",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=GwVQqPKoaKI']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PB-07_FROS",
+      "youtube_id": "I0XEIwKOd9E",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=I0XEIwKOd9E']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PB-08_FROS",
+      "youtube_id": "Ox4Wew6h070",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=Ox4Wew6h070']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PBA-01_FROS",
+      "youtube_id": "X3N2A48_62E",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=X3N2A48_62E']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "PBA-02_FROS",
+      "youtube_id": "Vf7waQlaiIg",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=Vf7waQlaiIg']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "RLA-01_FROS",
+      "youtube_id": "yoC6HK6UTIo",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=yoC6HK6UTIo']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "RLA-02_FROS",
+      "youtube_id": "ET9fqZKnqYg",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=ET9fqZKnqYg']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "RLB-01_FROS",
+      "youtube_id": "km8G_fx38oU",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=km8G_fx38oU']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "SL-71X_FROS",
+      "youtube_id": "tr3UssCdUiQ",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=tr3UssCdUiQ']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "SL-72_FROS",
+      "youtube_id": "brPYVHx8rhw",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=brPYVHx8rhw']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "SLB-01_FROS",
+      "youtube_id": "hVyerzEGQYA",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=hVyerzEGQYA']' returned non-zero exit status 2."
+    },
+    {
+      "file_id": "SLB-02_FROS",
+      "youtube_id": "GosLiczgdH8",
+      "error": "Command '['~/.local/bin/yt-dlp', '--dump-json', '--no-download', '--no-warnings', 'https://www.youtube.com/watch?v=GosLiczgdH8']' returned non-zero exit status 2."
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+# YouTube Mapping Fixes Needed
+# Generated: 2025-07-03 06:51:56
+
+# YouTube rmHlOwO84XU belongs to HR-1-4_FROS, not 57-PT_FROS
+# Fix: Update 57-PT_FROS to use a different YouTube video
+#      OR update HR-1-4_FROS to use rmHlOwO84XU
+
+# YouTube vDkbT5gO1T8 belongs to 57-PT_FROS, not 58-V1-FROS
+# Fix: Update 58-V1-FROS to use a different YouTube video
+#      OR update 57-PT_FROS to use vDkbT5gO1T8
+
+# YouTube b_rIJqRTi_k belongs to 58-V1-FROS, not 58-V2_FROS
+# Fix: Update 58-V2_FROS to use a different YouTube video
+#      OR update 58-V1-FROS to use b_rIJqRTi_k
+
+# YouTube tcS1VdrevYQ belongs to 58-V2_FROS, not 59-HI_FROS
+# Fix: Update 59-HI_FROS to use a different YouTube video
+#      OR update 58-V2_FROS to use tcS1VdrevYQ
+
+# YouTube 0MADtWjYWLI belongs to P-60_FROS, not 62-SF_FROS
+# Fix: Update 62-SF_FROS to use a different YouTube video
+#      OR update P-60_FROS to use 0MADtWjYWLI
+
+# YouTube uzOGqPe84w8 belongs to PB-01_FROS, not HR-1-4_FROS
+# Fix: Update HR-1-4_FROS to use a different YouTube video
+#      OR update PB-01_FROS to use uzOGqPe84w8
+
+# YouTube VU-VAuj1Uv8 belongs to PBA-02_FROS, not KO-1_FROS
+# Fix: Update KO-1_FROS to use a different YouTube video
+#      OR update PBA-02_FROS to use VU-VAuj1Uv8
+
+# YouTube 21eo_jp93vk belongs to KO-1_FROS, not KO-2_FROS
+# Fix: Update KO-2_FROS to use a different YouTube video
+#      OR update KO-1_FROS to use 21eo_jp93vk
+
+# YouTube iDN9Q7fUQLY belongs to RLB-01_FROS, not L-52_FROS
+# Fix: Update L-52_FROS to use a different YouTube video
+#      OR update RLB-01_FROS to use iDN9Q7fUQLY
+
+# YouTube DOBXIdB1-Yk belongs to RLA-02_FROS, not L-53_FROS
+# Fix: Update L-53_FROS to use a different YouTube video
+#      OR update RLA-02_FROS to use DOBXIdB1-Yk
+
+# YouTube dKtcJUovlY0 belongs to L-53_FROS, not L-55A_FROS
+# Fix: Update L-55A_FROS to use a different YouTube video
+#      OR update L-53_FROS to use dKtcJUovlY0
+
+# YouTube ZkGHmbdsvcw belongs to L-55A_FROS, not L-55B_FROS
+# Fix: Update L-55B_FROS to use a different YouTube video
+#      OR update L-55A_FROS to use ZkGHmbdsvcw
+
+# YouTube Rj2A2fvTZgc belongs to L-55B_FROS, not L-55C_FROS
+# Fix: Update L-55C_FROS to use a different YouTube video
+#      OR update L-55B_FROS to use Rj2A2fvTZgc
+
+# YouTube 5U37bNfl5_s belongs to L-55C_FROS, not L-56A_FROS
+# Fix: Update L-56A_FROS to use a different YouTube video
+#      OR update L-55C_FROS to use 5U37bNfl5_s
+
+# YouTube XTC2su-NbOU belongs to L-56A_FROS, not L-56B_FROS
+# Fix: Update L-56B_FROS to use a different YouTube video
+#      OR update L-56A_FROS to use XTC2su-NbOU
+
+# YouTube TljSbghAytg belongs to L-56B_FROS, not L-58_FROS
+# Fix: Update L-58_FROS to use a different YouTube video
+#      OR update L-56B_FROS to use TljSbghAytg
+
+# YouTube SqZu4ob5p_E belongs to L-58_FROS, not L-59_FROS
+# Fix: Update L-59_FROS to use a different YouTube video
+#      OR update L-58_FROS to use SqZu4ob5p_E
+
+# YouTube c2g2yMwptoY belongs to L-59_FROS, not L-63_FROS
+# Fix: Update L-63_FROS to use a different YouTube video
+#      OR update L-59_FROS to use c2g2yMwptoY
+
+# YouTube _Tqn7OeCbbc belongs to L-63_FROS, not L-65_FROS
+# Fix: Update L-65_FROS to use a different YouTube video
+#      OR update L-63_FROS to use _Tqn7OeCbbc
+
+# YouTube -NjKNcZguPE belongs to P-09-11_FROS, not P-09-02_FROS
+# Fix: Update P-09-02_FROS to use a different YouTube video
+#      OR update P-09-11_FROS to use -NjKNcZguPE
+
+# YouTube g96lX_kU9Fs belongs to PB-05_FROS, not P-09-11_FROS
+# Fix: Update P-09-11_FROS to use a different YouTube video
+#      OR update PB-05_FROS to use g96lX_kU9Fs
+
+# YouTube 7wNQSleKT3g belongs to PA-02_FROS, not P-50_FROS
+# Fix: Update P-50_FROS to use a different YouTube video
+#      OR update PA-02_FROS to use 7wNQSleKT3g
+
+# YouTube SzMqT8XEGQk belongs to PB-04_FROS, not P-53_FROS
+# Fix: Update P-53_FROS to use a different YouTube video
+#      OR update PB-04_FROS to use SzMqT8XEGQk
+
+# YouTube rARxYXJQYvE belongs to 59-HI_FROS, not P-60_FROS
+# Fix: Update P-60_FROS to use a different YouTube video
+#      OR update 59-HI_FROS to use rARxYXJQYvE
+
+# YouTube YFIDOmMvxiY belongs to PB-14_FROS, not P-61_FROS
+# Fix: Update P-61_FROS to use a different YouTube video
+#      OR update PB-14_FROS to use YFIDOmMvxiY
+
+# YouTube VbYyF_IS83g belongs to P-50_FROS, not P-CC1_FROS
+# Fix: Update P-CC1_FROS to use a different YouTube video
+#      OR update P-50_FROS to use VbYyF_IS83g
+
+# YouTube oBXSxjnrhyk belongs to PA-01_FROS, not P-CC2_FROS
+# Fix: Update P-CC2_FROS to use a different YouTube video
+#      OR update PA-01_FROS to use oBXSxjnrhyk
+
+# YouTube PgACRbYj6PM belongs to P-CC1_FROS, not PA-01_FROS
+# Fix: Update PA-01_FROS to use a different YouTube video
+#      OR update P-CC1_FROS to use PgACRbYj6PM
+
+# YouTube XZhycmFm3Bg belongs to P-09-02_FROS, not PA-02_FROS
+# Fix: Update PA-02_FROS to use a different YouTube video
+#      OR update P-09-02_FROS to use XZhycmFm3Bg
+
+# YouTube YyqFwqQ7btU belongs to P-CC2_FROS, not PA-03_FROS
+# Fix: Update PA-03_FROS to use a different YouTube video
+#      OR update P-CC2_FROS to use YyqFwqQ7btU
+
+# YouTube Bm5TYA163YU belongs to PB-08_FROS, not PB-01_FROS
+# Fix: Update PB-01_FROS to use a different YouTube video
+#      OR update PB-08_FROS to use Bm5TYA163YU
+
+# YouTube gDYaTp84HeM belongs to PA-03_FROS, not PB-04_FROS
+# Fix: Update PB-04_FROS to use a different YouTube video
+#      OR update PA-03_FROS to use gDYaTp84HeM
+
+# YouTube toUwBlFfoq8 belongs to SL-72_FROS, not PB-05_FROS
+# Fix: Update PB-05_FROS to use a different YouTube video
+#      OR update SL-72_FROS to use toUwBlFfoq8
+
+# YouTube GwVQqPKoaKI belongs to 62-SF_FROS, not PB-06_FROS
+# Fix: Update PB-06_FROS to use a different YouTube video
+#      OR update 62-SF_FROS to use GwVQqPKoaKI
+
+# YouTube I0XEIwKOd9E belongs to KO-2_FROS, not PB-07_FROS
+# Fix: Update PB-07_FROS to use a different YouTube video
+#      OR update KO-2_FROS to use I0XEIwKOd9E
+
+# YouTube Ox4Wew6h070 belongs to PB-07_FROS, not PB-08_FROS
+# Fix: Update PB-08_FROS to use a different YouTube video
+#      OR update PB-07_FROS to use Ox4Wew6h070
+
+# YouTube X3N2A48_62E belongs to P-53_FROS, not PBA-01_FROS
+# Fix: Update PBA-01_FROS to use a different YouTube video
+#      OR update P-53_FROS to use X3N2A48_62E
+
+# YouTube Vf7waQlaiIg belongs to PBA-01_FROS, not PBA-02_FROS
+# Fix: Update PBA-02_FROS to use a different YouTube video
+#      OR update PBA-01_FROS to use Vf7waQlaiIg
+
+# YouTube yoC6HK6UTIo belongs to L-65_FROS, not RLA-01_FROS
+# Fix: Update RLA-01_FROS to use a different YouTube video
+#      OR update L-65_FROS to use yoC6HK6UTIo
+
+# YouTube ET9fqZKnqYg belongs to SLB-01_FROS, not RLA-02_FROS
+# Fix: Update RLA-02_FROS to use a different YouTube video
+#      OR update SLB-01_FROS to use ET9fqZKnqYg
+
+# YouTube km8G_fx38oU belongs to SL-71X_FROS, not RLB-01_FROS
+# Fix: Update RLB-01_FROS to use a different YouTube video
+#      OR update SL-71X_FROS to use km8G_fx38oU
+
+# YouTube tr3UssCdUiQ belongs to PB-06_FROS, not SL-71X_FROS
+# Fix: Update SL-71X_FROS to use a different YouTube video
+#      OR update PB-06_FROS to use tr3UssCdUiQ
+
+# YouTube brPYVHx8rhw belongs to P-61_FROS, not SL-72_FROS
+# Fix: Update SL-72_FROS to use a different YouTube video
+#      OR update P-61_FROS to use brPYVHx8rhw
+
+# YouTube hVyerzEGQYA belongs to SLB-02_FROS, not SLB-01_FROS
+# Fix: Update SLB-01_FROS to use a different YouTube video
+#      OR update SLB-02_FROS to use hVyerzEGQYA
+
+# YouTube GosLiczgdH8 belongs to L-52_FROS, not SLB-02_FROS
+# Fix: Update SLB-02_FROS to use a different YouTube video
+#      OR update L-52_FROS to use GosLiczgdH8
+

@@ -1,0 +1,1588 @@
+{% extends 'films/base.html' %}
+{% load static %}
+
+{% block title %}{{ film.title }} - Family Films{% endblock %}
+
+{% block extra_css %}
+<style>
+.youtube-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.youtube-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.chapter-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chapter-item:hover {
+    background-color: #f8f9fa;
+}
+
+.chapter-item.active {
+    background-color: #e3f2fd !important;
+    border-left: 4px solid #007bff;
+}
+
+.metadata-indicators {
+    font-size: 0.8rem;
+}
+
+.metadata-editor {
+    display: none;
+    background-color: #f8f9fa;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+
+.tag-input {
+    border: 1px dashed #dee2e6;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    min-height: 38px;
+}
+
+.tag-badge {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin: 0.125rem;
+    font-size: 0.8rem;
+}
+
+.tag-badge .remove {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.tag-badge .remove:hover {
+    opacity: 1;
+}
+
+.chapter-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chapter-item:hover {
+    background-color: #f8f9fa;
+}
+
+.chapter-item.active {
+    background-color: #e3f2fd !important;
+    border-left: 4px solid #007bff;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Video Player -->
+        <div class="youtube-player mb-4">
+            <iframe 
+                id="youtube-player"
+                src="{{ film.get_youtube_embed_url }}?enablejsapi=1&origin={{ request.scheme }}://{{ request.get_host }}"
+                title="{{ film.title }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <!-- Film Information -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h1 class="card-title">{{ film.title }}</h1>
+                
+                <div class="row mb-3">
+                    <div class="col-sm-6">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong><i class="bi bi-calendar"></i> Year(s):</strong> 
+                                <span id="film-years-display">{% if all_years %}{{ all_years|join:", " }}{% else %}None{% endif %}</span>
+                            </div>
+                            {% if user.is_authenticated %}
+                                <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('years', 'film')">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+                            {% endif %}
+                        </div>
+                        {% if user.is_authenticated %}
+                            <div id="film-years-editor" class="mt-2" style="display: none;">
+                                <input type="text" class="form-control" placeholder="Enter years (e.g., 1960, 1961-1962)" 
+                                       id="film-years-input" value="{{ film.years }}">
+                                <div class="mt-2">
+                                    <button type="button" class="btn btn-sm btn-success" onclick="saveYears()">
+                                        <i class="bi bi-check"></i> Save
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-secondary" onclick="hideYearsEditor()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if film.duration %}
+                            <strong><i class="bi bi-clock"></i> Duration:</strong> {{ film.duration }}<br>
+                        {% endif %}
+                        <strong><i class="bi bi-file-earmark"></i> File ID:</strong> {{ film.file_id }}
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="{{ film.youtube_url }}" target="_blank" class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-youtube"></i> View on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- People -->
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong><i class="bi bi-people"></i> People:</strong>
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('people', 'film')">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                        {% endif %}
+                    </div>
+                    <div id="film-people-display" class="mt-2">
+                        {% for person in all_people %}
+                            <span class="badge bg-info me-1" data-id="{{ person.id }}">
+                                <a href="{% url 'people:detail' person.pk %}" class="text-decoration-none text-white">
+                                    {{ person.full_name }}
+                                </a>
+                                {% if user.is_authenticated %}
+                                    <button type="button" class="btn-close btn-close-white ms-1" style="font-size: 0.7em;" 
+                                            onclick="removeMetadata('people', 'film', {{ person.id }}, '{{ person.full_name }}')"></button>
+                                {% endif %}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div id="film-people-editor" class="mt-2" style="display: none;">
+                            <input type="text" class="form-control" placeholder="Add person..." 
+                                   id="film-people-input" autocomplete="off">
+                            <div class="dropdown-menu" id="film-people-dropdown"></div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Locations -->
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong><i class="bi bi-geo-alt"></i> Locations:</strong>
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('locations', 'film')">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                        {% endif %}
+                    </div>
+                    <div id="film-locations-display" class="mt-2">
+                        {% for location in all_locations %}
+                            <span class="badge bg-success me-1" data-id="{{ location.id }}">
+                                <a href="{% url 'locations:detail' location.pk %}" class="text-decoration-none text-white">
+                                    {{ location.name }}
+                                </a>
+                                {% if user.is_authenticated %}
+                                    <button type="button" class="btn-close btn-close-white ms-1" style="font-size: 0.7em;" 
+                                            onclick="removeMetadata('locations', 'film', {{ location.id }}, '{{ location.name }}')"></button>
+                                {% endif %}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div id="film-locations-editor" class="mt-2" style="display: none;">
+                            <input type="text" class="form-control" placeholder="Add location..." 
+                                   id="film-locations-input" autocomplete="off">
+                            <div class="dropdown-menu" id="film-locations-dropdown"></div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Tags -->
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong><i class="bi bi-tags"></i> Tags:</strong>
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('tags', 'film')">
+                                <i class="bi bi-pencil"></i> Edit
+                            </button>
+                        {% endif %}
+                    </div>
+                    <div id="film-tags-display" class="mt-2">
+                        {% for tag in all_tags %}
+                            <span class="badge bg-secondary me-1" data-id="{{ tag.tag }}">
+                                <a href="{% url 'search:tags' %}?tags={{ tag.tag }}" class="text-decoration-none text-white">
+                                    {{ tag.tag }}
+                                </a>
+                                {% if user.is_authenticated %}
+                                    <button type="button" class="btn-close btn-close-white ms-1" style="font-size: 0.7em;" 
+                                            onclick="removeMetadata('tags', 'film', '{{ tag.tag }}', '{{ tag.tag }}')"></button>
+                                {% endif %}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    {% if user.is_authenticated %}
+                        <div id="film-tags-editor" class="mt-2" style="display: none;">
+                            <input type="text" class="form-control" placeholder="Add tag..." 
+                                   id="film-tags-input" autocomplete="off">
+                            <div class="dropdown-menu" id="film-tags-dropdown"></div>
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Description -->
+                <div class="mt-3">
+                    <strong>Description:</strong>
+                    <div class="mt-2">{{ film.description|linebreaks }}</div>
+                </div>
+                
+                <!-- Chapter Notes Aggregate -->
+                {% if chapters %}
+                    <div class="mt-4">
+                        <strong><i class="bi bi-journal-text"></i> All Chapter Notes:</strong>
+                        <div class="mt-2">
+                            {% for chapter in chapters %}
+                                {% if chapter.description %}
+                                    <div class="mb-2 p-2 bg-light rounded" data-chapter-id="{{ chapter.id }}">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <strong class="text-primary">{{ chapter.start_time }} - {{ chapter.title }}</strong>
+                                            <small class="text-muted">Chapter {{ forloop.counter }}</small>
+                                        </div>
+                                        <div class="mt-1 small chapter-notes-content">{{ chapter.description|linebreaks }}</div>
+                                    </div>
+                                {% endif %}
+                            {% empty %}
+                                <p class="text-muted small">No chapter notes available.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <!-- Current Chapter Notes Editor -->
+                {% if user.is_authenticated %}
+                    <div id="current-chapter-notes" class="mt-4" style="display: none;">
+                        <strong><i class="bi bi-pencil"></i> Chapter Notes: <span id="current-chapter-notes-title"></span></strong>
+                        <div class="mt-2">
+                            <textarea id="current-chapter-notes-editor" class="form-control" rows="3" 
+                                      placeholder="Add notes for this chapter..."></textarea>
+                            <div class="mt-2">
+                                <button type="button" class="btn btn-sm btn-success" onclick="saveCurrentChapterNotes(event)">
+                                    <i class="bi bi-check"></i> Save Notes
+                                </button>
+                                <button type="button" class="btn btn-sm btn-secondary" onclick="hideCurrentChapterNotes()">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                {% if film.technical_notes %}
+                    <div class="mt-3">
+                        <strong>Technical Notes:</strong>
+                        <div class="mt-2 text-muted">{{ film.technical_notes|linebreaks }}</div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <!-- Chapters -->
+        {% if chapters %}
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5><i class="bi bi-list-ol"></i> Chapters ({{ chapters.count }})</h5>
+                    {% if is_admin %}
+                        <button class="btn btn-sm btn-outline-primary" id="toggle-edit-mode">
+                            <i class="bi bi-pencil"></i> Edit
+                        </button>
+                    {% endif %}
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        {% for chapter in chapters %}
+                            <div class="list-group-item chapter-item" 
+                                 data-chapter-id="{{ chapter.id }}"
+                                 data-start-time="{{ chapter.start_time_seconds }}">
+                                <div class="d-flex align-items-start">
+                                    <!-- Chapter Thumbnail -->
+                                    <div class="me-3 flex-shrink-0">
+                                        <img src="{{ chapter.get_thumbnail_url }}" 
+                                             class="chapter-thumbnail" 
+                                             style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                                             alt="Chapter {{ forloop.counter }} thumbnail"
+                                             onerror="this.src='https://img.youtube.com/vi/{{ film.youtube_id }}/default.jpg'">
+                                    </div>
+                                    
+                                    <div class="flex-grow-1">
+                                        <strong>{{ chapter.start_time }}</strong> - {{ chapter.title }}
+                                        {% if chapter.description %}
+                                            <div class="text-muted small mt-1">{{ chapter.description|truncatechars:100 }}</div>
+                                        {% endif %}
+                                        
+                                        <!-- Metadata Indicators -->
+                                        <div class="metadata-indicators mt-1">
+                                            {% if chapter.has_people_metadata %}
+                                                <span class="badge bg-info">👥 People</span>
+                                            {% endif %}
+                                            {% if chapter.has_location_metadata %}
+                                                <span class="badge bg-success">📍 Location</span>
+                                            {% endif %}
+                                            {% if chapter.has_tags_metadata %}
+                                                <span class="badge bg-secondary">🏷️ Tags</span>
+                                            {% endif %}
+                                            {% if chapter.has_years_metadata %}
+                                                <span class="badge bg-warning text-dark">📅 Years</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex-shrink-0 ms-2">
+                                    {% if is_admin %}
+                                        <button class="btn btn-sm btn-outline-secondary edit-chapter-btn" 
+                                                data-chapter-id="{{ chapter.id }}"
+                                                style="display: none;">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <!-- Chapter Metadata Editor -->
+                                {% if is_admin %}
+                                    <div class="metadata-editor" id="editor-{{ chapter.id }}">
+                                        <form class="chapter-metadata-form" data-chapter-id="{{ chapter.id }}">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="form-label">People</label>
+                                                    <div class="people-selector" data-chapter-id="{{ chapter.id }}">
+                                                        <input type="text" class="form-control people-search" placeholder="Search people...">
+                                                        <div class="selected-people mt-2"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">Locations</label>
+                                                    <div class="locations-selector" data-chapter-id="{{ chapter.id }}">
+                                                        <input type="text" class="form-control locations-search" placeholder="Search locations...">
+                                                        <div class="selected-locations mt-2"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label">Tags</label>
+                                                    <div class="tags-selector" data-chapter-id="{{ chapter.id }}">
+                                                        <input type="text" class="form-control tags-input" placeholder="Add tags...">
+                                                        <div class="selected-tags mt-2"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <button type="submit" class="btn btn-sm btn-primary">Save Changes</button>
+                                                <button type="button" class="btn btn-sm btn-secondary cancel-edit">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        
+        <!-- Chapter Metadata Editor -->
+        {% if user.is_authenticated %}
+            <div id="chapter-metadata-panel" class="card mb-4" style="display: none;">
+                <div class="card-header">
+                    <h5><i class="bi bi-pencil"></i> Edit Chapter: <span id="current-chapter-title"></span></h5>
+                </div>
+                <div class="card-body">
+                    <!-- Chapter Notes -->
+                    <div class="mb-4">
+                        <label class="form-label"><strong>Chapter Notes</strong></label>
+                        <textarea id="chapter-notes-editor" class="form-control" rows="4" 
+                                  placeholder="Add notes for this chapter..."></textarea>
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-sm btn-success" onclick="saveChapterNotes(event)">
+                                <i class="bi bi-check"></i> Save Notes
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Chapter Years -->
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <label class="form-label"><strong><i class="bi bi-calendar"></i> Years</strong></label>
+                                <button class="btn btn-sm btn-outline-primary" onclick="showChapterYearsEditor()">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+                            </div>
+                            <div id="chapter-years-display" class="mt-2">
+                                <!-- Years will be populated here -->
+                            </div>
+                            <div id="chapter-years-editor" class="mt-2" style="display: none;">
+                                <input type="text" class="form-control" placeholder="Enter years (e.g. 1995, 2001-2003)" 
+                                       id="chapter-years-input">
+                                <small class="form-text text-muted">Separate multiple years with commas</small>
+                                <div class="mt-2">
+                                    <button type="button" class="btn btn-sm btn-success" onclick="saveChapterYears()">
+                                        <i class="bi bi-check"></i> Save
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-secondary ms-1" onclick="hideChapterYearsEditor()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chapter Metadata -->
+                    <div class="row">
+                        <!-- People -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label class="form-label"><strong><i class="bi bi-people"></i> People</strong></label>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('people', 'chapter')">
+                                        <i class="bi bi-plus"></i> Add
+                                    </button>
+                                </div>
+                                <div id="chapter-people-display" class="mt-2 selected-people">
+                                    <!-- People badges will be populated here -->
+                                </div>
+                                <div id="chapter-people-editor" class="mt-2" style="display: none;">
+                                    <input type="text" class="form-control" placeholder="Add person..." 
+                                           id="chapter-people-input" autocomplete="off">
+                                    <div class="dropdown-menu" id="chapter-people-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Locations -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label class="form-label"><strong><i class="bi bi-geo-alt"></i> Locations</strong></label>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('locations', 'chapter')">
+                                        <i class="bi bi-plus"></i> Add
+                                    </button>
+                                </div>
+                                <div id="chapter-locations-display" class="mt-2 selected-locations">
+                                    <!-- Location badges will be populated here -->
+                                </div>
+                                <div id="chapter-locations-editor" class="mt-2" style="display: none;">
+                                    <input type="text" class="form-control" placeholder="Add location..." 
+                                           id="chapter-locations-input" autocomplete="off">
+                                    <div class="dropdown-menu" id="chapter-locations-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label class="form-label"><strong><i class="bi bi-tags"></i> Tags</strong></label>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="showMetadataEditor('tags', 'chapter')">
+                                        <i class="bi bi-plus"></i> Add
+                                    </button>
+                                </div>
+                                <div id="chapter-tags-display" class="mt-2 selected-tags">
+                                    <!-- Tag badges will be populated here -->
+                                </div>
+                                <div id="chapter-tags-editor" class="mt-2" style="display: none;">
+                                    <input type="text" class="form-control" placeholder="Add tag..." 
+                                           id="chapter-tags-input" autocomplete="off">
+                                    <div class="dropdown-menu" id="chapter-tags-dropdown"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        
+        
+        <!-- Related Films -->
+        {% if related_films %}
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="bi bi-film"></i> Related Films</h5>
+                </div>
+                <div class="card-body">
+                    {% for related_film in related_films %}
+                        <div class="d-flex mb-3">
+                            <img src="{{ related_film.thumbnail_url }}" 
+                                 class="me-3" 
+                                 style="width: 80px; height: 60px; object-fit: cover;" 
+                                 alt="{{ related_film.title }}">
+                            <div>
+                                <h6 class="mb-1">
+                                    <a href="{% url 'films:detail' related_film.file_id %}" class="text-decoration-none">
+                                        {{ related_film.title|truncatechars:40 }}
+                                    </a>
+                                </h6>
+                                {% if related_film.years %}
+                                    <small class="text-muted">{{ related_film.years }}</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/chapter-navigation.js' %}"></script>
+<script>
+// YouTube Player API
+let player;
+let currentChapterId = null;
+let playerReady = false;
+
+// Make sure this is a global function
+window.onYouTubeIframeAPIReady = function() {
+    console.log('YouTube IFrame API Ready - initializing player');
+    player = new YT.Player('youtube-player', {
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    console.log('YouTube player ready');
+    playerReady = true;
+}
+
+function onPlayerStateChange(event) {
+    // Handle player state changes if needed
+}
+
+function seekToTime(seconds) {
+    console.log('Attempting to seek to:', seconds, 'seconds');
+    
+    if (playerReady && player && player.seekTo) {
+        console.log('Using YT API seekTo');
+        player.seekTo(seconds, true);
+        player.playVideo(); // Start playing after seeking
+    } else {
+        console.log('Player not ready, trying alternative methods');
+        
+        // Method 1: Try postMessage
+        const iframe = document.getElementById('youtube-player');
+        if (iframe) {
+            // First try to play the video to ensure it's loaded
+            iframe.contentWindow.postMessage(
+                JSON.stringify({
+                    event: 'command',
+                    func: 'playVideo',
+                    args: []
+                }),
+                'https://www.youtube.com'
+            );
+            
+            // Then seek to the desired time
+            setTimeout(() => {
+                iframe.contentWindow.postMessage(
+                    JSON.stringify({
+                        event: 'command',
+                        func: 'seekTo',
+                        args: [seconds, true]
+                    }),
+                    'https://www.youtube.com'
+                );
+            }, 100);
+            
+            // Method 2: If postMessage doesn't work, update the iframe src as last resort
+            setTimeout(() => {
+                if (!playerReady) {
+                    console.log('Falling back to iframe src update method');
+                    const currentSrc = iframe.src;
+                    const baseUrl = currentSrc.split('?')[0];
+                    const newSrc = `${baseUrl}?enablejsapi=1&origin=${window.location.protocol}//${window.location.host}&start=${seconds}&autoplay=1`;
+                    iframe.src = newSrc;
+                }
+            }, 500);
+        }
+    }
+}
+
+// Initialize YouTube API
+function initYouTubeAPI() {
+    if (!window.YT || !window.YT.Player) {
+        console.log('Loading YouTube Player API');
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        
+        // YouTube API will automatically call window.onYouTubeIframeAPIReady
+    } else if (window.YT && window.YT.Player) {
+        console.log('YouTube Player API already loaded, initializing player');
+        window.onYouTubeIframeAPIReady();
+    }
+}
+
+// Try to initialize on load
+initYouTubeAPI();
+
+// Chapter navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Try again after DOM is ready
+    setTimeout(() => {
+        if (!playerReady) {
+            console.log('Player not ready after DOM load, trying to initialize again');
+            initYouTubeAPI();
+        }
+    }, 1000);
+    
+    // Chapter click handlers
+    const chapterItems = document.querySelectorAll('.chapter-item');
+    console.log('Found', chapterItems.length, 'chapter items');
+    
+    chapterItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            console.log('Chapter item clicked, event target:', e.target, 'element:', this);
+            
+            // Don't navigate if clicking on editor elements or edit buttons
+            if (e.target.closest('.metadata-editor') || e.target.closest('.edit-chapter-btn')) {
+                console.log('Ignoring click on metadata editor or edit button');
+                return;
+            }
+            
+            const startTime = parseInt(this.dataset.startTime);
+            const chapterId = this.dataset.chapterId;
+            console.log('Chapter clicked:', chapterId, 'Start time:', startTime, 'seconds');
+            
+            if (isNaN(startTime)) {
+                console.error('Invalid start time:', this.dataset.startTime);
+                return;
+            }
+            
+            // Update active chapter
+            chapterItems.forEach(ch => ch.classList.remove('active'));
+            this.classList.add('active');
+            currentChapterId = chapterId;
+            
+            // Seek to chapter time
+            seekToTime(startTime);
+            
+            // Show chapter metadata panel if user is authenticated
+            if (document.getElementById('chapter-metadata-panel') && {{ user.is_authenticated|yesno:"true,false" }}) {
+                showChapterMetadataPanel(chapterId);
+            }
+            
+            // Show current chapter notes editor for authenticated users
+            if (document.getElementById('current-chapter-notes') && {{ user.is_authenticated|yesno:"true,false" }}) {
+                showCurrentChapterNotes(chapterId);
+            }
+        });
+    });
+    
+    // Also handle clicks on chapter thumbnails specifically
+    const chapterThumbnails = document.querySelectorAll('.chapter-thumbnail');
+    chapterThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent double handling
+            console.log('Chapter thumbnail clicked');
+            
+            // Trigger the parent chapter item click
+            const chapterItem = this.closest('.chapter-item');
+            if (chapterItem) {
+                const startTime = parseInt(chapterItem.dataset.startTime);
+                const chapterId = chapterItem.dataset.chapterId;
+                console.log('Thumbnail click - Chapter:', chapterId, 'Start time:', startTime);
+                
+                if (!isNaN(startTime)) {
+                    // Update active chapter
+                    chapterItems.forEach(ch => ch.classList.remove('active'));
+                    chapterItem.classList.add('active');
+                    currentChapterId = chapterId;
+                    
+                    // Seek to chapter time
+                    seekToTime(startTime);
+                }
+            }
+        });
+    });
+    
+    // Edit mode toggle
+    const toggleEditBtn = document.getElementById('toggle-edit-mode');
+    const editButtons = document.querySelectorAll('.edit-chapter-btn');
+    let editMode = false;
+    
+    if (toggleEditBtn) {
+        toggleEditBtn.addEventListener('click', function() {
+            editMode = !editMode;
+            
+            if (editMode) {
+                this.innerHTML = '<i class="bi bi-x"></i> Cancel';
+                this.classList.remove('btn-outline-primary');
+                this.classList.add('btn-outline-danger');
+                editButtons.forEach(btn => btn.style.display = 'block');
+            } else {
+                this.innerHTML = '<i class="bi bi-pencil"></i> Edit';
+                this.classList.remove('btn-outline-danger');
+                this.classList.add('btn-outline-primary');
+                editButtons.forEach(btn => btn.style.display = 'none');
+                // Hide all editors
+                document.querySelectorAll('.metadata-editor').forEach(editor => {
+                    editor.style.display = 'none';
+                });
+            }
+        });
+    }
+    
+    // Edit chapter button handlers
+    editButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const chapterId = this.dataset.chapterId;
+            const editor = document.getElementById(`editor-${chapterId}`);
+            
+            // Hide other editors
+            document.querySelectorAll('.metadata-editor').forEach(ed => {
+                if (ed !== editor) ed.style.display = 'none';
+            });
+            
+            // Toggle this editor
+            if (editor.style.display === 'block') {
+                editor.style.display = 'none';
+            } else {
+                editor.style.display = 'block';
+                // Load current metadata
+                loadChapterMetadata(chapterId);
+            }
+        });
+    });
+});
+
+// Metadata management functions
+function loadChapterMetadata(chapterId) {
+    fetch(`{% url 'films:chapter_metadata_api' film.file_id 0 %}`.replace('0', chapterId))
+        .then(response => response.json())
+        .then(data => {
+            populateMetadataEditor(chapterId, data);
+        })
+        .catch(error => {
+            console.error('Error loading metadata:', error);
+        });
+}
+
+function populateMetadataEditor(chapterId, data) {
+    const editor = document.getElementById(`editor-${chapterId}`);
+    
+    // Populate people
+    const peopleContainer = editor.querySelector('.selected-people');
+    peopleContainer.innerHTML = '';
+    data.people.forEach(person => {
+        addPersonBadge(peopleContainer, person);
+    });
+    
+    // Populate locations
+    const locationsContainer = editor.querySelector('.selected-locations');
+    locationsContainer.innerHTML = '';
+    data.locations.forEach(location => {
+        addLocationBadge(locationsContainer, location);
+    });
+    
+    // Populate tags
+    const tagsContainer = editor.querySelector('.selected-tags');
+    tagsContainer.innerHTML = '';
+    data.tags.forEach(tag => {
+        addTagBadge(tagsContainer, tag);
+    });
+}
+
+function addPersonBadge(container, person) {
+    const badge = document.createElement('span');
+    badge.className = 'tag-badge';
+    badge.innerHTML = `${person.name} <span class="remove" onclick="this.parentElement.remove()">&times;</span>`;
+    badge.dataset.personId = person.id;
+    container.appendChild(badge);
+}
+
+function addLocationBadge(container, location) {
+    const badge = document.createElement('span');
+    badge.className = 'tag-badge';
+    badge.innerHTML = `${location.name} <span class="remove" onclick="this.parentElement.remove()">&times;</span>`;
+    badge.dataset.locationId = location.id;
+    container.appendChild(badge);
+}
+
+function addTagBadge(container, tag) {
+    const badge = document.createElement('span');
+    badge.className = 'tag-badge';
+    badge.innerHTML = `${tag.name} <span class="remove" onclick="this.parentElement.remove()">&times;</span>`;
+    badge.dataset.tagName = tag.name;
+    container.appendChild(badge);
+}
+
+// Film-level metadata editing
+function showMetadataEditor(type, level) {
+    if (type === 'years' && level === 'film') {
+        const editor = document.getElementById('film-years-editor');
+        const input = document.getElementById('film-years-input');
+        
+        if (editor.style.display === 'none') {
+            editor.style.display = 'block';
+            input.focus();
+        } else {
+            editor.style.display = 'none';
+        }
+        return;
+    }
+    
+    const editor = document.getElementById(`${level}-${type}-editor`);
+    const input = document.getElementById(`${level}-${type}-input`);
+    const dropdown = document.getElementById(`${level}-${type}-dropdown`);
+    
+    if (editor.style.display === 'none') {
+        editor.style.display = 'block';
+        input.focus();
+        setupAutocomplete(input, dropdown, type, level);
+    } else {
+        editor.style.display = 'none';
+    }
+}
+
+function setupAutocomplete(input, dropdown, type, level) {
+    let timeoutId;
+    
+    input.addEventListener('input', function() {
+        clearTimeout(timeoutId);
+        const query = this.value.trim();
+        
+        if (query.length < 2) {
+            dropdown.classList.remove('show');
+            dropdown.style.display = 'none';
+            return;
+        }
+        
+        timeoutId = setTimeout(() => {
+            fetch(`/films/api/${type}-autocomplete/?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    dropdown.innerHTML = '';
+                    
+                    data.results.forEach(item => {
+                        const option = document.createElement('button');
+                        option.className = 'dropdown-item';
+                        option.textContent = item.name;
+                        option.onclick = () => {
+                            addMetadata(type, level, item.name);
+                            input.value = '';
+                            dropdown.classList.remove('show');
+                            dropdown.style.display = 'none';
+                        };
+                        dropdown.appendChild(option);
+                    });
+                    
+                    if (data.results.length > 0) {
+                        dropdown.classList.add('show');
+                        dropdown.style.display = 'block';
+                    } else {
+                        dropdown.classList.remove('show');
+                        dropdown.style.display = 'none';
+                    }
+                });
+        }, 300);
+    });
+    
+    input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const value = this.value.trim();
+            if (value) {
+                addMetadata(type, level, value);
+                this.value = '';
+                dropdown.classList.remove('show');
+            }
+        }
+    });
+}
+
+function addMetadata(type, level, value) {
+    const url = level === 'film' 
+        ? `/films/api/film/${filmFileId}/metadata/`
+        : `/films/api/chapter/${currentChapterId}/update/`;
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            type: type,
+            action: 'add',
+            value: value
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Metadata added successfully'); // No page reload to avoid video interruption
+            // Refresh the film summary display to show the new metadata
+            updateFilmSummaryDisplay();
+            // If this was a chapter-level addition, refresh the chapter metadata panel
+            if (level === 'chapter' && currentChapterId) {
+                loadChapterMetadata(currentChapterId);
+            }
+        } else {
+            alert('Error adding metadata: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error adding metadata');
+    });
+}
+
+function removeMetadata(type, level, id, name) {
+    if (!confirm(`Remove ${name}?`)) return;
+    
+    const url = level === 'film' 
+        ? `/films/api/film/${filmFileId}/metadata/`
+        : `/films/api/chapter/${currentChapterId}/update/`;
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            type: type,
+            action: 'remove',
+            id: id
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Metadata removed successfully'); // No page reload to avoid video interruption
+            // Refresh the film summary display to show the updated metadata
+            updateFilmSummaryDisplay();
+            // If this was a chapter-level removal, refresh the chapter metadata panel
+            if (level === 'chapter' && currentChapterId) {
+                loadChapterMetadata(currentChapterId);
+            }
+        } else {
+            alert('Error removing metadata: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error removing metadata');
+    });
+}
+
+// Global variables for API calls
+const filmFileId = '{{ film.file_id }}';
+// currentChapterId is already declared above
+
+// Chapter metadata panel functions
+function showChapterMetadataPanel(chapterId) {
+    currentChapterId = chapterId;
+    const panel = document.getElementById('chapter-metadata-panel');
+    const titleSpan = document.getElementById('current-chapter-title');
+    
+    // Find chapter data from the page (specifically from the chapter list)
+    const chapterElement = document.querySelector(`.chapter-item[data-chapter-id="${chapterId}"]`);
+    const chapterText = chapterElement.querySelector('.flex-grow-1 strong').textContent;
+    
+    titleSpan.textContent = chapterText;
+    panel.style.display = 'block';
+    
+    // Load chapter metadata
+    loadChapterMetadata(chapterId);
+}
+
+function loadChapterMetadata(chapterId) {
+    // Load chapter notes
+    fetch(`/films/api/chapter/${chapterId}/metadata/`)
+        .then(response => response.json())
+        .then(data => {
+            // Populate notes
+            document.getElementById('chapter-notes-editor').value = data.notes || '';
+            
+            // Populate metadata displays
+            updateChapterMetadataDisplay('people', data.people || []);
+            updateChapterMetadataDisplay('locations', data.locations || []);
+            updateChapterMetadataDisplay('tags', data.tags || []);
+            
+            // Populate years display
+            updateChapterYearsDisplay(data.years || '');
+        })
+        .catch(error => {
+            console.error('Error loading chapter metadata:', error);
+        });
+}
+
+function updateChapterMetadataDisplay(type, items) {
+    const display = document.getElementById(`chapter-${type}-display`);
+    display.innerHTML = '';
+    
+    items.forEach(item => {
+        const badge = document.createElement('span');
+        badge.className = `badge ${getMetadataColor(type)} me-1`;
+        badge.setAttribute('data-id', item.id);
+        
+        const text = type === 'people' ? item.full_name : (type === 'locations' ? item.name : item.tag);
+        badge.title = text; // Show full text on hover for truncated names
+        
+        const closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.className = 'btn-close btn-close-white ms-1';
+        closeButton.style.fontSize = '0.7em';
+        closeButton.addEventListener('click', () => {
+            removeMetadata(type, 'chapter', item.id, text);
+        });
+        
+        badge.textContent = text;
+        badge.appendChild(closeButton);
+        
+        display.appendChild(badge);
+    });
+}
+
+function getMetadataColor(type) {
+    switch(type) {
+        case 'people': return 'bg-info';
+        case 'locations': return 'bg-success';
+        case 'tags': return 'bg-secondary';
+        default: return 'bg-secondary';
+    }
+}
+
+function saveChapterNotes(event) {
+    if (!currentChapterId) {
+        alert('No chapter selected');
+        return;
+    }
+    
+    const notes = document.getElementById('chapter-notes-editor').value;
+    
+    fetch(`/films/api/chapter/${currentChapterId}/notes/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            notes: notes
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success message
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="bi bi-check"></i> Saved!';
+            button.classList.remove('btn-success');
+            button.classList.add('btn-outline-success');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('btn-outline-success');
+                button.classList.add('btn-success');
+            }, 2000);
+            
+            // Update the chapter notes summary section without page reload
+            updateChapterNotesDisplay(currentChapterId, notes);
+        } else {
+            alert('Error saving notes: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error saving notes');
+    });
+}
+
+// Current chapter notes functions
+function showCurrentChapterNotes(chapterId) {
+    currentChapterId = chapterId;
+    const notesSection = document.getElementById('current-chapter-notes');
+    const titleSpan = document.getElementById('current-chapter-notes-title');
+    const editor = document.getElementById('current-chapter-notes-editor');
+    
+    // Find chapter data from the page (specifically from the chapter list)
+    const chapterElement = document.querySelector(`.chapter-item[data-chapter-id="${chapterId}"]`);
+    const chapterText = chapterElement.querySelector('.flex-grow-1 strong').textContent;
+    
+    titleSpan.textContent = chapterText;
+    notesSection.style.display = 'block';
+    
+    // Load current chapter notes
+    fetch(`/films/api/chapter/${chapterId}/metadata/`)
+        .then(response => response.json())
+        .then(data => {
+            editor.value = data.notes || '';
+        })
+        .catch(error => {
+            console.error('Error loading chapter notes:', error);
+        });
+}
+
+function saveCurrentChapterNotes(event) {
+    if (!currentChapterId) {
+        alert('No chapter selected');
+        return;
+    }
+    
+    const notes = document.getElementById('current-chapter-notes-editor').value;
+    
+    fetch(`/films/api/chapter/${currentChapterId}/notes/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            notes: notes
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success message
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="bi bi-check"></i> Saved!';
+            button.classList.remove('btn-success');
+            button.classList.add('btn-outline-success');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('btn-outline-success');
+                button.classList.add('btn-success');
+            }, 2000);
+            
+            // Update the chapter notes summary section without page reload
+            updateChapterNotesDisplay(currentChapterId, notes);
+        } else {
+            alert('Error saving notes: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error saving notes');
+    });
+}
+
+function hideCurrentChapterNotes() {
+    document.getElementById('current-chapter-notes').style.display = 'none';
+    currentChapterId = null;
+}
+
+// Years editing functions
+function saveYears() {
+    const years = document.getElementById('film-years-input').value;
+    
+    fetch(`/films/api/film/${filmFileId}/years/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            years: years
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('film-years-display').textContent = years || 'None';
+            hideYearsEditor();
+        } else {
+            alert('Error saving years: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error saving years');
+    });
+}
+
+function hideYearsEditor() {
+    document.getElementById('film-years-editor').style.display = 'none';
+}
+
+// Chapter metadata form submission handler
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle chapter metadata form submissions
+    document.addEventListener('submit', function(event) {
+        if (event.target.classList.contains('chapter-metadata-form')) {
+            event.preventDefault(); // Prevent page refresh
+            
+            const form = event.target;
+            const chapterId = form.dataset.chapterId;
+            
+            // Collect selected people
+            const selectedPeople = [];
+            form.querySelectorAll('.selected-people .person-tag').forEach(tag => {
+                selectedPeople.push(parseInt(tag.dataset.personId));
+            });
+            
+            // Collect selected locations
+            const selectedLocations = [];
+            form.querySelectorAll('.selected-locations .location-tag').forEach(tag => {
+                selectedLocations.push(parseInt(tag.dataset.locationId));
+            });
+            
+            // Collect selected tags
+            const selectedTags = [];
+            form.querySelectorAll('.selected-tags .tag-badge').forEach(tag => {
+                selectedTags.push(tag.textContent.trim());
+            });
+            
+            // Save via AJAX
+            saveChapterMetadata(chapterId, selectedPeople, selectedLocations, selectedTags);
+        }
+    });
+});
+
+function saveChapterMetadata(chapterId, people, locations, tags) {
+    const submitButton = document.querySelector(`form[data-chapter-id="${chapterId}"] button[type="submit"]`);
+    const originalText = submitButton.textContent;
+    
+    // Show saving state
+    submitButton.textContent = 'Saving...';
+    submitButton.disabled = true;
+    
+    fetch(`/films/${filmFileId}/chapters/${chapterId}/metadata/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            people: people,
+            locations: locations,
+            tags: tags
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Success feedback without page refresh
+            submitButton.textContent = 'Saved!';
+            submitButton.classList.remove('btn-primary');
+            submitButton.classList.add('btn-success');
+            
+            // Revert button after 2 seconds
+            setTimeout(() => {
+                submitButton.textContent = originalText;
+                submitButton.classList.remove('btn-success');
+                submitButton.classList.add('btn-primary');
+                submitButton.disabled = false;
+            }, 2000);
+            
+            // Update the UI without page reload
+            updateChapterEditDisplay(chapterId, data.updated_metadata);
+            updateFilmSummaryDisplay();
+            console.log('Chapter metadata saved successfully');
+        } else {
+            alert('Error saving chapter metadata: ' + (data.error || 'Unknown error'));
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
+    })
+    .catch(error => {
+        console.error('Error saving chapter metadata:', error);
+        alert('Error saving chapter metadata');
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    });
+}
+
+// UI update functions for chapter metadata changes
+function updateChapterNotesDisplay(chapterId, newNotes) {
+    // Find the chapter notes block with the matching data-chapter-id (specifically in the notes summary area)
+    const chapterBlock = document.querySelector(`.bg-light[data-chapter-id="${chapterId}"]`);
+    
+    if (chapterBlock) {
+        // Chapter block exists - update the notes content
+        const notesContent = chapterBlock.querySelector('.chapter-notes-content');
+        if (notesContent) {
+            if (newNotes && newNotes.trim()) {
+                // Update with new notes, preserving line breaks
+                notesContent.innerHTML = newNotes.replace(/\n/g, '<br>\n');
+            } else {
+                // If notes are empty, hide the entire chapter block
+                chapterBlock.style.display = 'none';
+            }
+        }
+    } else if (newNotes && newNotes.trim()) {
+        // Chapter block doesn't exist but we have new notes - create it
+        const chaptersContainer = document.querySelector('.mt-4 .mt-2');
+        if (chaptersContainer) {
+            // Get chapter info from the chapters list
+            const chapterElement = document.querySelector(`[data-chapter-id="${chapterId}"]`);
+            let chapterTitle = 'Chapter';
+            let chapterTime = '';
+            let chapterNumber = '';
+            
+            // Try to find chapter info from the existing chapter UI
+            const chapterTitleElement = document.querySelector(`button[onclick="showChapterMetadataPanel(${chapterId})"]`);
+            if (chapterTitleElement) {
+                const titleText = chapterTitleElement.textContent;
+                const match = titleText.match(/^([\d:]+)\s*-\s*(.+)$/);
+                if (match) {
+                    chapterTime = match[1];
+                    chapterTitle = match[2];
+                }
+            }
+            
+            // Create new chapter notes block
+            const newChapterBlock = document.createElement('div');
+            newChapterBlock.className = 'mb-2 p-2 bg-light rounded';
+            newChapterBlock.dataset.chapterId = chapterId;
+            newChapterBlock.innerHTML = `
+                <div class="d-flex justify-content-between align-items-start">
+                    <strong class="text-primary">${chapterTime} - ${chapterTitle}</strong>
+                    <small class="text-muted">Chapter</small>
+                </div>
+                <div class="mt-1 small chapter-notes-content">${newNotes.replace(/\n/g, '<br>\n')}</div>
+            `;
+            
+            // Insert the new block (could be sorted by chapter order in future)
+            chaptersContainer.appendChild(newChapterBlock);
+        }
+    }
+}
+function updateChapterEditDisplay(chapterId, updatedMetadata) {
+    const form = document.querySelector(`form[data-chapter-id="${chapterId}"]`);
+    if (!form) return;
+    
+    // Update people display in the edit form
+    const selectedPeopleDiv = form.querySelector('.selected-people');
+    selectedPeopleDiv.innerHTML = '';
+    updatedMetadata.people.forEach(person => {
+        const personTag = document.createElement('span');
+        personTag.className = 'badge bg-info me-1 person-tag';
+        personTag.dataset.personId = person.id;
+        personTag.title = person.full_name; // Tooltip for long names
+        personTag.innerHTML = `
+            ${person.full_name}
+            <button type="button" class="btn-close btn-close-white" onclick="removeMetadata('people', 'chapter', ${person.id}, '${person.full_name}')"></button>
+        `;
+        selectedPeopleDiv.appendChild(personTag);
+    });
+    
+    // Update locations display in the edit form
+    const selectedLocationsDiv = form.querySelector('.selected-locations');
+    selectedLocationsDiv.innerHTML = '';
+    updatedMetadata.locations.forEach(location => {
+        const locationTag = document.createElement('span');
+        locationTag.className = 'badge bg-success me-1 location-tag';
+        locationTag.dataset.locationId = location.id;
+        locationTag.title = location.name; // Tooltip for long names
+        locationTag.innerHTML = `
+            ${location.name}
+            <button type="button" class="btn-close btn-close-white" onclick="removeMetadata('locations', 'chapter', ${location.id}, '${location.name}')"></button>
+        `;
+        selectedLocationsDiv.appendChild(locationTag);
+    });
+    
+    // Update tags display in the edit form
+    const selectedTagsDiv = form.querySelector('.selected-tags');
+    selectedTagsDiv.innerHTML = '';
+    updatedMetadata.tags.forEach(tag => {
+        const tagBadge = document.createElement('span');
+        tagBadge.className = 'badge bg-secondary me-1 tag-badge';
+        tagBadge.title = tag.tag; // Tooltip for long names
+        tagBadge.innerHTML = `
+            ${tag.tag}
+            <button type="button" class="btn-close btn-close-white" onclick="removeMetadata('tags', 'chapter', '${tag.tag}', '${tag.tag}')"></button>
+        `;
+        selectedTagsDiv.appendChild(tagBadge);
+    });
+}
+
+function updateFilmSummaryDisplay() {
+    // Fetch updated aggregated metadata for the film
+    fetch(`/films/api/film/${filmFileId}/aggregated-metadata/`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                updateFilmPeopleDisplay(data.people);
+                updateFilmLocationsDisplay(data.locations);
+                updateFilmTagsDisplay(data.tags);
+                updateFilmYearsDisplay(data.years);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching updated film metadata:', error);
+        });
+}
+
+function updateFilmPeopleDisplay(people) {
+    const filmPeopleDisplay = document.getElementById('film-people-display');
+    if (!filmPeopleDisplay) return;
+    
+    filmPeopleDisplay.innerHTML = '';
+    people.forEach(person => {
+        const personBadge = document.createElement('span');
+        personBadge.className = 'badge bg-info me-1';
+        personBadge.dataset.id = person.id;
+        personBadge.innerHTML = `
+            <a href="/people/${person.id}/" class="text-decoration-none text-white">
+                ${person.full_name}
+            </a>
+            <button type="button" class="btn-close btn-close-white ms-1" onclick="removeMetadata('people', 'film', ${person.id})"></button>
+        `;
+        filmPeopleDisplay.appendChild(personBadge);
+    });
+}
+
+function updateFilmLocationsDisplay(locations) {
+    const filmLocationsDisplay = document.getElementById('film-locations-display');
+    if (!filmLocationsDisplay) return;
+    
+    filmLocationsDisplay.innerHTML = '';
+    locations.forEach(location => {
+        const locationBadge = document.createElement('span');
+        locationBadge.className = 'badge bg-success me-1';
+        locationBadge.dataset.id = location.id;
+        locationBadge.innerHTML = `
+            <a href="/locations/${location.id}/" class="text-decoration-none text-white">
+                ${location.name}
+            </a>
+            <button type="button" class="btn-close btn-close-white ms-1" onclick="removeMetadata('locations', 'film', ${location.id})"></button>
+        `;
+        filmLocationsDisplay.appendChild(locationBadge);
+    });
+}
+
+function updateFilmTagsDisplay(tags) {
+    const filmTagsDisplay = document.getElementById('film-tags-display');
+    if (!filmTagsDisplay) return;
+    
+    filmTagsDisplay.innerHTML = '';
+    tags.forEach(tag => {
+        const tagBadge = document.createElement('span');
+        tagBadge.className = 'badge bg-secondary me-1';
+        tagBadge.dataset.id = tag.tag;
+        tagBadge.innerHTML = `
+            <a href="/search/tags/?tags=${tag.tag}" class="text-decoration-none text-white">
+                ${tag.tag}
+            </a>
+            <button type="button" class="btn-close btn-close-white ms-1" onclick="removeMetadata('tags', 'film', '${tag.tag}')"></button>
+        `;
+        filmTagsDisplay.appendChild(tagBadge);
+    });
+}
+
+function updateFilmYearsDisplay(years) {
+    const filmYearsDisplay = document.getElementById('film-years-display');
+    if (!filmYearsDisplay) return;
+    
+    if (years && years.length > 0) {
+        filmYearsDisplay.textContent = years.join(', ');
+    } else {
+        filmYearsDisplay.textContent = 'None';
+    }
+}
+
+// Chapter years functions
+function updateChapterYearsDisplay(years) {
+    const display = document.getElementById('chapter-years-display');
+    if (!display) return;
+    
+    display.innerHTML = '';
+    if (years && years.trim()) {
+        const yearsBadge = document.createElement('span');
+        yearsBadge.className = 'badge bg-warning text-dark';
+        yearsBadge.textContent = years;
+        display.appendChild(yearsBadge);
+    } else {
+        display.innerHTML = '<span class="text-muted">None</span>';
+    }
+}
+
+function showChapterYearsEditor() {
+    const display = document.getElementById('chapter-years-display');
+    const editor = document.getElementById('chapter-years-editor');
+    const input = document.getElementById('chapter-years-input');
+    
+    // Get current years value
+    const currentYears = display.querySelector('.badge')?.textContent || '';
+    input.value = currentYears;
+    
+    display.style.display = 'none';
+    editor.style.display = 'block';
+    input.focus();
+}
+
+function hideChapterYearsEditor() {
+    const display = document.getElementById('chapter-years-display');
+    const editor = document.getElementById('chapter-years-editor');
+    
+    display.style.display = 'block';
+    editor.style.display = 'none';
+}
+
+function saveChapterYears() {
+    if (!currentChapterId) {
+        alert('No chapter selected');
+        return;
+    }
+    
+    const input = document.getElementById('chapter-years-input');
+    const years = input.value.trim();
+    
+    fetch(`/films/api/chapter/${currentChapterId}/update/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            type: 'years',
+            action: 'set',
+            value: years
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            updateChapterYearsDisplay(years);
+            hideChapterYearsEditor();
+            // Update film summary display to show aggregated years
+            updateFilmSummaryDisplay();
+        } else {
+            alert('Error saving years: ' + (data.error || 'Unknown error'));
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error saving years');
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ post.title }} - Family Films{% endblock %}
+
+{% block content %}
+<article>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1 class="mb-3">{{ post.title }}</h1>
+            
+            <div class="mb-3">
+                <span class="text-muted">By {{ post.author.username }} on {{ post.created_at|date:"F d, Y" }}</span>
+                {% if post.category %}
+                    | <a href="{% url 'main:category_list' post.category.slug %}" class="badge bg-primary text-decoration-none">{{ post.category.name }}</a>
+                {% endif %}
+            </div>
+            
+            {% if post.featured_image %}
+                <img src="{{ post.featured_image.url }}" class="img-fluid mb-4" alt="{{ post.title }}">
+            {% endif %}
+            
+            <div class="content">
+                {{ post.content|linebreaks }}
+            </div>
+            
+            <hr class="my-5">
+            
+            <h3>Comments ({{ comments.count }})</h3>
+            
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                {{ comment.author.username }} - {{ comment.created_at|date:"F d, Y g:i A" }}
+                            </h6>
+                            <p class="card-text">{{ comment.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No comments yet. Be the first to comment!</p>
+            {% endif %}
+            
+            {% if user.is_authenticated %}
+                <div class="mt-4">
+                    <h4>Leave a Comment</h4>
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" placeholder="Your comment..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                    </form>
+                </div>
+            {% else %}
+                <p class="mt-4">Please <a href="/admin/login/">login</a> to leave a comment.</p>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endblock %}

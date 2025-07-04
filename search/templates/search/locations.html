@@ -1,0 +1,233 @@
+{% extends 'films/base.html' %}
+
+{% block title %}Search by Locations - Family Films{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Locations Search Sidebar -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5><i class="bi bi-geo-alt"></i> Search Locations</h5>
+                </div>
+                <div class="card-body">
+                    <form method="get" id="locations-search-form">
+                        <!-- Search Input -->
+                        <div class="mb-3">
+                            <label for="q" class="form-label">Find Location</label>
+                            <input type="text" class="form-control" name="q" id="q" 
+                                   value="{{ search_query }}" placeholder="Type location name...">
+                        </div>
+                        
+                        <!-- Locations Selection -->
+                        <div class="mb-3">
+                            <label class="form-label">Select Locations</label>
+                            <div class="locations-list" style="max-height: 400px; overflow-y: auto;">
+                                {% for location in locations %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" 
+                                               name="locations" value="{{ location.id }}" 
+                                               id="location-{{ location.id }}"
+                                               {% if location.id|stringformat:"s" in selected_locations %}checked{% endif %}>
+                                        <label class="form-check-label" for="location-{{ location.id }}">
+                                            {{ location.name }}
+                                            <small class="text-muted">({{ location.film_count }} films)</small>
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Search Films</button>
+                            <a href="{% url 'search:locations' %}" class="btn btn-outline-secondary">Clear All</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1>Search by Locations</h1>
+                {% if selected_locations %}
+                    <div class="text-muted">
+                        {{ films.paginator.count }} film{{ films.paginator.count|pluralize }} found
+                    </div>
+                {% endif %}
+            </div>
+            
+            {% if selected_locations %}
+                <!-- Selected Locations -->
+                <div class="mb-4">
+                    <h5>Showing films at:</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for location_id in selected_locations %}
+                            {% for location in locations %}
+                                {% if location.id|stringformat:"s" == location_id %}
+                                    <span class="badge bg-success">{{ location.name }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Films Results -->
+                {% if films %}
+                    <div class="row">
+                        {% for film in films %}
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100 film-card">
+                                    <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
+                                        {% if film.has_animated_thumbnail %}
+                                            <div class="animated-thumbnail" 
+                                                 data-sprite-url="{{ film.preview_sprite_url }}"
+                                                 data-frame-count="{{ film.preview_frame_count }}"
+                                                 data-frame-interval="{{ film.preview_frame_interval }}"
+                                                 data-sprite-width="{{ film.preview_sprite_width }}"
+                                                 data-sprite-height="{{ film.preview_sprite_height }}">
+                                                <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
+                                                <div class="sprite-overlay"></div>
+                                            </div>
+                                        {% else %}
+                                            <img src="{{ film.thumbnail_url }}" class="card-img-top" alt="{{ film.title }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-body d-flex flex-column">
+                                        <h6 class="card-title">{{ film.title|truncatechars:50 }}</h6>
+                                        
+                                        <div class="film-metadata mb-2">
+                                            {% if film.years %}
+                                                <small class="text-muted"><i class="bi bi-calendar"></i> {{ film.years }}</small><br>
+                                            {% endif %}
+                                        </div>
+                                        
+                                        <!-- People -->
+                                        {% if film.people.all %}
+                                            <div class="mb-2">
+                                                {% for person in film.people.all|slice:":3" %}
+                                                    <a href="{% url 'people:detail' person.pk %}" class="badge bg-info text-decoration-none text-white">{{ person.full_name }}</a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        
+                                        <!-- Locations -->
+                                        {% if film.locations.all %}
+                                            <div class="mb-2">
+                                                {% for location in film.locations.all|slice:":3" %}
+                                                    <a href="{% url 'locations:detail' location.pk %}" class="badge bg-success text-decoration-none text-white">
+                                                        <i class="bi bi-geo-alt"></i> {{ location.name }}
+                                                    </a>
+                                                {% endfor %}
+                                                {% if film.locations.count > 3 %}
+                                                    <span class="badge bg-secondary" 
+                                                          data-bs-toggle="tooltip" 
+                                                          data-bs-placement="top" 
+                                                          title="{% for location in film.locations.all|slice:"3:" %}{{ location.name }}{% if not forloop.last %}, {% endif %}{% endfor %}">
+                                                        +{{ film.locations.count|add:"-3" }} more
+                                                    </span>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+                                        
+                                        <!-- Tags -->
+                                        {% if film.all_tags %}
+                                            <div class="mb-2">
+                                                {% for tag in film.all_tags|slice:":3" %}
+                                                    <a href="{% url 'search:tags' %}?tags={{ tag.tag }}" class="badge bg-secondary text-decoration-none text-white">{{ tag.tag }}</a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        
+                                        <div class="mt-auto">
+                                            <a href="{% url 'films:detail' film.file_id %}" class="btn btn-primary btn-sm">
+                                                <i class="bi bi-play-circle"></i> Watch Film
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Pagination -->
+                    {% if films.has_other_pages %}
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                {% if films.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ films.previous_page_number }}">Previous</a>
+                                    </li>
+                                {% endif %}
+                                
+                                {% for num in films.paginator.page_range %}
+                                    {% if films.number == num %}
+                                        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                    {% elif num > films.number|add:'-3' and num < films.number|add:'3' %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ num }}">{{ num }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if films.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?{% for key, value in request.GET.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ films.next_page_number }}">Next</a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    {% endif %}
+                {% else %}
+                    <div class="text-center py-5">
+                        <i class="bi bi-film display-1 text-muted"></i>
+                        <h3 class="mt-3">No Films Found</h3>
+                        <p class="text-muted">No films found at the selected locations.</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <!-- Instructions -->
+                <div class="text-center py-5">
+                    <i class="bi bi-geo-alt display-1 text-muted"></i>
+                    <h3 class="mt-3">Search Films by Location</h3>
+                    <p class="text-muted">Select one or more locations from the sidebar to find films shot there.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // Auto-submit form when checkboxes change
+    const form = document.getElementById('locations-search-form');
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            form.submit();
+        });
+    });
+    
+    // Auto-submit form when search input changes (with delay)
+    const searchInput = document.getElementById('q');
+    let searchTimeout;
+    
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            form.submit();
+        }, 500);
+    });
+});
+</script>
+{% endblock %}

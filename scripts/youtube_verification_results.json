@@ -1,0 +1,332 @@
+{
+  "timestamp": "2025-07-03 06:51:56",
+  "total_checked": 46,
+  "successful_fetches": 46,
+  "failed_fetches": 0,
+  "correct_mappings": [
+    {
+      "file_id": "P-56_FROS",
+      "youtube_id": "x-Yljn76e-g",
+      "title": "Disneyland 1955 and 1956 Visits"
+    }
+  ],
+  "incorrect_mappings": [
+    {
+      "db_file_id": "57-PT_FROS",
+      "youtube_file_id": "HR-1-4_FROS",
+      "youtube_id": "rmHlOwO84XU",
+      "db_title": "Josephine Hayward (nee Myre) Arizona Trip 1957",
+      "youtube_title": "Hayward Family Holidays, Fairs, Parks, and Parades: Knott's Berry Farm, Santa's Village, Rose Parade"
+    },
+    {
+      "db_file_id": "58-V1-FROS",
+      "youtube_file_id": "57-PT_FROS",
+      "youtube_id": "vDkbT5gO1T8",
+      "db_title": "Road Trip to Nevada, Utah and Wyoming, and Michigan with Josephine, John Jr., Joy, Mark & James 1958",
+      "youtube_title": "Josephine Hayward (nee Myre) Arizona Trip 1957"
+    },
+    {
+      "db_file_id": "58-V2_FROS",
+      "youtube_file_id": "58-V1-FROS",
+      "youtube_id": "b_rIJqRTi_k",
+      "db_title": "Road Trip to Montana, Victoria BC with Hayward Family - 1958",
+      "youtube_title": "Road Trip to Nevada, Utah and Wyoming, and Michigan with Josephine, John Jr., Joy, Mark & James 1958"
+    },
+    {
+      "db_file_id": "59-HI_FROS",
+      "youtube_file_id": "58-V2_FROS",
+      "youtube_id": "tcS1VdrevYQ",
+      "db_title": "Hawaii 1959 - Trip with John and Josephine Hayward, and their eldest children John Jr. and Joy",
+      "youtube_title": "Road Trip to Montana, Victoria BC with Hayward Family - 1958"
+    },
+    {
+      "db_file_id": "62-SF_FROS",
+      "youtube_file_id": "P-60_FROS",
+      "youtube_id": "0MADtWjYWLI",
+      "db_title": "1962 Seattle World's Fair - Haywards Trip",
+      "youtube_title": "Train from CA to MI, Earl and Rosabell Hayward 50th Wedding Anniversary, San Francisco with Wrens"
+    },
+    {
+      "db_file_id": "HR-1-4_FROS",
+      "youtube_file_id": "PB-01_FROS",
+      "youtube_id": "uzOGqPe84w8",
+      "db_title": "Hayward Family Holidays, Fairs, Parks, and Parades: Knott's Berry Farm, Santa's Village, Rose Parade",
+      "youtube_title": "Reedley and Southern CA Adventures with Haywards and Wrens, Mark's Birthday 1956-1958"
+    },
+    {
+      "db_file_id": "KO-1_FROS",
+      "youtube_file_id": "PBA-02_FROS",
+      "youtube_id": "VU-VAuj1Uv8",
+      "db_title": "South Korea - 1953 - John Hayward Medical Mission Trip, Part 1 of 2",
+      "youtube_title": "Christmas 1952 and John Jr. and Joy's 3rd Birthday in New Orleans"
+    },
+    {
+      "db_file_id": "KO-2_FROS",
+      "youtube_file_id": "KO-1_FROS",
+      "youtube_id": "21eo_jp93vk",
+      "db_title": "South Korea - 1953 - John Hayward Medical Mission Trip, Part 2 of 2",
+      "youtube_title": "South Korea - 1953 - John Hayward MD - Medical Mission Trip, Part 1 of 2"
+    },
+    {
+      "db_file_id": "L-52_FROS",
+      "youtube_file_id": "RLB-01_FROS",
+      "youtube_id": "iDN9Q7fUQLY",
+      "db_title": "John Sr., Josephine, and Rosabell in Michigan (Damaged)",
+      "youtube_title": "Hayward Family Pool at Reed Ave. Home in Reedley, CA (Damaged)"
+    },
+    {
+      "db_file_id": "L-53_FROS",
+      "youtube_file_id": "RLA-02_FROS",
+      "youtube_id": "DOBXIdB1-Yk",
+      "db_title": "Bob Linder's Family Films Part 1 - Rock City Georgia and Bible Camp with Rosabell Hayward and her daughter Marjorie who married Bob",
+      "youtube_title": "Unknown Families - Most Likely Bob Lindner's Extended Family"
+    },
+    {
+      "db_file_id": "L-55A_FROS",
+      "youtube_file_id": "L-53_FROS",
+      "youtube_id": "dKtcJUovlY0",
+      "db_title": "Bob Linder's Family Films Part 2 - House fire, Moving, Ferry Boats and Locks",
+      "youtube_title": "Bob Linder's Family Films Part 1 - Rock City Georgia and Bible Camp with Rosabell Hayward & Marjorie"
+    },
+    {
+      "db_file_id": "L-55B_FROS",
+      "youtube_file_id": "L-55A_FROS",
+      "youtube_id": "ZkGHmbdsvcw",
+      "db_title": "Bob Linder's Family Films Part 3 - Parade in Battle Creek, Michigan",
+      "youtube_title": "Bob Linder's Family Films Part 2 - House fire, Moving, Ferry Boats and Locks"
+    },
+    {
+      "db_file_id": "L-55C_FROS",
+      "youtube_file_id": "L-55B_FROS",
+      "youtube_id": "Rj2A2fvTZgc",
+      "db_title": "Bob Linder's Family Films Part 4 - Lindner Home in Coldwater, Michigan",
+      "youtube_title": "Bob Linder's Family Films Part 3 - Parade in Battle Creek, Michigan"
+    },
+    {
+      "db_file_id": "L-56A_FROS",
+      "youtube_file_id": "L-55C_FROS",
+      "youtube_id": "5U37bNfl5_s",
+      "db_title": "Bob Linder's Family Films Part 5 - Niagara Falls",
+      "youtube_title": "Bob Linder's Family Films Part 4 - Lindner Home in Coldwater, Michigan"
+    },
+    {
+      "db_file_id": "L-56B_FROS",
+      "youtube_file_id": "L-56A_FROS",
+      "youtube_id": "XTC2su-NbOU",
+      "db_title": "Bob Linder's Family Films Part 6 - Damaged Film of Boats and Cars",
+      "youtube_title": "Bob Linder's Family Films Part 5 - Niagara Falls"
+    },
+    {
+      "db_file_id": "L-58_FROS",
+      "youtube_file_id": "L-56B_FROS",
+      "youtube_id": "TljSbghAytg",
+      "db_title": "Bob Linder's Family Films Part 7 - Trip from Michigan to Cypress Gardens Florida",
+      "youtube_title": "Bob Linder's Family Films Part 6 - Damaged Film of Boats and Cars"
+    },
+    {
+      "db_file_id": "L-59_FROS",
+      "youtube_file_id": "L-58_FROS",
+      "youtube_id": "SqZu4ob5p_E",
+      "db_title": "Bob Linder's Family Films Part 8 - Parade in Battle Creek, Michigan",
+      "youtube_title": "Bob Linder's Family Films Part 7 - Trip from Michigan to Cypress Gardens Florida"
+    },
+    {
+      "db_file_id": "L-63_FROS",
+      "youtube_file_id": "L-59_FROS",
+      "youtube_id": "c2g2yMwptoY",
+      "db_title": "Bob Linder's Family Films Part 9 - Baseball Game and Squirrel",
+      "youtube_title": "Bob Linder's Family Films Part 8 - 100th Anniversary Parade in Battle Creek, Michigan 1959"
+    },
+    {
+      "db_file_id": "L-65_FROS",
+      "youtube_file_id": "L-63_FROS",
+      "youtube_id": "_Tqn7OeCbbc",
+      "db_title": "Bob Linder's Family Films Part 10 - Summer Bible School and Flower Garden",
+      "youtube_title": "Bob Linder's Family Films Part 9 - Baseball Game and Squirrel"
+    },
+    {
+      "db_file_id": "P-09-02_FROS",
+      "youtube_file_id": "P-09-11_FROS",
+      "youtube_id": "-NjKNcZguPE",
+      "db_title": "Hayward and Myre Great Grandparents in Michigan and Seattle",
+      "youtube_title": "John Sr. and Josephine with Josephine's parent and the Wrens"
+    },
+    {
+      "db_file_id": "P-09-11_FROS",
+      "youtube_file_id": "PB-05_FROS",
+      "youtube_id": "g96lX_kU9Fs",
+      "db_title": "John Sr. and Josephine with Josephine's parent and the Wrens",
+      "youtube_title": "Haywards in Tulare and Reedley CA, Trip to Death Valley Nevada and Rhyolite Ghost Town with Wrens"
+    },
+    {
+      "db_file_id": "P-50_FROS",
+      "youtube_file_id": "PA-02_FROS",
+      "youtube_id": "7wNQSleKT3g",
+      "db_title": "John and Josephine Hayward visit Jo's family, the Myres, in Washington",
+      "youtube_title": "John and Josephine Hayward and their twin children, and Jo's family the Myres in 1949-50"
+    },
+    {
+      "db_file_id": "P-53_FROS",
+      "youtube_file_id": "PB-04_FROS",
+      "youtube_id": "SzMqT8XEGQk",
+      "db_title": "John Sr., Josephine and Twins New Orleans year and Earl and Rosabell Hayward visit",
+      "youtube_title": "John Sr. and Family Road Trip From Seattle to New Orleans"
+    },
+    {
+      "db_file_id": "P-60_FROS",
+      "youtube_file_id": "59-HI_FROS",
+      "youtube_id": "rARxYXJQYvE",
+      "db_title": "Train from CA to MI, Earl and Rosabell Hayward 50th Wedding Anniversary, San Francisco Trip with Irwin and Arlene Wren and Family",
+      "youtube_title": "Hawaii 1959 - Trip with John and Josephine Hayward, and their eldest children John Jr. and Joy"
+    },
+    {
+      "db_file_id": "P-61_FROS",
+      "youtube_file_id": "PB-14_FROS",
+      "youtube_id": "YFIDOmMvxiY",
+      "db_title": "1961 Family Celebrations - Disneyland and other parks with Wrens and Myres",
+      "youtube_title": "Disneyland, Knott's Berry Farm, Marineland, Hearst Castle Trips in 1959, Family Cabin Construction"
+    },
+    {
+      "db_file_id": "P-CC1_FROS",
+      "youtube_file_id": "P-50_FROS",
+      "youtube_id": "VbYyF_IS83g",
+      "db_title": "Great Lakes trips with Earl and Rosabell Hayward, Lindners, and David and Gloria Myre",
+      "youtube_title": "John and Josephine Hayward visit Jo's family, the Myres, in Washington"
+    },
+    {
+      "db_file_id": "P-CC2_FROS",
+      "youtube_file_id": "PA-01_FROS",
+      "youtube_id": "oBXSxjnrhyk",
+      "db_title": "Michigan Home near Copper Mine in 1951-1952",
+      "youtube_title": "Christmas & Family Gatherings with Myres, Haywards, in-laws and cousins to John Sr. and Josephine"
+    },
+    {
+      "db_file_id": "PA-01_FROS",
+      "youtube_file_id": "P-CC1_FROS",
+      "youtube_id": "PgACRbYj6PM",
+      "db_title": "Christmas & Family Gatherings with Myres, Haywards, in-laws and cousins to John Sr. and Josephine",
+      "youtube_title": "Great Lakes trips with Earl and Rosabell Hayward, Lindners, and David and Gloria Myre"
+    },
+    {
+      "db_file_id": "PA-02_FROS",
+      "youtube_file_id": "P-09-02_FROS",
+      "youtube_id": "XZhycmFm3Bg",
+      "db_title": "John and Josephine Hayward and their twin children, and Jo's family the Myres in 1949-50",
+      "youtube_title": "Hayward and Myre Great Grandparents in Michigan and Seattle"
+    },
+    {
+      "db_file_id": "PA-03_FROS",
+      "youtube_file_id": "P-CC2_FROS",
+      "youtube_id": "YyqFwqQ7btU",
+      "db_title": "Beattie Family in New Jersey, and Hayward Family Copper Mine Home in Michigan",
+      "youtube_title": "Michigan Home near Copper Mine in 1951-1952"
+    },
+    {
+      "db_file_id": "PB-01_FROS",
+      "youtube_file_id": "PB-08_FROS",
+      "youtube_id": "Bm5TYA163YU",
+      "db_title": "Reedley and Southern CA Adventures with Haywards and Wrens, Mark's Birthday 1956-1958",
+      "youtube_title": "Hayward Kids California Adventures 1956-1958 Part 2"
+    },
+    {
+      "db_file_id": "PB-04_FROS",
+      "youtube_file_id": "PA-03_FROS",
+      "youtube_id": "gDYaTp84HeM",
+      "db_title": "John Sr. and Family Road Trip From Seattle to New Orleans",
+      "youtube_title": "Beattie Family in New Jersey, and Hayward Family Copper Mine Home in Michigan"
+    },
+    {
+      "db_file_id": "PB-05_FROS",
+      "youtube_file_id": "SL-72_FROS",
+      "youtube_id": "toUwBlFfoq8",
+      "db_title": "Haywards in Tulare and Reedley CA, Trip to Death Valley Nevada and Rhyolite Ghost Town with Wrens",
+      "youtube_title": "Disneyland Trip 1972"
+    },
+    {
+      "db_file_id": "PB-06_FROS",
+      "youtube_file_id": "62-SF_FROS",
+      "youtube_id": "GwVQqPKoaKI",
+      "db_title": "John Sr. & Josephine travel to Yosemite with John Jr., Joy, and Mark - Wren Family Joins towards End",
+      "youtube_title": "1962 Seattle World's Fair - Haywards Trip"
+    },
+    {
+      "db_file_id": "PB-07_FROS",
+      "youtube_file_id": "KO-2_FROS",
+      "youtube_id": "I0XEIwKOd9E",
+      "db_title": "Hayward Kids California Adventures 1956-1958 Part 1",
+      "youtube_title": "South Korea - 1953 - John Hayward, MD - Medical Mission Trip, Part 2 of 2"
+    },
+    {
+      "db_file_id": "PB-08_FROS",
+      "youtube_file_id": "PB-07_FROS",
+      "youtube_id": "Ox4Wew6h070",
+      "db_title": "Hayward Kids California Adventures 1956-1958 Part 2",
+      "youtube_title": "Hayward Kids California Adventures 1956-1958 Part 1"
+    },
+    {
+      "db_file_id": "PBA-01_FROS",
+      "youtube_file_id": "P-53_FROS",
+      "youtube_id": "X3N2A48_62E",
+      "db_title": "Haywards move to New Orleans in 1952, Sightseeing with Rosabell Hayward",
+      "youtube_title": "John Sr., Josephine and Twins New Orleans year and Earl and Rosabell Hayward visit"
+    },
+    {
+      "db_file_id": "PBA-02_FROS",
+      "youtube_file_id": "PBA-01_FROS",
+      "youtube_id": "Vf7waQlaiIg",
+      "db_title": "Christmas 1952 and John Jr. and Joy's 3rd Birthday in New Orleans",
+      "youtube_title": "Haywards move to New Orleans in 1952, Sightseeing with Rosabell Hayward"
+    },
+    {
+      "db_file_id": "RLA-01_FROS",
+      "youtube_file_id": "L-65_FROS",
+      "youtube_id": "yoC6HK6UTIo",
+      "db_title": "Victor Beattie's Church Camp (Largely Damaged Film)",
+      "youtube_title": "Bob Linder's Family Films Part 10 - Summer Bible School and Flower Garden"
+    },
+    {
+      "db_file_id": "RLA-02_FROS",
+      "youtube_file_id": "SLB-01_FROS",
+      "youtube_id": "ET9fqZKnqYg",
+      "db_title": "Unknown Families - Most Likely Bob Lindner's Extended Family",
+      "youtube_title": "Jerusalem Footage of Bob Lindner - 1970"
+    },
+    {
+      "db_file_id": "RLB-01_FROS",
+      "youtube_file_id": "SL-71X_FROS",
+      "youtube_id": "km8G_fx38oU",
+      "db_title": "Hayward Family Pool at Reed Ave. Home in Reedley, CA",
+      "youtube_title": "1971 Hayward Family Christmas"
+    },
+    {
+      "db_file_id": "SL-71X_FROS",
+      "youtube_file_id": "PB-06_FROS",
+      "youtube_id": "tr3UssCdUiQ",
+      "db_title": "1971 Hayward Family Christmas",
+      "youtube_title": "John Sr. & Josephine travel to Yosemite with John Jr., Joy, and Mark - Wren Family Joins towards End"
+    },
+    {
+      "db_file_id": "SL-72_FROS",
+      "youtube_file_id": "P-61_FROS",
+      "youtube_id": "brPYVHx8rhw",
+      "db_title": "Disneyland Trip 1972",
+      "youtube_title": "1961 Family Celebrations - Disneyland and other parks with Wrens and Myres"
+    },
+    {
+      "db_file_id": "SLB-01_FROS",
+      "youtube_file_id": "SLB-02_FROS",
+      "youtube_id": "hVyerzEGQYA",
+      "db_title": "Jerusalem Footage of Bob Lindner - 1970",
+      "youtube_title": "Hayward Family Home at Reed Ave in Reedley, CA (Mostly damaged film)"
+    },
+    {
+      "db_file_id": "SLB-02_FROS",
+      "youtube_file_id": "L-52_FROS",
+      "youtube_id": "GosLiczgdH8",
+      "db_title": "Hayward Family Home at Reed Ave in Reedley, CA (Mostly damaged film)",
+      "youtube_title": "John Sr., Josephine, and Rosabell in Michigan (Damaged)"
+    }
+  ],
+  "no_file_id_found": [],
+  "errors": []
+}
