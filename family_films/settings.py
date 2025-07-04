@@ -149,3 +149,25 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Email settings for password reset (configure for production)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Heroku-specific settings
+import os
+import dj_database_url
+
+# Parse database configuration from $DATABASE_URL
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers for Heroku
+if 'DYNO' in os.environ:
+    ALLOWED_HOSTS = ['*']
+
+# Static files configuration for Heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
