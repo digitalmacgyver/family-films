@@ -1,11 +1,11 @@
 import os
-import subprocess
 import tempfile
 from datetime import timedelta
 from django.core.management.base import BaseCommand
 from django.conf import settings
 from main.models import Film, Chapter
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
+import textwrap
 
 
 class Command(BaseCommand):
@@ -42,17 +42,30 @@ class Command(BaseCommand):
         if options['file_ids']:
             films = Film.objects.filter(file_id__in=options['file_ids'])
         else:
-            films = Film.objects.exclude(youtube_id__startswith='placeholder_')
+            films = Film.objects.all()
 
         self.stdout.write(f'Processing {films.count()} films...')
+
+        # Define color palette for text thumbnails (same as generate_text_thumbnails)
+        self.colors = [
+            '#FF6B6B',  # Soft red
+            '#4ECDC4',  # Teal
+            '#45B7D1',  # Sky blue
+            '#96CEB4',  # Mint green
+            '#F7DC6F',  # Soft yellow
+            '#BB8FCE',  # Lavender
+            '#85C1E9',  # Light blue
+            '#F8B500',  # Orange
+            '#6C5CE7',  # Purple
+            '#A8E6CF',  # Pale green
+            '#FFD93D',  # Golden yellow
+            '#FF8B94',  # Coral
+        ]
 
         success_count = 0
         error_count = 0
 
         for film in films:
-            if not film.youtube_id or film.youtube_id.startswith('placeholder_'):
-                continue
-                
             self.stdout.write(f'Processing film: {film.title} ({film.file_id})')
             
             try:
@@ -71,7 +84,7 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING(f'Errors: {error_count}'))
 
     def generate_sprite_thumbnail(self, film, previews_dir, force=False):
-        """Generate sprite sheet thumbnail for a film"""
+        """Generate sprite sheet thumbnail for a film using text-based frames"""
         sprite_path = os.path.join(previews_dir, f'{film.file_id}_sprite.jpg')
         
         # Skip if sprite already exists unless force is True
@@ -81,99 +94,63 @@ class Command(BaseCommand):
         
         chapters = film.chapters.all().order_by('order')
         
-        # Determine timestamps for frame extraction
+        # Determine content for frame generation
         if chapters.exists():
-            # Use chapter timestamps
-            timestamps = []
+            # Use chapters for frames
+            frame_data = []
             for chapter in chapters:
-                timestamps.append(chapter.start_time_seconds)
-            frame_count = len(timestamps)
+                frame_data.append({
+                    'title': chapter.title,
+                    'timestamp': chapter.start_time,
+                    'subtitle': f"Chapter {chapter.order}",
+                    'color_index': chapter.order - 1
+                })
+            frame_count = len(frame_data)
             
             # If we have many chapters, limit to key ones
             if frame_count > 8:
                 # Take every nth chapter to get around 6-8 frames
                 step = max(1, frame_count // 6)
-                timestamps = [timestamps[i] for i in range(0, len(timestamps), step)]
-                frame_count = len(timestamps)
+                frame_data = [frame_data[i] for i in range(0, len(frame_data), step)]
+                frame_count = len(frame_data)
         else:
-            # No chapters - use evenly spaced intervals
-            if not film.duration:
-                self.stdout.write(f'  ✗ No duration or chapters for {film.file_id}')
-                return False
-            
-            duration_seconds = int(film.duration.total_seconds())
-            # Extract frames at 10%, 30%, 50%, 70%, 90%
-            percentages = [0.1, 0.3, 0.5, 0.7, 0.9]
-            timestamps = [int(duration_seconds * p) for p in percentages]
-            frame_count = len(timestamps)
+            # No chapters - use film title with different time markers
+            frame_data = []
+            for i in range(4):  # Generate 4 frames for films without chapters
+                frame_data.append({
+                    'title': film.title,
+                    'timestamp': f"Part {i+1}",
+                    'subtitle': "Film Preview",
+                    'color_index': i
+                })
+            frame_count = len(frame_data)
         
         try:
-            # Extract frames using ffmpeg
-            temp_frames = []
-            video_url = f"https://www.youtube.com/watch?v={film.youtube_id}"
+            # Generate text-based frames
+            frame_width, frame_height = 160, 90
+            frames = []
             
-            for i, timestamp in enumerate(timestamps):
-                temp_frame = tempfile.NamedTemporaryFile(suffix=f'_{i}.jpg', delete=False)
-                temp_frames.append(temp_frame.name)
-                
-                # Use yt-dlp to get the actual video URL and ffmpeg to extract frame
-                cmd = [
-                    'yt-dlp', '--get-url', '--format', 'best[height<=720]',
-                    video_url
-                ]
-                
-                try:
-                    result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
-                    if result.returncode != 0:
-                        raise Exception(f"yt-dlp failed: {result.stderr}")
-                    
-                    direct_url = result.stdout.strip()
-                    
-                    # Extract frame at timestamp using ffmpeg
-                    ffmpeg_cmd = [
-                        'ffmpeg', '-ss', str(timestamp), '-i', direct_url,
-                        '-vframes', '1', '-q:v', '2',
-                        '-vf', 'scale=160:90',  # Resize to standard thumbnail size
-                        '-y', temp_frame.name
-                    ]
-                    
-                    subprocess.run(ffmpeg_cmd, capture_output=True, timeout=60, check=True)
-                    
-                except subprocess.TimeoutExpired:
-                    self.stdout.write(f'  ⚠ Timeout extracting frame at {timestamp}s')
-                    # Create a placeholder frame
-                    self.create_placeholder_frame(temp_frame.name)
-                except Exception as e:
-                    self.stdout.write(f'  ⚠ Failed to extract frame at {timestamp}s: {e}')
-                    # Create a placeholder frame
-                    self.create_placeholder_frame(temp_frame.name)
+            for i, data in enumerate(frame_data):
+                frame_image = self.create_text_thumbnail(
+                    data['title'],
+                    data['timestamp'],
+                    data['subtitle'],
+                    data['color_index'],
+                    frame_width,
+                    frame_height
+                )
+                frames.append(frame_image)
             
             # Combine frames into sprite sheet
-            frame_width, frame_height = 160, 90
             sprite_width = frame_width * frame_count
             sprite_height = frame_height
             
             sprite_image = Image.new('RGB', (sprite_width, sprite_height), (0, 0, 0))
             
-            for i, frame_path in enumerate(temp_frames):
-                try:
-                    if os.path.exists(frame_path) and os.path.getsize(frame_path) > 0:
-                        frame_image = Image.open(frame_path)
-                        frame_image = frame_image.resize((frame_width, frame_height))
-                        x_offset = i * frame_width
-                        sprite_image.paste(frame_image, (x_offset, 0))
-                        frame_image.close()
-                    else:
-                        # Create placeholder frame
-                        placeholder = Image.new('RGB', (frame_width, frame_height), (128, 128, 128))
-                        x_offset = i * frame_width
-                        sprite_image.paste(placeholder, (x_offset, 0))
-                except Exception as e:
-                    self.stdout.write(f'  ⚠ Error processing frame {i}: {e}')
-                    # Create placeholder frame
-                    placeholder = Image.new('RGB', (frame_width, frame_height), (128, 128, 128))
-                    x_offset = i * frame_width
-                    sprite_image.paste(placeholder, (x_offset, 0))
+            for i, frame_image in enumerate(frames):
+                x_offset = i * frame_width
+                sprite_image.paste(frame_image, (x_offset, 0))
+                frame_image.close()
             
             # Save sprite sheet
             sprite_image.save(sprite_path, 'JPEG', quality=85)
@@ -187,34 +164,100 @@ class Command(BaseCommand):
             film.preview_sprite_height = frame_height
             film.save()
             
-            # Cleanup temporary frames
-            for temp_frame in temp_frames:
-                try:
-                    os.unlink(temp_frame)
-                except:
-                    pass
-            
             self.stdout.write(f'  ✓ Generated sprite with {frame_count} frames for {film.file_id}')
             return True
             
         except Exception as e:
             self.stdout.write(f'  ✗ Failed to generate sprite for {film.file_id}: {e}')
-            # Cleanup temporary frames
-            for temp_frame in temp_frames:
-                try:
-                    os.unlink(temp_frame)
-                except:
-                    pass
             return False
 
-    def create_placeholder_frame(self, frame_path):
-        """Create a placeholder frame when extraction fails"""
+    def create_text_thumbnail(self, title, timestamp, subtitle="", color_index=0, width=160, height=90):
+        """Create a text-based thumbnail image for sprite frames"""
+        # Select background color
+        bg_color = self.colors[color_index % len(self.colors)]
+        
+        # Create image with colored background
+        img = Image.new('RGB', (width, height), bg_color)
+        draw = ImageDraw.Draw(img)
+        
+        # Try to load a nice font, fall back to default
         try:
-            placeholder = Image.new('RGB', (160, 90), (64, 64, 64))
-            placeholder.save(frame_path, 'JPEG')
-            placeholder.close()
-        except Exception:
-            pass
+            # Try common font paths
+            font_paths = [
+                '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',
+                '/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf',
+                '/System/Library/Fonts/Helvetica.ttc',
+                'C:\\Windows\\Fonts\\Arial.ttf'
+            ]
+            title_font = None
+            for font_path in font_paths:
+                if os.path.exists(font_path):
+                    title_font = ImageFont.truetype(font_path, 12)  # Smaller font for sprite
+                    time_font = ImageFont.truetype(font_path, 14)
+                    subtitle_font = ImageFont.truetype(font_path, 10)
+                    break
+            
+            if not title_font:
+                # Fall back to default font
+                title_font = ImageFont.load_default()
+                time_font = ImageFont.load_default()
+                subtitle_font = ImageFont.load_default()
+        except:
+            title_font = ImageFont.load_default()
+            time_font = ImageFont.load_default()
+            subtitle_font = ImageFont.load_default()
+        
+        # Draw timestamp at the top
+        timestamp_text = str(timestamp)
+        if hasattr(time_font, 'getbbox'):
+            bbox = draw.textbbox((0, 0), timestamp_text, font=time_font)
+            time_width = bbox[2] - bbox[0]
+        else:
+            time_width, _ = draw.textsize(timestamp_text, font=time_font)
+        time_x = (width - time_width) // 2
+        draw.text((time_x, 5), timestamp_text, fill='white', font=time_font)
+        
+        # Draw subtitle if provided
+        if subtitle:
+            if hasattr(subtitle_font, 'getbbox'):
+                bbox = draw.textbbox((0, 0), subtitle, font=subtitle_font)
+                subtitle_width = bbox[2] - bbox[0]
+            else:
+                subtitle_width, _ = draw.textsize(subtitle, font=subtitle_font)
+            subtitle_x = (width - subtitle_width) // 2
+            draw.text((subtitle_x, 25), subtitle, fill='white', font=subtitle_font)
+        
+        # Wrap and draw title text (more aggressively wrapped for small size)
+        wrapped_text = textwrap.fill(title, width=15)
+        lines = wrapped_text.split('\n')
+        
+        # Limit to 2-3 lines for sprite frames
+        if len(lines) > 3:
+            lines = lines[:3]
+            lines[2] = lines[2][:12] + '...' if len(lines[2]) > 12 else lines[2]
+        
+        # Calculate starting Y position to center the text block
+        line_height = 12
+        text_block_height = len(lines) * line_height
+        start_y = (height - text_block_height) // 2 + 10
+        
+        # Draw each line of wrapped text
+        for i, line in enumerate(lines):
+            if hasattr(title_font, 'getbbox'):
+                bbox = draw.textbbox((0, 0), line, font=title_font)
+                text_width = bbox[2] - bbox[0]
+            else:
+                text_width, _ = draw.textsize(line, font=title_font)
+            text_x = (width - text_width) // 2
+            text_y = start_y + i * line_height
+            
+            # Draw text with shadow for better readability
+            shadow_offset = 1
+            draw.text((text_x + shadow_offset, text_y + shadow_offset), line, 
+                     fill='black', font=title_font)
+            draw.text((text_x, text_y), line, fill='white', font=title_font)
+        
+        return img
 
     def cleanup_old_thumbnails(self):
         """Remove old individual chapter thumbnails"""

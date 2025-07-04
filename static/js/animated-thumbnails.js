@@ -110,9 +110,18 @@ class AnimatedThumbnail {
     }
     
     updateSpritePosition() {
-        // Calculate position as percentage for proper scaling
-        const percentage = (this.currentFrame / this.frameCount) * 100;
-        this.spriteOverlay.style.backgroundPosition = `${percentage}% 0`;
+        // Get the actual thumbnail container dimensions for proper scaling
+        const thumbnail = this.element.querySelector('.static-thumbnail');
+        if (!thumbnail) return;
+        
+        const containerRect = thumbnail.getBoundingClientRect();
+        const scaleX = containerRect.width / this.spriteWidth;
+        
+        // Calculate exact pixel offset for this frame (160px per frame, scaled)
+        const scaledFrameWidth = this.spriteWidth * scaleX;
+        const pixelOffset = this.currentFrame * scaledFrameWidth;
+        
+        this.spriteOverlay.style.backgroundPosition = `-${pixelOffset}px 0`;
     }
 }
 
