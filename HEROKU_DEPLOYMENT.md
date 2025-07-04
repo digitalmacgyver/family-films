@@ -41,8 +41,8 @@ heroku create
 ## Step 4: Add PostgreSQL Database
 
 ```bash
-# Add PostgreSQL addon (free tier)
-heroku addons:create heroku-postgresql:mini
+# Add PostgreSQL addon (essential-0 plan - $5/month)
+heroku addons:create heroku-postgresql:essential-0
 
 # Check database URL was added
 heroku config
@@ -147,8 +147,8 @@ Ensure `whitenoise` is in requirements.txt and configured correctly.
 ## Cost Estimate
 
 - **Heroku Dyno**: $7/month (Eco plan)
-- **PostgreSQL**: $9/month (Mini plan) 
-- **Total**: ~$16/month
+- **PostgreSQL**: $5/month (Essential-0 plan) 
+- **Total**: ~$12/month
 
 ## Production Checklist
 
