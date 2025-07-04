@@ -106,7 +106,7 @@ class DigitalReel(models.Model):
 class Film(models.Model):
     file_id = models.CharField(max_length=50, unique=True, help_text="Unique identifier matching CSV file ID")
     youtube_url = models.URLField()
-    youtube_id = models.CharField(max_length=20, unique=True, help_text="YouTube video ID for embedding")
+    youtube_id = models.CharField(max_length=50, unique=True, help_text="YouTube video ID for embedding")
     title = models.CharField(max_length=500)
     description = models.TextField()
     summary = models.TextField(help_text="Brief summary of film contents")
