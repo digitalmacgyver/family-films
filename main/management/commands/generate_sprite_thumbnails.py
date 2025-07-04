@@ -84,13 +84,17 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING(f'Errors: {error_count}'))
 
     def generate_sprite_thumbnail(self, film, previews_dir, force=False):
-        """Generate sprite sheet thumbnail for a film using text-based frames"""
-        sprite_path = os.path.join(previews_dir, f'{film.file_id}_sprite.jpg')
+        """Generate individual frame images for a film using text-based frames"""
+        # Create film-specific directory for frames
+        film_frames_dir = os.path.join(previews_dir, film.file_id)
+        os.makedirs(film_frames_dir, exist_ok=True)
         
-        # Skip if sprite already exists unless force is True
-        if os.path.exists(sprite_path) and not force:
-            self.stdout.write(f'  ⏭ Sprite already exists for {film.file_id}')
-            return True
+        # Check if frames already exist unless force is True
+        if not force:
+            existing_frames = [f for f in os.listdir(film_frames_dir) if f.endswith('.jpg')]
+            if existing_frames:
+                self.stdout.write(f'  ⏭ Frames already exist for {film.file_id}')
+                return True
         
         chapters = film.chapters.all().order_by('order')
         
@@ -126,9 +130,9 @@ class Command(BaseCommand):
             frame_count = len(frame_data)
         
         try:
-            # Generate text-based frames
+            # Generate individual frame images
             frame_width, frame_height = 160, 90
-            frames = []
+            frame_paths = []
             
             for i, data in enumerate(frame_data):
                 frame_image = self.create_text_thumbnail(
@@ -139,36 +143,30 @@ class Command(BaseCommand):
                     frame_width,
                     frame_height
                 )
-                frames.append(frame_image)
-            
-            # Combine frames into sprite sheet
-            sprite_width = frame_width * frame_count
-            sprite_height = frame_height
-            
-            sprite_image = Image.new('RGB', (sprite_width, sprite_height), (0, 0, 0))
-            
-            for i, frame_image in enumerate(frames):
-                x_offset = i * frame_width
-                sprite_image.paste(frame_image, (x_offset, 0))
+                
+                # Save individual frame
+                frame_filename = f'frame_{i:02d}.jpg'
+                frame_path = os.path.join(film_frames_dir, frame_filename)
+                frame_image.save(frame_path, 'JPEG', quality=85)
                 frame_image.close()
+                
+                # Store relative path for web serving
+                relative_frame_path = f'/static/thumbnails/previews/{film.file_id}/{frame_filename}'
+                frame_paths.append(relative_frame_path)
             
-            # Save sprite sheet
-            sprite_image.save(sprite_path, 'JPEG', quality=85)
-            sprite_image.close()
-            
-            # Update film with sprite info
-            film.preview_sprite_url = f'/static/thumbnails/previews/{film.file_id}_sprite.jpg'
+            # Update film with frame info (store as JSON in a text field or use the existing sprite URL field)
+            film.preview_sprite_url = f'/static/thumbnails/previews/{film.file_id}/'  # Directory path
             film.preview_frame_count = frame_count
             film.preview_frame_interval = 0.8  # 800ms between frames
             film.preview_sprite_width = frame_width
             film.preview_sprite_height = frame_height
             film.save()
             
-            self.stdout.write(f'  ✓ Generated sprite with {frame_count} frames for {film.file_id}')
+            self.stdout.write(f'  ✓ Generated {frame_count} individual frames for {film.file_id}')
             return True
             
         except Exception as e:
-            self.stdout.write(f'  ✗ Failed to generate sprite for {film.file_id}: {e}')
+            self.stdout.write(f'  ✗ Failed to generate frames for {film.file_id}: {e}')
             return False
 
     def create_text_thumbnail(self, title, timestamp, subtitle="", color_index=0, width=160, height=90):

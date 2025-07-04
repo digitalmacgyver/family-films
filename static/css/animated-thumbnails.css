@@ -1,51 +1,47 @@
-/* Animated Thumbnails CSS */
+/* Swiper-based Animated Thumbnails CSS */
 
 .film-thumbnail-container {
     position: relative;
     overflow: hidden;
 }
 
-.animated-thumbnail {
+.swiper-thumbnail {
     position: relative;
     cursor: pointer;
 }
 
-.animated-thumbnail .static-thumbnail {
+.swiper-thumbnail .static-thumbnail {
     transition: opacity 0.3s ease;
 }
 
-.sprite-overlay {
+.frame-swiper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-position: 0 0;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 10;
 }
 
-.animated-thumbnail:hover .static-thumbnail {
+.swiper-thumbnail:hover .static-thumbnail {
     opacity: 0;
 }
 
-.animated-thumbnail:hover .sprite-overlay {
+.swiper-thumbnail:hover .frame-swiper {
     opacity: 1;
 }
 
-/* Animation for sprite frames */
-.sprite-overlay.animating {
-    animation: sprite-animation linear infinite;
+.frame-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-@keyframes sprite-animation {
-    from {
-        background-position-x: 0;
-    }
-    to {
-        background-position-x: -100%;
-    }
+.swiper-slide {
+    width: 100%;
+    height: 100%;
 }
 
 /* Film card hover effects */
@@ -72,11 +68,11 @@
     }
     
     /* Disable animations on mobile */
-    .sprite-overlay {
+    .frame-swiper {
         display: none;
     }
     
-    .animated-thumbnail:hover .static-thumbnail {
+    .swiper-thumbnail:hover .static-thumbnail {
         opacity: 1;
     }
 }

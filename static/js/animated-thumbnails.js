@@ -1,127 +1,95 @@
 /**
  * Animated Thumbnails JavaScript
- * Handles sprite-based hover animations for film thumbnails
+ * Handles Swiper-based hover animations for film thumbnails
  */
 
-class AnimatedThumbnail {
+class SwiperThumbnail {
     constructor(element) {
         this.element = element;
-        this.spriteOverlay = element.querySelector('.sprite-overlay');
+        this.frameSwiper = element.querySelector('.frame-swiper');
         this.staticThumbnail = element.querySelector('.static-thumbnail');
         
-        this.spriteUrl = element.dataset.spriteUrl;
-        this.frameCount = parseInt(element.dataset.frameCount);
-        this.frameInterval = parseFloat(element.dataset.frameInterval);
-        this.spriteWidth = parseInt(element.dataset.spriteWidth);
-        this.spriteHeight = parseInt(element.dataset.spriteHeight);
+        this.frameCount = parseInt(element.dataset.frameCount) || 0;
+        this.frameInterval = parseFloat(element.dataset.frameInterval) || 0.8;
         
-        this.animationTimer = null;
-        this.currentFrame = 0;
+        this.swiperInstance = null;
         this.isHovering = false;
+        this.isInitialized = false;
         
         this.init();
     }
     
     init() {
         // Check if we have valid animation data
-        if (!this.spriteUrl || !this.frameCount || !this.spriteWidth) {
+        if (!this.frameSwiper || this.frameCount === 0) {
             console.warn('Invalid animation data for thumbnail');
             return;
         }
         
-        // Set up sprite overlay
-        this.setupSpriteOverlay();
-        
         // Bind events
         this.element.addEventListener('mouseenter', this.startAnimation.bind(this));
         this.element.addEventListener('mouseleave', this.stopAnimation.bind(this));
-        
-        // Preload sprite image
-        this.preloadSprite();
     }
     
-    setupSpriteOverlay() {
-        const totalWidth = this.spriteWidth * this.frameCount;
+    initializeSwiper() {
+        if (this.isInitialized || !this.frameSwiper) return;
         
-        // Get the actual thumbnail container dimensions
-        const container = this.element.closest('.film-thumbnail-container');
-        const thumbnail = this.element.querySelector('.static-thumbnail');
-        
-        this.spriteOverlay.style.backgroundImage = `url(${this.spriteUrl})`;
-        
-        // Scale the sprite to fit the thumbnail container
-        if (container && thumbnail) {
-            const containerRect = thumbnail.getBoundingClientRect();
-            const scaleX = containerRect.width / this.spriteWidth;
-            const scaledTotalWidth = totalWidth * scaleX;
-            const scaledHeight = this.spriteHeight * scaleX;
+        try {
+            this.swiperInstance = new Swiper(this.frameSwiper, {
+                loop: true,
+                autoplay: false,
+                speed: 300,
+                allowTouchMove: false,
+                simulateTouch: false,
+                watchSlidesProgress: true,
+                preloadImages: true,
+                updateOnImagesReady: true
+            });
             
-            this.spriteOverlay.style.backgroundSize = `${scaledTotalWidth}px ${scaledHeight}px`;
-        } else {
-            // Fallback to original sizing
-            this.spriteOverlay.style.backgroundSize = `${totalWidth}px ${this.spriteHeight}px`;
+            this.isInitialized = true;
+            console.log('Swiper initialized for thumbnail');
+        } catch (error) {
+            console.warn('Failed to initialize Swiper:', error);
         }
-        
-        this.spriteOverlay.style.backgroundPosition = '0 0';
-    }
-    
-    preloadSprite() {
-        const img = new Image();
-        img.onload = () => {
-            this.element.classList.add('sprite-loaded');
-        };
-        img.onerror = () => {
-            console.warn('Failed to load sprite:', this.spriteUrl);
-            this.element.classList.add('sprite-error');
-        };
-        img.src = this.spriteUrl;
     }
     
     startAnimation() {
-        if (this.isHovering || !this.spriteUrl) return;
+        if (this.isHovering) return;
         
         this.isHovering = true;
-        this.currentFrame = 0;
         
-        // Start the animation loop
-        this.animationTimer = setInterval(() => {
-            this.nextFrame();
-        }, this.frameInterval * 1000);
+        // Initialize Swiper if not already done
+        if (!this.isInitialized) {
+            this.initializeSwiper();
+        }
         
-        this.spriteOverlay.classList.add('animating');
+        if (this.swiperInstance && this.frameCount > 1) {
+            // Start autoplay with custom interval
+            this.swiperInstance.autoplay.start();
+            this.swiperInstance.params.autoplay = {
+                delay: this.frameInterval * 1000,
+                disableOnInteraction: false
+            };
+            this.swiperInstance.autoplay.start();
+        }
     }
     
     stopAnimation() {
         this.isHovering = false;
         
-        if (this.animationTimer) {
-            clearInterval(this.animationTimer);
-            this.animationTimer = null;
+        if (this.swiperInstance) {
+            this.swiperInstance.autoplay.stop();
+            // Reset to first slide
+            this.swiperInstance.slideTo(0, 300);
         }
-        
-        this.spriteOverlay.classList.remove('animating');
-        this.currentFrame = 0;
-        this.updateSpritePosition();
     }
     
-    nextFrame() {
-        this.currentFrame = (this.currentFrame + 1) % this.frameCount;
-        this.updateSpritePosition();
-    }
-    
-    updateSpritePosition() {
-        // Get the actual thumbnail container dimensions for proper scaling
-        const thumbnail = this.element.querySelector('.static-thumbnail');
-        if (!thumbnail) return;
-        
-        const containerRect = thumbnail.getBoundingClientRect();
-        const scaleX = containerRect.width / this.spriteWidth;
-        
-        // Calculate exact pixel offset for this frame (160px per frame, scaled)
-        const scaledFrameWidth = this.spriteWidth * scaleX;
-        const pixelOffset = this.currentFrame * scaledFrameWidth;
-        
-        this.spriteOverlay.style.backgroundPosition = `-${pixelOffset}px 0`;
+    destroy() {
+        if (this.swiperInstance) {
+            this.swiperInstance.destroy(true, true);
+            this.swiperInstance = null;
+            this.isInitialized = false;
+        }
     }
 }
 
@@ -139,19 +107,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    const animatedThumbnails = document.querySelectorAll('.animated-thumbnail');
+    const swiperThumbnails = document.querySelectorAll('.swiper-thumbnail');
     const thumbnailInstances = [];
     
-    animatedThumbnails.forEach(element => {
+    swiperThumbnails.forEach(element => {
         try {
-            const instance = new AnimatedThumbnail(element);
+            const instance = new SwiperThumbnail(element);
             thumbnailInstances.push(instance);
         } catch (error) {
-            console.warn('Failed to initialize animated thumbnail:', error);
+            console.warn('Failed to initialize swiper thumbnail:', error);
         }
     });
     
-    console.log(`Initialized ${thumbnailInstances.length} animated thumbnails`);
+    console.log(`Initialized ${thumbnailInstances.length} swiper thumbnails`);
 });
 
 // Performance optimization: Intersection Observer for lazy loading
@@ -159,15 +127,16 @@ if ('IntersectionObserver' in window) {
     const thumbnailObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const thumbnail = entry.target.querySelector('.animated-thumbnail');
-                if (thumbnail && !thumbnail.classList.contains('initialized')) {
-                    thumbnail.classList.add('initialized');
-                    // Preload sprite when thumbnail comes into view
-                    const spriteUrl = thumbnail.dataset.spriteUrl;
-                    if (spriteUrl) {
-                        const img = new Image();
-                        img.src = spriteUrl;
-                    }
+                const thumbnail = entry.target.querySelector('.swiper-thumbnail');
+                if (thumbnail && !thumbnail.classList.contains('preloaded')) {
+                    thumbnail.classList.add('preloaded');
+                    // Preload frame images when thumbnail comes into view
+                    const frameImages = thumbnail.querySelectorAll('.frame-image');
+                    frameImages.forEach(img => {
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                        }
+                    });
                 }
             }
         });

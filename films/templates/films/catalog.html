@@ -125,14 +125,25 @@
                             <a href="{% url 'films:detail' film.file_id %}" class="text-decoration-none">
                                 <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
                                     {% if film.has_animated_thumbnail %}
-                                        <div class="animated-thumbnail" 
+                                        <div class="swiper-thumbnail" 
                                              data-sprite-url="{{ film.preview_sprite_url }}"
                                              data-frame-count="{{ film.preview_frame_count }}"
-                                             data-frame-interval="{{ film.preview_frame_interval }}"
-                                             data-sprite-width="{{ film.preview_sprite_width }}"
-                                             data-sprite-height="{{ film.preview_sprite_height }}">
+                                             data-frame-interval="{{ film.preview_frame_interval }}">
                                             <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
-                                            <div class="sprite-overlay"></div>
+                                            <div class="swiper frame-swiper">
+                                                <div class="swiper-wrapper">
+                                                    {% for i in "123456789"|make_list %}
+                                                        {% if forloop.counter0 < film.preview_frame_count %}
+                                                        <div class="swiper-slide">
+                                                            <img src="{{ film.preview_sprite_url }}frame_{{ forloop.counter0|stringformat:'02d' }}.jpg" 
+                                                                 class="card-img-top frame-image" 
+                                                                 alt="{{ film.title }} frame {{ forloop.counter0 }}"
+                                                                 loading="lazy">
+                                                        </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
                                         </div>
                                     {% else %}
                                         <img src="{{ film.thumbnail_url }}" class="card-img-top" alt="{{ film.title }}">
