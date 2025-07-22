@@ -167,6 +167,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers for Heroku
 if 'DYNO' in os.environ:
     ALLOWED_HOSTS = ['*']
+    # Set CSRF trusted origins for Heroku
+    CSRF_TRUSTED_ORIGINS = ['https://family-films-5e88b75c353b.herokuapp.com']
 
 # Static files configuration for Heroku
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
