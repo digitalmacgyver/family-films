@@ -9,8 +9,17 @@ class SwiperThumbnail {
         this.frameSwiper = element.querySelector('.frame-swiper');
         this.staticThumbnail = element.querySelector('.static-thumbnail');
         
-        this.frameCount = parseInt(element.dataset.frameCount) || 0;
-        this.frameInterval = parseFloat(element.dataset.frameInterval) || 0.8;
+        // Determine animation type and set appropriate frame count
+        this.animationType = element.dataset.animationType || 'sprite';
+        if (this.animationType === 'chapter') {
+            // Count actual slides for chapter-based animation
+            this.frameCount = element.querySelectorAll('.swiper-slide').length;
+            this.frameInterval = parseFloat(element.dataset.frameInterval) || 1000; // Default 1 second for chapters
+        } else {
+            // Legacy sprite-based animation
+            this.frameCount = parseInt(element.dataset.frameCount) || 0;
+            this.frameInterval = parseFloat(element.dataset.frameInterval) || 800; // Default 0.8 seconds for sprites
+        }
         
         this.swiperInstance = null;
         this.isHovering = false;
@@ -65,9 +74,11 @@ class SwiperThumbnail {
         
         if (this.swiperInstance && this.frameCount > 1) {
             // Start autoplay with custom interval
-            this.swiperInstance.autoplay.start();
+            // frameInterval is already in milliseconds for chapters, needs conversion for sprites
+            const delayMs = this.animationType === 'chapter' ? this.frameInterval : this.frameInterval * 1000;
+            
             this.swiperInstance.params.autoplay = {
-                delay: this.frameInterval * 1000,
+                delay: delayMs,
                 disableOnInteraction: false
             };
             this.swiperInstance.autoplay.start();

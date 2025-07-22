@@ -163,7 +163,17 @@ class Film(models.Model):
         return sorted([int(year) for year in years])
     
     def has_animated_thumbnail(self):
-        return bool(self.preview_sprite_url and self.preview_frame_count > 0)
+        """Check if film has either sprite-based or chapter-based animation"""
+        return bool(self.preview_sprite_url and self.preview_frame_count > 0) or self.has_chapter_thumbnails()
+    
+    def has_chapter_thumbnails(self):
+        """Check if film has chapter thumbnails for animation"""
+        return self.chapters.exclude(thumbnail_url__isnull=True).exclude(thumbnail_url__exact="").count() >= 2
+    
+    def get_chapter_thumbnail_urls(self):
+        """Get list of chapter thumbnail URLs for animation"""
+        return list(self.chapters.exclude(thumbnail_url__isnull=True).exclude(thumbnail_url__exact="")
+                   .order_by('order').values_list('thumbnail_url', flat=True))
 
 
 class Chapter(models.Model):

@@ -125,26 +125,49 @@
                             <a href="{% url 'films:detail' film.file_id %}" class="text-decoration-none">
                                 <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
                                     {% if film.has_animated_thumbnail %}
-                                        <div class="swiper-thumbnail" 
-                                             data-sprite-url="{{ film.preview_sprite_url }}"
-                                             data-frame-count="{{ film.preview_frame_count }}"
-                                             data-frame-interval="{{ film.preview_frame_interval }}">
-                                            <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
-                                            <div class="swiper frame-swiper">
-                                                <div class="swiper-wrapper">
-                                                    {% for i in "123456789"|make_list %}
-                                                        {% if forloop.counter0 < film.preview_frame_count %}
+                                        {% if film.has_chapter_thumbnails %}
+                                            <!-- Chapter-based animation -->
+                                            <div class="swiper-thumbnail chapter-animation" 
+                                                 data-animation-type="chapter"
+                                                 data-frame-interval="1000">
+                                                <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
+                                                <div class="swiper frame-swiper">
+                                                    <div class="swiper-wrapper">
+                                                        {% for chapter_thumbnail in film.get_chapter_thumbnail_urls %}
                                                         <div class="swiper-slide">
-                                                            <img src="{{ film.preview_sprite_url }}frame_{{ forloop.counter0|stringformat:'02d' }}.jpg" 
+                                                            <img src="{{ chapter_thumbnail }}" 
                                                                  class="card-img-top frame-image" 
-                                                                 alt="{{ film.title }} frame {{ forloop.counter0 }}"
+                                                                 alt="{{ film.title }} chapter {{ forloop.counter }}"
                                                                  loading="lazy">
                                                         </div>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                                        {% endfor %}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        {% else %}
+                                            <!-- Sprite-based animation -->
+                                            <div class="swiper-thumbnail sprite-animation" 
+                                                 data-animation-type="sprite"
+                                                 data-sprite-url="{{ film.preview_sprite_url }}"
+                                                 data-frame-count="{{ film.preview_frame_count }}"
+                                                 data-frame-interval="{{ film.preview_frame_interval }}">
+                                                <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
+                                                <div class="swiper frame-swiper">
+                                                    <div class="swiper-wrapper">
+                                                        {% for i in "123456789"|make_list %}
+                                                            {% if forloop.counter0 < film.preview_frame_count %}
+                                                            <div class="swiper-slide">
+                                                                <img src="{{ film.preview_sprite_url }}frame_{{ forloop.counter0|stringformat:'02d' }}.jpg" 
+                                                                     class="card-img-top frame-image" 
+                                                                     alt="{{ film.title }} frame {{ forloop.counter0 }}"
+                                                                     loading="lazy">
+                                                            </div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
                                     {% else %}
                                         <img src="{{ film.thumbnail_url }}" class="card-img-top" alt="{{ film.title }}">
                                     {% endif %}
