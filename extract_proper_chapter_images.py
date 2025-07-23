@@ -73,13 +73,17 @@ class ProperChapterImageExtractor:
                 # Extract images using the _images attribute
                 if hasattr(sheet, '_images') and sheet._images:
                     print(f"  Found {len(sheet._images)} images in sheet: {sheet_name}")
+                    # Filter to only use Start column images (even indices: 0, 2, 4, 6...)
+                    # This matches the logic in import_chapter_metadata.py line 102
+                    start_images = [img for i, img in enumerate(sheet._images) if i % 2 == 0]
+                    print(f"  Using {len(start_images)} Start column images (filtered from {len(sheet._images)} total)")
                     
-                    for i, img in enumerate(sheet._images):
+                    for start_idx, img in enumerate(start_images):
                         if hasattr(img, '_data'):
                             try:
                                 # Generate filename matching our current naming convention
                                 # But use "proper" prefix to distinguish from corrupted versions
-                                filename = f"{film_id} - {sheet_name.replace('...', '')}_proper_image_{i:03d}.jpg"
+                                filename = f"{film_id} - {sheet_name.replace('...', '')}_proper_image_{start_idx:03d}.jpg"
                                 
                                 # Clean filename of problematic characters
                                 filename = filename.replace('/', '_').replace('\\', '_')
@@ -110,18 +114,18 @@ class ProperChapterImageExtractor:
                                         'format': format_name,
                                         'checksum': checksum,
                                         'file_size': len(image_data),
-                                        'index': i
+                                        'index': start_idx
                                     })
                                     
                                     print(f"    ✓ {filename} ({size[0]}x{size[1]}, {len(image_data)} bytes)")
                                     
                                 except Exception as e:
-                                    print(f"    ✗ Invalid image {i}: {e}")
+                                    print(f"    ✗ Invalid image {start_idx}: {e}")
                                     if filepath.exists():
                                         filepath.unlink()
                                         
                             except Exception as e:
-                                print(f"    ✗ Error extracting image {i}: {e}")
+                                print(f"    ✗ Error extracting image {start_idx}: {e}")
                 else:
                     print(f"  No images found in sheet: {sheet_name}")
             

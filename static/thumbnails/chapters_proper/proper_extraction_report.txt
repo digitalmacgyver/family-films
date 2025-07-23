@@ -1,2432 +1,1337 @@
 PROPER CHAPTER IMAGE EXTRACTION REPORT
 =====================================
 
-Extraction date: Tue Jul 22 02:48:08 PM PDT 2025
+Extraction date: Tue Jul 22 02:58:54 PM PDT 2025
 Total files processed: 47
 Method: LibreOffice conversion + openpyxl extraction
 
 Film: 57-PT_FROS
 Status: success
-Images extracted: 18
+Images extracted: 9
 Images:
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_000.jpg
     Size: (200, 140)
     Checksum: bf105418730ff6627838ebd2264769a0
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: ef59a09cdaf6b30e506626a97a149609
+    Checksum: 327385f83939c332d05ef61fefae49c1
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 327385f83939c332d05ef61fefae49c1
+    Checksum: 6dc6d349d64737934981237b6d430f19
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 24b4b8ed3fa91821832566939d9bf460
+    Checksum: 4a8e7cb0fd53585e017188797b0eb848
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 6dc6d349d64737934981237b6d430f19
+    Checksum: 8dc29b00b437a8f5e0311bb3ed5a3ea5
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 91cb876592c7a759b0ec4ced0cec9ef4
+    Checksum: d037e88dcac2fd4ff212b570fb6ab0aa
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 4a8e7cb0fd53585e017188797b0eb848
+    Checksum: d409a0de3d87b4eb13c3f6302f8b0fba
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: f272e014918c3147258f0ee1afe1a8a1
+    Checksum: 3beb4bf5bc4e188608e9d4d461bfb192
   - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 8dc29b00b437a8f5e0311bb3ed5a3ea5
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: c00f02c31436489b18986400cb3dde22
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: d037e88dcac2fd4ff212b570fb6ab0aa
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 2b1854f2edeb204a2edf144eb3eba21b
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: d409a0de3d87b4eb13c3f6302f8b0fba
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: e31241388c96c42774e933c6c0717c9e
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 3beb4bf5bc4e188608e9d4d461bfb192
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 573dca84e7e333b7f3b4d744abc2af84
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_016.jpg
-    Size: (200, 140)
     Checksum: c4ee86f4969f0a4c731047144f6dcf3e
-  - 57-PT_FROS - 57-PT_FROS - Josephine S_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 849d5019dc59f952c24edaf3a546f373
 
 Film: 58-V1_FROS
 Status: success
-Images extracted: 22
+Images extracted: 11
 Images:
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 14b3d6221a7d397b3f227f0c3b8a2576
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 4c967827ba41f18b3474ed6ee5d17d4a
+    Checksum: df68f59fb9d9450793a5cf4c6f5926c0
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: df68f59fb9d9450793a5cf4c6f5926c0
+    Checksum: 0f0053f71d8e98ac1e79970dd13d4cc7
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 04fa63b8f9686e9d4125874bfbc77504
+    Checksum: b989dcb1cc618157f53063ee97cfbf76
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 0f0053f71d8e98ac1e79970dd13d4cc7
+    Checksum: b80ef84fbb3637eda774842f4e69b783
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 18edb9efa2f0b8019e5c1969245609ba
+    Checksum: 4198d0ee80cd5b95fc490135dfd09d92
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: b989dcb1cc618157f53063ee97cfbf76
+    Checksum: a0b593be270031a80c58453e4f3335b4
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: a2ea43d4a49eee6828b2f3e7b075391e
+    Checksum: 97bbece9b10eb348875af4057e7810a6
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: b80ef84fbb3637eda774842f4e69b783
+    Checksum: 5c016b3fc66a068989ad5244237c5575
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: bfd649574318e1a3c3dd040ea836116a
+    Checksum: 402da2d7ca63c4e1795de91035886e76
   - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 4198d0ee80cd5b95fc490135dfd09d92
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 6c8293fc059cd38823d9d7f583999f4b
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: a0b593be270031a80c58453e4f3335b4
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 79e04e4a74bcba969b032f3fd1e9a83f
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 97bbece9b10eb348875af4057e7810a6
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 5ddd4ccb700557a9bc2dc65dcbad15d9
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 5c016b3fc66a068989ad5244237c5575
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 10edcf70a49884fa9897bc7b00bb213c
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: 402da2d7ca63c4e1795de91035886e76
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: ed2becdaf16371ed0b6cd480a0335013
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_020.jpg
-    Size: (200, 140)
     Checksum: 54e67023cff972b47a19e80b5b7b7ec2
-  - 58-V1_FROS - 58-V1_FROS - Road Trip U_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: a728d1cebf9018abe1c46d13f2d2a978
 
 Film: 58-V2_FROS
 Status: success
-Images extracted: 20
+Images extracted: 10
 Images:
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_000.jpg
     Size: (200, 140)
     Checksum: c30296e86917eb2fa25768fbffd40ee7
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 5f6478409b7f6c43e23d4c51b6bd86eb
+    Checksum: bce6b71185b0aca6b941b6e6b97866d7
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: bce6b71185b0aca6b941b6e6b97866d7
+    Checksum: d2376ba7603140e4424e26cf7eef591f
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 481f54240185984ea375373666c2c382
+    Checksum: abd5b1a49e8af0122368a871877db93f
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: d2376ba7603140e4424e26cf7eef591f
+    Checksum: 3ba8425ce249c2bcad58ae09e5e9f94a
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: be045c0211b1f3f48526fa49ba4ef784
+    Checksum: 6332df97aa3f96217561da45cdf0cc42
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: abd5b1a49e8af0122368a871877db93f
+    Checksum: 9e736d5484431563de640b6db050abc9
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 98046bca2f72dd715bf88c512a1fed8d
+    Checksum: b4276222313df96606335514c5c19778
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 3ba8425ce249c2bcad58ae09e5e9f94a
+    Checksum: b266f6663a681aea0e46ce32eba3ad35
   - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: e15a52c7bf9645f3bb19af6af2558c87
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: 6332df97aa3f96217561da45cdf0cc42
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 283a2fc72628e34f526320f3e490766c
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 9e736d5484431563de640b6db050abc9
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: d18d44c28ab5317c888fe9560f7bbf2d
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: b4276222313df96606335514c5c19778
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 3d9ebf69ecd4e37f548312cc7cb2f97b
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: b266f6663a681aea0e46ce32eba3ad35
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: a7153cfd27e04ed856615192a87e4f73
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_018.jpg
-    Size: (200, 140)
     Checksum: 2935cb837d7a6256f71d2fe8818070c2
-  - 58-V2_FROS - 58-V2_FROS - Canada Road_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 0256daa2deeca8b16c38bf905939fe0f
 
 Film: 59-HI_FROS
 Status: success
-Images extracted: 36
+Images extracted: 18
 Images:
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 3f114626d9a3a318551ec6473f803097
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 3824139e29d84607bc3e37bfaa66481f
+    Checksum: f9148c0c0afd590bb10be5c61a1dedf1
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: f9148c0c0afd590bb10be5c61a1dedf1
+    Checksum: 6fec1275fe1c8d67557193eb1014afdb
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: fe50b826622a5da208cfed16f62fba0e
+    Checksum: de2fc58b6db32a74c29f557ad948bbcc
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 6fec1275fe1c8d67557193eb1014afdb
+    Checksum: 83f19d1725689e1e2842c8e4df064c10
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: c10aee7a7bc31525f2df8a8fec55ef4b
+    Checksum: 87d090257985e25fc272dad5753781d3
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: de2fc58b6db32a74c29f557ad948bbcc
+    Checksum: 7841983932668d08f5c7744bad49ba9e
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: fb60c29944d806a27f976d022a545758
+    Checksum: 4d9a5d5186d7c58ce45a974570547aa6
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 83f19d1725689e1e2842c8e4df064c10
+    Checksum: d47741d7fac227c9636850c527723287
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 0b4dc0827c73450d9f4e03cfbdda491d
+    Checksum: b199d748210835452522e228cf4927f2
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 87d090257985e25fc272dad5753781d3
+    Checksum: 1690cf11ed483286ca6b19e1d7f96a3b
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 5a47a1ddfed8f3249e71b0d49b09ff82
+    Checksum: 36e98a4b1b768ff92817cefd2ff815c1
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: 7841983932668d08f5c7744bad49ba9e
+    Checksum: 41d78ff55c0af107b7daf9d909020f9f
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: 60d1df4235440ad606df8d2205b86a86
+    Checksum: 96bb48c5f1651c7d1692af247c8a7bc6
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_014.jpg
     Size: (200, 140)
-    Checksum: 4d9a5d5186d7c58ce45a974570547aa6
+    Checksum: 89a141505ab152cae024d0d8271f5e0a
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_015.jpg
     Size: (200, 140)
-    Checksum: 0efc6f1fa1b389b322073bd0ffd37683
+    Checksum: 35443bca7f182d93bcbdf9008258b56b
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_016.jpg
     Size: (200, 140)
-    Checksum: d47741d7fac227c9636850c527723287
+    Checksum: b12e1cb660938b16f8fd3ddd2c978342
   - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_017.jpg
     Size: (200, 140)
-    Checksum: 9828b491bcdb63b2d96491df9f563792
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: b199d748210835452522e228cf4927f2
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: a011b35856deb6f06d15f7dc3592049e
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 1690cf11ed483286ca6b19e1d7f96a3b
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: bafba7bdcbcc7fc551a0f3e583dc9cac
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 36e98a4b1b768ff92817cefd2ff815c1
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: ffb15fd4431be8428d59f3bde2bc5ee3
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: 41d78ff55c0af107b7daf9d909020f9f
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: faaaef6f51f2347ec5b8e62ee042bf2e
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_026.jpg
-    Size: (200, 140)
-    Checksum: 96bb48c5f1651c7d1692af247c8a7bc6
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: edd52933535ec467ee1da4d446e16d7e
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_028.jpg
-    Size: (200, 140)
-    Checksum: 89a141505ab152cae024d0d8271f5e0a
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_029.jpg
-    Size: (200, 140)
-    Checksum: d6f279c0bddb9c94b64be88681a0b01f
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_030.jpg
-    Size: (200, 140)
-    Checksum: 35443bca7f182d93bcbdf9008258b56b
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_031.jpg
-    Size: (200, 140)
-    Checksum: 189e2715811b637c0e7bb7123c17c4f2
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_032.jpg
-    Size: (200, 140)
-    Checksum: b12e1cb660938b16f8fd3ddd2c978342
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_033.jpg
-    Size: (200, 140)
-    Checksum: 2dbfa2e91d5dfbe89612b5686c475f39
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_034.jpg
-    Size: (200, 140)
     Checksum: 6a4eef6d467f6634592f7581427ae545
-  - 59-HI_FROS - 59-HI_FROS - Hawaii Trip_proper_image_035.jpg
-    Size: (200, 140)
-    Checksum: afa7d526c0b5a43be131014cedc78cdf
 
 Film: 62-SF_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - 62-SF_FROS - 62-SF_FROS - 1962 Seattl_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 8545f40d0a0373b5c5921b83f12e184b
-  - 62-SF_FROS - 62-SF_FROS - 1962 Seattl_proper_image_001.jpg
-    Size: (200, 140)
-    Checksum: 1abcee1f550003e3380da94e4c63f9ec
 
 Film: HR-1-4_FROS
 Status: success
-Images extracted: 48
+Images extracted: 24
 Images:
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_000.jpg
     Size: (200, 140)
     Checksum: a5476d0e314c9fa0bfaf47dcbc3969f1
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 8ae09c2c6d55f07f4c5a4a1daa207071
+    Checksum: 733378260dabed7831d8afddb0a94b96
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 733378260dabed7831d8afddb0a94b96
+    Checksum: 6ad208aa4f229618c12a8acc1d3b8a3f
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 469a472f1786184cdd96491dc6d21ef3
+    Checksum: 56be4ff0cfae5a5b26f428da424ff009
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 6ad208aa4f229618c12a8acc1d3b8a3f
+    Checksum: fc4841e896bbcea5ebe03690c0a8e160
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 73ab5d4027e13c1cffc8bbb8c587acfe
+    Checksum: 12bb64092fa8440179a7e46e65117d4d
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 56be4ff0cfae5a5b26f428da424ff009
+    Checksum: ffa4e65b481058cb2f0ffbdf55147285
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: f0ea294caabd9e769a797c1ba959a7e3
+    Checksum: aa9cb393da15e1c61bd25da67781298f
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: fc4841e896bbcea5ebe03690c0a8e160
+    Checksum: d629823d3382063c12c712f547569483
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 0146e1cc6482eb5201593bac67a54412
+    Checksum: 33f7344a6d4e57fd3046a4fd1f318a90
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 12bb64092fa8440179a7e46e65117d4d
+    Checksum: 03eecf646ed56048004940fa63135e2d
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 0d6c2d224c4fe1c9bc50398b8132e7b2
+    Checksum: 933bc32f35c9b19bab85fd7d04d0b3a0
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: ffa4e65b481058cb2f0ffbdf55147285
+    Checksum: e9c3172bf0942ee24c687661ed4fb800
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: 11f768c704ba274859809e9e289cb2f8
+    Checksum: 88feabeb19a5cae9b5ccdfb0432324f0
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_014.jpg
     Size: (200, 140)
-    Checksum: aa9cb393da15e1c61bd25da67781298f
+    Checksum: 9b820011d556c34144b8954e7c52bf5c
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_015.jpg
     Size: (200, 140)
-    Checksum: 0e0f351a63ba6a25577721fa23ce2aa6
+    Checksum: 9289fb24cca252bc3c1c3cebf6a22abb
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_016.jpg
     Size: (200, 140)
-    Checksum: d629823d3382063c12c712f547569483
+    Checksum: 7f08258aae07f15ebeddd16f41c41f1a
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_017.jpg
     Size: (200, 140)
-    Checksum: d9b03272b13e361f67739bc673b63727
+    Checksum: d69577aaf7a9965660f362ed7bf8c010
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_018.jpg
     Size: (200, 140)
-    Checksum: 33f7344a6d4e57fd3046a4fd1f318a90
+    Checksum: c8ccf3a9614cb4ed7b6531086407692c
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_019.jpg
     Size: (200, 140)
-    Checksum: cc9e0d5a3da0d2e02c5a3c4989c50ecc
+    Checksum: 7b484b55f6c15ee4cefc0ef417c83655
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_020.jpg
     Size: (200, 140)
-    Checksum: 03eecf646ed56048004940fa63135e2d
+    Checksum: bddc7b7cc5a50fb49e709c8da1eb14e7
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_021.jpg
     Size: (200, 140)
-    Checksum: 36b02596d75787e940f76592f28035c0
+    Checksum: 8215b00a9f840e5de4a74af7ac9b2d53
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_022.jpg
     Size: (200, 140)
-    Checksum: 933bc32f35c9b19bab85fd7d04d0b3a0
+    Checksum: a50c1aeba0f65758d869703023eb7ef6
   - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_023.jpg
     Size: (200, 140)
-    Checksum: d4f0929334134e5b62f438f595045a21
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: e9c3172bf0942ee24c687661ed4fb800
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: 74032dd895ff6304a1651bcc8b5d6dcd
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_026.jpg
-    Size: (200, 140)
-    Checksum: 88feabeb19a5cae9b5ccdfb0432324f0
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: 057ce432867163528a740f7b72bba409
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_028.jpg
-    Size: (200, 140)
-    Checksum: 9b820011d556c34144b8954e7c52bf5c
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_029.jpg
-    Size: (200, 140)
-    Checksum: 8ad2cbac3c76e37b2498e74063c9ed80
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_030.jpg
-    Size: (200, 140)
-    Checksum: 9289fb24cca252bc3c1c3cebf6a22abb
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_031.jpg
-    Size: (200, 140)
-    Checksum: 44c0382b3e3a7c3dd9a45e923df36201
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_032.jpg
-    Size: (200, 140)
-    Checksum: 7f08258aae07f15ebeddd16f41c41f1a
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_033.jpg
-    Size: (200, 140)
-    Checksum: ca71479adb2805fa20910bce2b6d2d66
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_034.jpg
-    Size: (200, 140)
-    Checksum: d69577aaf7a9965660f362ed7bf8c010
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_035.jpg
-    Size: (200, 140)
-    Checksum: 683a9598eb0d2a10631912d54e3e49e9
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_036.jpg
-    Size: (200, 140)
-    Checksum: c8ccf3a9614cb4ed7b6531086407692c
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_037.jpg
-    Size: (200, 140)
-    Checksum: 1d400ae285f1cfb1ac40cc9c5601bf9a
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_038.jpg
-    Size: (200, 140)
-    Checksum: 7b484b55f6c15ee4cefc0ef417c83655
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_039.jpg
-    Size: (200, 140)
-    Checksum: 71b787d48fbf22e1962d2c2fbb17c1e4
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_040.jpg
-    Size: (200, 140)
-    Checksum: bddc7b7cc5a50fb49e709c8da1eb14e7
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_041.jpg
-    Size: (200, 140)
-    Checksum: 254acb0f8c26d6ead5abdc5e915df40a
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_042.jpg
-    Size: (200, 140)
-    Checksum: 8215b00a9f840e5de4a74af7ac9b2d53
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_043.jpg
-    Size: (200, 140)
-    Checksum: 91c14cf0dc0beb275dfadbcb2560f508
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_044.jpg
-    Size: (200, 140)
-    Checksum: a50c1aeba0f65758d869703023eb7ef6
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_045.jpg
-    Size: (200, 140)
-    Checksum: 574d75928e736e435b4157df7c78f8a7
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_046.jpg
-    Size: (200, 140)
     Checksum: 2f9d2382627cd0f2a62ce98ca26902c4
-  - HR-1-4_FROS - HR-1-4_FROS - Multiple R_proper_image_047.jpg
-    Size: (200, 140)
-    Checksum: ea3781173ea44bf736b56e73eff6dc11
 
 Film: KO-1_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - KO-1_FROS - KO-1_FROS - Korean Scene_proper_image_000.jpg
     Size: (200, 140)
     Checksum: ffbbdef6e1089f2c19f0fe60e2f5b449
   - KO-1_FROS - KO-1_FROS - Korean Scene_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 7b10eee869071c4ee3a4552ac31c8b66
+    Checksum: 40acffd7119c48b50e968519adc87c35
   - KO-1_FROS - KO-1_FROS - Korean Scene_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 40acffd7119c48b50e968519adc87c35
-  - KO-1_FROS - KO-1_FROS - Korean Scene_proper_image_003.jpg
-    Size: (200, 140)
-    Checksum: 98702db3abd8b5e456212f841e16a54d
-  - KO-1_FROS - KO-1_FROS - Korean Scene_proper_image_004.jpg
-    Size: (200, 140)
     Checksum: 1ffccc20aadb09bdc23791d8c3f6face
-  - KO-1_FROS - KO-1_FROS - Korean Scene_proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: c7b7897784a7b7a51c23353110dbd107
 
 Film: KO-2_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - KO-2_FROS - KO-2_FROS - Korea Missio_proper_image_000.jpg
     Size: (200, 140)
     Checksum: c5b0f0e86e9a692479e5ecc369f7889b
   - KO-2_FROS - KO-2_FROS - Korea Missio_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: ca93e010a0b4906cbc733f0be9126267
+    Checksum: d4f721806efb4207e4706c186750d814
   - KO-2_FROS - KO-2_FROS - Korea Missio_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: d4f721806efb4207e4706c186750d814
-  - KO-2_FROS - KO-2_FROS - Korea Missio_proper_image_003.jpg
-    Size: (200, 140)
-    Checksum: ce2a6aefd9ee5a538138f5a3458b2023
-  - KO-2_FROS - KO-2_FROS - Korea Missio_proper_image_004.jpg
-    Size: (200, 140)
     Checksum: ad143cc4a133920ec3b8d9d4b376af50
-  - KO-2_FROS - KO-2_FROS - Korea Missio_proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: c22aa24f26f44edbb828f1b9b43726c6
 
 Film: L-52_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - L-52_FROS - L-52_FROS - Damaged Scen_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 0626cd2adb573e662b0fe99d72cdad14
   - L-52_FROS - L-52_FROS - Damaged Scen_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 090da1cb02c088b881e7fb7e51da3766
+    Checksum: 57b0e5ca025f4c93bf73ebc63222135f
   - L-52_FROS - L-52_FROS - Damaged Scen_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 57b0e5ca025f4c93bf73ebc63222135f
-  - L-52_FROS - L-52_FROS - Damaged Scen_proper_image_003.jpg
-    Size: (200, 140)
-    Checksum: b6a4ce87bcdfc8bd6cf4fb27d6d7d9fd
-  - L-52_FROS - L-52_FROS - Damaged Scen_proper_image_004.jpg
-    Size: (200, 140)
     Checksum: 0808598c91e670f975041dda1a83ea4e
-  - L-52_FROS - L-52_FROS - Damaged Scen_proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: 4545743c28db2515142d02fd19255647
 
 Film: L-53_FROS
 Status: success
-Images extracted: 8
+Images extracted: 4
 Images:
   - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 80a5efb5e18a616004d98060e7717d03
   - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 55fe6c140de06b2afa3c0d48c077bafc
+    Checksum: 62b45121d03f7ecfde462d329681d87e
   - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 62b45121d03f7ecfde462d329681d87e
+    Checksum: e6cced65deef12bdf38f874093b0fea6
   - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 85f65bb51e134ad085c42e99a6fa5b21
-  - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_004.jpg
-    Size: (200, 140)
-    Checksum: e6cced65deef12bdf38f874093b0fea6
-  - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: 81d0c8a42fe2986a85252332610c0df7
-  - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_006.jpg
-    Size: (200, 140)
     Checksum: c4056525c651888832743ca0df4c010c
-  - L-53_FROS - L-53_FROS - Rock City Ge_proper_image_007.jpg
-    Size: (200, 140)
-    Checksum: d934fcba9a35ed06b817d0bcc8aaf1f2
 
 Film: L-55A_FROS
 Status: success
-Images extracted: 12
+Images extracted: 6
 Images:
   - L-55A_FROS - L-55A_FROS - House Fire _proper_image_000.jpg
     Size: (200, 140)
     Checksum: 02a946feab64782c53ece3db6c3592f2
   - L-55A_FROS - L-55A_FROS - House Fire _proper_image_001.jpg
     Size: (200, 140)
-    Checksum: b4cf40494c21353a586ed64d240ffa45
+    Checksum: cb2eda216b1e0a64690de20806ff85e5
   - L-55A_FROS - L-55A_FROS - House Fire _proper_image_002.jpg
     Size: (200, 140)
-    Checksum: cb2eda216b1e0a64690de20806ff85e5
+    Checksum: 5e504e4e738f25cc610e623bb1262187
   - L-55A_FROS - L-55A_FROS - House Fire _proper_image_003.jpg
     Size: (200, 140)
-    Checksum: fbac877a74bad5c4fc0336764d5b6d7c
+    Checksum: 2f17304e9ac950fc2bf3181fe45e6274
   - L-55A_FROS - L-55A_FROS - House Fire _proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 5e504e4e738f25cc610e623bb1262187
+    Checksum: 5b98e3533c1d65b199f8f0248812b36b
   - L-55A_FROS - L-55A_FROS - House Fire _proper_image_005.jpg
     Size: (200, 140)
-    Checksum: b6ae9beaa70849e5521c2f9edee3094f
-  - L-55A_FROS - L-55A_FROS - House Fire _proper_image_006.jpg
-    Size: (200, 140)
-    Checksum: 2f17304e9ac950fc2bf3181fe45e6274
-  - L-55A_FROS - L-55A_FROS - House Fire _proper_image_007.jpg
-    Size: (200, 140)
-    Checksum: 3be3daf5efd5a90a488fb3cb68b03c80
-  - L-55A_FROS - L-55A_FROS - House Fire _proper_image_008.jpg
-    Size: (200, 140)
-    Checksum: 5b98e3533c1d65b199f8f0248812b36b
-  - L-55A_FROS - L-55A_FROS - House Fire _proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: 7a4a1aa28220c95375ac7051afbe7062
-  - L-55A_FROS - L-55A_FROS - House Fire _proper_image_010.jpg
-    Size: (200, 140)
     Checksum: 591c0d4e5b6e3c9b2038c2e15eeb6505
-  - L-55A_FROS - L-55A_FROS - House Fire _proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: acb7ffc5bbde27342c119740350b2c27
 
 Film: L-55B_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - L-55B_FROS - L-55B_FROS - Parade_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 862f2651cbf03a056d33df7e6060ad46
-  - L-55B_FROS - L-55B_FROS - Parade_proper_image_001.jpg
-    Size: (200, 140)
-    Checksum: f7f3241f9606e177f4667c92d782aa2f
 
 Film: L-55C_FROS
 Status: success
-Images extracted: 4
+Images extracted: 2
 Images:
   - L-55C_FROS - L-55C_FROS - Myers Family_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 521a77900764f35412f9c3498929cf41
   - L-55C_FROS - L-55C_FROS - Myers Family_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 0248989206be62efcb207e2d464e9bcd
-  - L-55C_FROS - L-55C_FROS - Myers Family_proper_image_002.jpg
-    Size: (200, 140)
     Checksum: d0e2a594040827e1401f4aed365c758b
-  - L-55C_FROS - L-55C_FROS - Myers Family_proper_image_003.jpg
-    Size: (200, 140)
-    Checksum: 2a2e75dfb816dc2ec71b15a3c13239c8
 
 Film: L-56A_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - L-56A_FROS - L-56A_FROS - Niagra Falls_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 6f17a763931ccecc3e12579be30a83ad
-  - L-56A_FROS - L-56A_FROS - Niagra Falls_proper_image_001.jpg
-    Size: (200, 140)
-    Checksum: 3e1ff30c142529a62fb146e39939775a
 
 Film: L-56B_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - L-56B_FROS - L-56B_FROS - Damaged Sce_proper_image_000.jpg
     Size: (200, 140)
     Checksum: b393019185d158ee4b8e21981eee49b1
-  - L-56B_FROS - L-56B_FROS - Damaged Sce_proper_image_001.jpg
-    Size: (200, 140)
-    Checksum: ead55975a70adf34145b0bd32776b4bb
 
 Film: L-58_FROS
 Status: success
-Images extracted: 8
+Images extracted: 4
 Images:
   - L-58_FROS - L-58_FROS - Golden Gate _proper_image_000.jpg
     Size: (200, 140)
     Checksum: ee5e7d82b5bf74514139e6743f1bbdb1
   - L-58_FROS - L-58_FROS - Golden Gate _proper_image_001.jpg
     Size: (200, 140)
-    Checksum: ec61c26e3ae025ef2d65b41b5c9d7f6c
+    Checksum: 0e540558091fad6b6bcac838c9229d6f
   - L-58_FROS - L-58_FROS - Golden Gate _proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 0e540558091fad6b6bcac838c9229d6f
+    Checksum: fa0fe482b9be19201c1db87176d5b9e7
   - L-58_FROS - L-58_FROS - Golden Gate _proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 80ddff6180439fb247b3bdfd1d46fa23
-  - L-58_FROS - L-58_FROS - Golden Gate _proper_image_004.jpg
-    Size: (200, 140)
-    Checksum: fa0fe482b9be19201c1db87176d5b9e7
-  - L-58_FROS - L-58_FROS - Golden Gate _proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: 9d383e34594b36e0ffb88bc6c3d90c71
-  - L-58_FROS - L-58_FROS - Golden Gate _proper_image_006.jpg
-    Size: (200, 140)
     Checksum: 14c3f011407251102c1f94996b1c1345
-  - L-58_FROS - L-58_FROS - Golden Gate _proper_image_007.jpg
-    Size: (200, 140)
-    Checksum: 25b927e86582ded122e4e87f36dd3a3a
 
 Film: L-59_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - L-59_FROS - L-59_FROS - Parade_proper_image_000.jpg
     Size: (200, 140)
     Checksum: c581699c24693d1f338764e87187fe47
-  - L-59_FROS - L-59_FROS - Parade_proper_image_001.jpg
-    Size: (200, 140)
-    Checksum: 416338a17edc785bda1c77c8b3850dca
 
 Film: L-63_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - L-63_FROS - L-63_FROS - Unknown Peop_proper_image_000.jpg
     Size: (200, 140)
     Checksum: ae70d2a24789f6b8ee2453b9b32f71e6
   - L-63_FROS - L-63_FROS - Unknown Peop_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 5f3a3ea8fa12cb566d1dabcba3fd7644
+    Checksum: 2364131c0a578dae387ac0409bbdfef2
   - L-63_FROS - L-63_FROS - Unknown Peop_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 2364131c0a578dae387ac0409bbdfef2
-  - L-63_FROS - L-63_FROS - Unknown Peop_proper_image_003.jpg
-    Size: (200, 140)
-    Checksum: 47acb295baa032488e0ee183bba5f08b
-  - L-63_FROS - L-63_FROS - Unknown Peop_proper_image_004.jpg
-    Size: (200, 140)
     Checksum: 6c4f2cef2cd016288233d620709135f8
-  - L-63_FROS - L-63_FROS - Unknown Peop_proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: 7c930a0356566ac442f9da9cac7b1d63
 
 Film: L-65_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - L-65_FROS - L-65_FROS - Non-Haywards_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 7f85ba90917fd5fdf4aac6737a8d71fb
   - L-65_FROS - L-65_FROS - Non-Haywards_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 07c9fe504090e151dcf2256919508171
+    Checksum: 22cb490f4a0743e77e011ead953ed881
   - L-65_FROS - L-65_FROS - Non-Haywards_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 22cb490f4a0743e77e011ead953ed881
-  - L-65_FROS - L-65_FROS - Non-Haywards_proper_image_003.jpg
-    Size: (200, 140)
-    Checksum: 0c8ed1e958c4805f648b6aae980eca57
-  - L-65_FROS - L-65_FROS - Non-Haywards_proper_image_004.jpg
-    Size: (200, 140)
     Checksum: 2bd67c83f8898382aff676334b1d49e4
-  - L-65_FROS - L-65_FROS - Non-Haywards_proper_image_005.jpg
-    Size: (200, 140)
-    Checksum: 2490e608ac33ce3fab1dd90c6ee358d2
 
 Film: P-09-02_FROS
 Status: success
-Images extracted: 38
+Images extracted: 19
 Images:
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 1e195c4a590189ea86a378685dda0fd8
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: a1fba69fa44d1978e710742a930500e8
+    Checksum: cec09b9ed52a5a378e13e5a367ddcb02
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: cec09b9ed52a5a378e13e5a367ddcb02
+    Checksum: 45f48476dc5eab0c4ed045aaa1c16780
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 496936f292e567866fb4728ae7645ba6
+    Checksum: 02b15e117d7bd3324f1010a0651f072e
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 45f48476dc5eab0c4ed045aaa1c16780
+    Checksum: 37781bd26fe0778a1afcd5bce4623746
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: c85a6781528eb8da0e934b22d37548fe
+    Checksum: 217fdaa9f0f42464f4069785fc172c3e
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 02b15e117d7bd3324f1010a0651f072e
+    Checksum: b72b3d658454efbc37c270cab37fdab9
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: c748b7a923f3485c24dcd1764a71d604
+    Checksum: 02b2a1776ee6b3474ae746e16b47d74b
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 37781bd26fe0778a1afcd5bce4623746
+    Checksum: 3ad3714fe2b7a7b285f88caaa37fce47
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: e9d6c00196d1579535b612c862f4e1d7
+    Checksum: c99968afae2630b971b7c95db99e7702
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 217fdaa9f0f42464f4069785fc172c3e
+    Checksum: 1d44be7e912ecdd93515d7a52cbfa3fd
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 46a91f56586ecccc21af10ff3b22fdcc
+    Checksum: 5785b2674ccbb2c5a873a69ec934cb4f
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: b72b3d658454efbc37c270cab37fdab9
+    Checksum: 5e2968848d278cbea16d68278bea5694
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: 27237b9e5025fb79afa6c2952f3162a6
+    Checksum: 45e88f4d7691481a70ea3c4b9c5767d9
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_014.jpg
     Size: (200, 140)
-    Checksum: 02b2a1776ee6b3474ae746e16b47d74b
+    Checksum: c0fa0e4d871d07a423d14af15c137d0f
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_015.jpg
     Size: (200, 140)
-    Checksum: 317a679dc83261d05da1eae3ff0f8e97
+    Checksum: f64fe3f3d4444ffda66bbe848bd0aa30
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_016.jpg
     Size: (200, 140)
-    Checksum: 3ad3714fe2b7a7b285f88caaa37fce47
+    Checksum: f0462e9c5052db15b526e575688315de
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_017.jpg
     Size: (200, 140)
-    Checksum: ec309133b71b833472523cf4e8f390f8
+    Checksum: 57f2ee1cd6ffe54c5c12238672c7874c
   - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_018.jpg
     Size: (200, 140)
-    Checksum: c99968afae2630b971b7c95db99e7702
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: bb97f2b6a4483add78792fe9d39358d9
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 1d44be7e912ecdd93515d7a52cbfa3fd
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: bdc16b31a09b0eed6d57cc760d97a6f0
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 5785b2674ccbb2c5a873a69ec934cb4f
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: d68b38bc69fd114e73e8249957c3faa1
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: 5e2968848d278cbea16d68278bea5694
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: 61378052d91b018069c1b5afc6f1090c
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_026.jpg
-    Size: (200, 140)
-    Checksum: 45e88f4d7691481a70ea3c4b9c5767d9
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: 6aa826abfca7e60da8b2fdd1f05e5605
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_028.jpg
-    Size: (200, 140)
-    Checksum: c0fa0e4d871d07a423d14af15c137d0f
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_029.jpg
-    Size: (200, 140)
-    Checksum: 12fd6327fdce76fc6463e0ade2c290bf
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_030.jpg
-    Size: (200, 140)
-    Checksum: f64fe3f3d4444ffda66bbe848bd0aa30
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_031.jpg
-    Size: (200, 140)
-    Checksum: f8fae8e89af21176adc716740d6938e6
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_032.jpg
-    Size: (200, 140)
-    Checksum: f0462e9c5052db15b526e575688315de
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_033.jpg
-    Size: (200, 140)
-    Checksum: 469dee5d543e84a5b278f400df773c24
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_034.jpg
-    Size: (200, 140)
-    Checksum: 57f2ee1cd6ffe54c5c12238672c7874c
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_035.jpg
-    Size: (200, 140)
-    Checksum: d18d35a950a7544257ae6a9f74f0eef0
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_036.jpg
-    Size: (200, 140)
     Checksum: ed9c51bb36c54af8371612c78464aa6f
-  - P-09-02_FROS - P-09-02I_FROS - Michigan_proper_image_037.jpg
-    Size: (200, 140)
-    Checksum: d6c986ce67ac146e866aea279bcab0f7
 
 Film: P-09-11_FROS
 Status: success
-Images extracted: 42
+Images extracted: 21
 Images:
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 51db7c1ed7d1c4fe2be47b7668d93e0b
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 80c4e2c7e2421b79f5faacd6a4feee27
+    Checksum: 57f08f24d55f7265336295a3913607e3
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 57f08f24d55f7265336295a3913607e3
+    Checksum: 45a11c45ced333c3e798f049324265b0
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 48c6c468c46bdfb2dc293aeb3417587e
+    Checksum: 09a7b197472c2e184612e9f4f353e1fa
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 45a11c45ced333c3e798f049324265b0
+    Checksum: c54a9a1352827d9777d500214e981e51
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: d726e15eaaf06723ed1c6e69f43692d4
+    Checksum: f1ba6e062311e2121dd00c89e254abb9
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 09a7b197472c2e184612e9f4f353e1fa
+    Checksum: 120fcaaf4fca8045e63d234b3803000d
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 067115e196bd3e5be5a89d9526438ae1
+    Checksum: 5425ab0630f4e64ee6d6bfc784772492
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: c54a9a1352827d9777d500214e981e51
+    Checksum: 9ad3714287e7251f05bb66fdbf241b0a
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 3a20ccfa80cd869acc4d6264c3c42719
+    Checksum: 656b48bb54a9056ce35bcc9d959f19d5
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: f1ba6e062311e2121dd00c89e254abb9
+    Checksum: 0cb2089007dc4715da6b6b6149f51336
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: bc66de0f40c2cfe72a7a83c0e91f6ea7
+    Checksum: 2c52e22b401a48812a98fe65e68414ef
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: 120fcaaf4fca8045e63d234b3803000d
+    Checksum: d6f9b1c71d6015e3711ebfcd3833e821
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: f229cde003aaecb415a6c1385dfcd2d9
+    Checksum: 7b4ece6617daa1fea2cc0a90804a420b
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_014.jpg
     Size: (200, 140)
-    Checksum: 5425ab0630f4e64ee6d6bfc784772492
+    Checksum: 618306be17082b7caa355b4033dba377
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_015.jpg
     Size: (200, 140)
-    Checksum: 37862f783b6da13021d821e8d7373c5f
+    Checksum: 5f401c7a09c9d803e66f617e1d2ec930
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_016.jpg
     Size: (200, 140)
-    Checksum: 9ad3714287e7251f05bb66fdbf241b0a
+    Checksum: ac0246e9a97f634af2d7dbe2d7b75294
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_017.jpg
     Size: (200, 140)
-    Checksum: 0c6f5eb00a1bcb13a028206ac03cc4a9
+    Checksum: df4117023b34f6e55fff417ce7dfa6d6
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_018.jpg
     Size: (200, 140)
-    Checksum: 656b48bb54a9056ce35bcc9d959f19d5
+    Checksum: b0d41e6788614afd744bd24e3e8a46a0
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_019.jpg
     Size: (200, 140)
-    Checksum: 26bdefbfd14759a0a62a09cb8a8b66ec
+    Checksum: addefdffd94f9679cdb774c8d3a451ed
   - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_020.jpg
     Size: (200, 140)
-    Checksum: 0cb2089007dc4715da6b6b6149f51336
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: 476031f66ff797e4743adbf2290e1767
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 2c52e22b401a48812a98fe65e68414ef
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: ae80b11358a703cbdcb338dd8f1d1769
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: d6f9b1c71d6015e3711ebfcd3833e821
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: 13c43166056467f0e859d16183c14f40
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_026.jpg
-    Size: (200, 140)
-    Checksum: 7b4ece6617daa1fea2cc0a90804a420b
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: 0dda8b358d8ef7c1dfce3def5175f3d9
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_028.jpg
-    Size: (200, 140)
-    Checksum: 618306be17082b7caa355b4033dba377
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_029.jpg
-    Size: (200, 140)
-    Checksum: 8b6d52ecabdb5a448f2e60e233511f1f
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_030.jpg
-    Size: (200, 140)
-    Checksum: 5f401c7a09c9d803e66f617e1d2ec930
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_031.jpg
-    Size: (200, 140)
-    Checksum: be24b9d9056cfa8a5236abb53ef6b5b2
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_032.jpg
-    Size: (200, 140)
-    Checksum: ac0246e9a97f634af2d7dbe2d7b75294
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_033.jpg
-    Size: (200, 140)
-    Checksum: 2beb9e4b068eea55421a38f03653605d
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_034.jpg
-    Size: (200, 140)
-    Checksum: df4117023b34f6e55fff417ce7dfa6d6
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_035.jpg
-    Size: (200, 140)
-    Checksum: 0f90e34a6a86ba478365ba693298d586
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_036.jpg
-    Size: (200, 140)
-    Checksum: b0d41e6788614afd744bd24e3e8a46a0
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_037.jpg
-    Size: (200, 140)
-    Checksum: c18a3b5442ce0e9b46d9ff7a74b5672f
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_038.jpg
-    Size: (200, 140)
-    Checksum: addefdffd94f9679cdb774c8d3a451ed
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_039.jpg
-    Size: (200, 140)
-    Checksum: 51fee19ff4a75203c3122e5151e1687e
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_040.jpg
-    Size: (200, 140)
     Checksum: e681cbbb000a91b1057a2a379de31281
-  - P-09-11_FROS - P-09-11_FROS - Seattle a_proper_image_041.jpg
-    Size: (200, 140)
-    Checksum: f6f5c9c71420e27ef8225a4e60d6a895
 
 Film: P-50_FROS_CC
 Status: success
-Images extracted: 26
+Images extracted: 13
 Images:
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 1280554d8e7328733e5977dd53e99133
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 34a605d76cadd68bafe0b640a199cfda
+    Checksum: 310f915f4e396fc3421a853e0b78cf14
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 310f915f4e396fc3421a853e0b78cf14
+    Checksum: 954ed4a457478c4dfbe6b8a592382f66
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 65b582bed90e54ce04d6ddcd371462a7
+    Checksum: 9f6590af86a4d9fe73866dc76668d6fd
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 954ed4a457478c4dfbe6b8a592382f66
+    Checksum: bfc4441e1b6a616c6fdfe4d97e98a7b3
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 11bdb4820d7467072e28472d836ae054
+    Checksum: 318393fd2e6b1d676bfaaa2e1c512b7b
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 9f6590af86a4d9fe73866dc76668d6fd
+    Checksum: ecaaa19804567657893b10b83e76ff37
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 29e12c51ba214b8a29edddbf4c64481c
+    Checksum: e545fc097d934dad775cfb7df5b8549d
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: bfc4441e1b6a616c6fdfe4d97e98a7b3
+    Checksum: 511aefe07c50a6b926536b8ac2c1d580
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 0b14d12704f92c817da36947b3395bfc
+    Checksum: 8efc9d91ddc12f652793f625f3509e25
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 318393fd2e6b1d676bfaaa2e1c512b7b
+    Checksum: 93c3d6dccf8825b24adf4920ba8e62c6
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 36168bfb465fe1aac563f7d1738800e4
+    Checksum: 85e65233edb37aaff239c8a57e4f31b2
   - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: ecaaa19804567657893b10b83e76ff37
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 63082b2f5d66acc0247e41432aa78563
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: e545fc097d934dad775cfb7df5b8549d
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: c5ec7e0f68a2a23f76b24516cd0b65cd
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 511aefe07c50a6b926536b8ac2c1d580
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 04acde3e631e6ef07cfaf74f11bdb3ee
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: 8efc9d91ddc12f652793f625f3509e25
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 30e5747eed84baf648fbefe6598d904d
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 93c3d6dccf8825b24adf4920ba8e62c6
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: dc96102c42b6dece8f2e73ede9af175e
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 85e65233edb37aaff239c8a57e4f31b2
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: c1fa590539f2524efef4bfc3282ab790
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_024.jpg
-    Size: (200, 140)
     Checksum: 1d9982de13bb2a3d16072e1b390dc56b
-  - P-50_FROS_CC - P-50_FROS - Twins as Bab_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: 481fec90eb2c9c593085f8ca29925703
 
 Film: P-53_FROS
 Status: success
-Images extracted: 20
+Images extracted: 10
 Images:
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_000.jpg
     Size: (200, 140)
     Checksum: 8cc40e095245af37292131545058e7b6
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 99b0f5dbee0a75e7dba53884bab6b9e4
+    Checksum: 412285ab211177880064c009bae38f43
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 412285ab211177880064c009bae38f43
+    Checksum: 7c7f17ae770d16f70007a470ba1b183a
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_003.jpg
     Size: (200, 140)
-    Checksum: c678ed565d96c7c133d5672dc17473ae
+    Checksum: b885015b9a7a36d0755dec43b949da6c
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 7c7f17ae770d16f70007a470ba1b183a
+    Checksum: 4150d286961d1ac6e1dc3f4a6209b653
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 1bb6523701738094518e4b820c300be0
+    Checksum: 7e3d2aee45236800876e70aa28325fb4
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_006.jpg
     Size: (200, 140)
-    Checksum: b885015b9a7a36d0755dec43b949da6c
+    Checksum: b1cdf563ea7b1f39033b8664db5a6fb6
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_007.jpg
     Size: (200, 140)
-    Checksum: a1bd4924f500a9e18b754d616d3ca630
+    Checksum: b2a4df8d68c79b208d80c45cdb5fb356
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 4150d286961d1ac6e1dc3f4a6209b653
+    Checksum: f7daf125b56f28ff107aa95ad0294fbe
   - P-53_FROS - P-53_FROS - New Orleans _proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 494ce23540f7ff9e53df47af3d77a815
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: 7e3d2aee45236800876e70aa28325fb4
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 87c1056da0110e1ec8916333451915d9
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: b1cdf563ea7b1f39033b8664db5a6fb6
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 8385cf209fbf345241adacbdf0c48c29
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: b2a4df8d68c79b208d80c45cdb5fb356
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: d7a2e229048bf523e42780da4c844f85
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: f7daf125b56f28ff107aa95ad0294fbe
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 80620259c6e34862ba77a73dc806fad7
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_018.jpg
-    Size: (200, 140)
     Checksum: e6ddc6d7de869614fdc85e44ea0e566a
-  - P-53_FROS - P-53_FROS - New Orleans _proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 3f5a21d0e362767f01b4d7f12b4725e1
 
 Film: P-56_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - P-56_FROS - P-56_FROS - Disney Trip _proper_image_000.jpg
     Size: (200, 140)
     Checksum: b6e2e3c4a0dcb50076e42c627d9c9306
-  - P-56_FROS - P-56_FROS - Disney Trip _proper_image_001.jpg
-    Size: (200, 140)
-    Checksum: 25d55d85d15fe7cd6ec7434d8da9c783
 
 Film: P-60_FROS
 Status: success
-Images extracted: 12
+Images extracted: 6
 Images:
   - P-60_FROS - P-60_FROS - Train Trip M_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 50b86c43fc1fdd9218714d46bb49633e
   - P-60_FROS - P-60_FROS - Train Trip M_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 9b9595368e75442607d8d37ace2f20b3
+    Checksum: 63d046cf8d92aae9523899b39caa6ceb
   - P-60_FROS - P-60_FROS - Train Trip M_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 63d046cf8d92aae9523899b39caa6ceb
+    Checksum: c6642a2b26dcfb1cef91c8150125375e
   - P-60_FROS - P-60_FROS - Train Trip M_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 7a80974089f45b82ca72603dea1b1249
+    Checksum: 74d208243c7dfbd09174f485a7c397e5
   - P-60_FROS - P-60_FROS - Train Trip M_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: c6642a2b26dcfb1cef91c8150125375e
+    Checksum: 48f780a6bb7858da17d257a5b629e4aa
   - P-60_FROS - P-60_FROS - Train Trip M_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 50491ff62425952d7d16c405080306ab
-  - P-60_FROS - P-60_FROS - Train Trip M_proper_image_006.jpg
-    Size: (200, 140)
-    Checksum: 74d208243c7dfbd09174f485a7c397e5
-  - P-60_FROS - P-60_FROS - Train Trip M_proper_image_007.jpg
-    Size: (200, 140)
-    Checksum: 5dd6fe6c5ec9174e85266653364bf96d
-  - P-60_FROS - P-60_FROS - Train Trip M_proper_image_008.jpg
-    Size: (200, 140)
-    Checksum: 48f780a6bb7858da17d257a5b629e4aa
-  - P-60_FROS - P-60_FROS - Train Trip M_proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: e271987790927e9dafbee0c5c01c52bb
-  - P-60_FROS - P-60_FROS - Train Trip M_proper_image_010.jpg
-    Size: (200, 140)
     Checksum: 69af41f5b9c7200d621b6268a1354da8
-  - P-60_FROS - P-60_FROS - Train Trip M_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: e17b76109bd8b5b372da61297a2b2d8b
 
 Film: P-61_FROS
 Status: success
-Images extracted: 12
+Images extracted: 6
 Images:
   - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 88dc08b0d1044e13558a15cc4ed37ed6
   - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 52b8cf513528fb3c534b8b13cfa4dbc2
+    Checksum: b1244d39d8990a53d4346b0deb7e41c1
   - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: b1244d39d8990a53d4346b0deb7e41c1
+    Checksum: b4f9e94847f3ea682d761a4d936cd87b
   - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: fdabb7d2973a82062f852bc66353fe57
+    Checksum: c030e40bb6d086773c9fba6487ecb7a7
   - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: b4f9e94847f3ea682d761a4d936cd87b
+    Checksum: 6234d26777e55bd3f006c642935841ec
   - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 89f11a2ee4cd6b563aef931e88bef3c8
-  - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_006.jpg
-    Size: (200, 140)
-    Checksum: c030e40bb6d086773c9fba6487ecb7a7
-  - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_007.jpg
-    Size: (200, 140)
-    Checksum: 82ed23d40dfdb002c17a30d636659e76
-  - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_008.jpg
-    Size: (200, 140)
-    Checksum: 6234d26777e55bd3f006c642935841ec
-  - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: 06fad7f5cdd641767d3c01f8c304a25d
-  - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_010.jpg
-    Size: (200, 140)
     Checksum: 6504cffe3874dea7d8df2c52434d6f8c
-  - P-61_FROS - P-61_FROS - Childrens Fi_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 870ee6f476baa1b4bb558040d5467347
 
 Film: P-CC1_FROS
 Status: success
-Images extracted: 24
+Images extracted: 12
 Images:
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_000.jpg
     Size: (200, 140)
     Checksum: 66b2237a9f3a03aae1da29b088abe70d
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 243d87bddc1e3cbe7171192cc40199ea
+    Checksum: f145f972bcc5491107ce30e0ae134d92
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_002.jpg
     Size: (200, 140)
-    Checksum: f145f972bcc5491107ce30e0ae134d92
+    Checksum: 781c81bf81f41f6b783d76a4c590c0b1
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_003.jpg
     Size: (200, 140)
-    Checksum: f6a55263f2452a313c935fe3fa134456
+    Checksum: a928bb527cc5e12c2a7c1bc8b8ed043f
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 781c81bf81f41f6b783d76a4c590c0b1
+    Checksum: bc24fbb107b856318c9f53d6f9c3d9bb
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_005.jpg
     Size: (200, 140)
-    Checksum: e91755de4b981d89fe06d0a025236148
+    Checksum: 66decdb7faac3308d59a34e61b7eb023
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_006.jpg
     Size: (200, 140)
-    Checksum: a928bb527cc5e12c2a7c1bc8b8ed043f
+    Checksum: 9a4940b43e00dcddea14031f8eca633a
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_007.jpg
     Size: (200, 140)
-    Checksum: bf0ccef83ea868a99c3413f075162d58
+    Checksum: e2b04725b011e361a0d828a2bf71710a
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_008.jpg
     Size: (200, 140)
-    Checksum: bc24fbb107b856318c9f53d6f9c3d9bb
+    Checksum: e93e49e3b065243b948468ebcbe29bb5
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_009.jpg
     Size: (200, 140)
-    Checksum: a26bb8f3695e56d4b4a5136dab7e29a7
+    Checksum: db3c8d1093fac0f034a34bef4bc771bf
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 66decdb7faac3308d59a34e61b7eb023
+    Checksum: e634fb611bb2e53e5cfb6660ba9b8c0a
   - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 9f17a5f8116c67767096482ae15d83f8
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 9a4940b43e00dcddea14031f8eca633a
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 6aac87db0722d291201dde26f7d5bb93
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: e2b04725b011e361a0d828a2bf71710a
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 6c9c2dc8202037aab0b7b8f222e3d79e
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: e93e49e3b065243b948468ebcbe29bb5
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 93c15ee9634bfccfdef32a2a03652526
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: db3c8d1093fac0f034a34bef4bc771bf
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 93269229c671f3605f17915da57c5e64
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: e634fb611bb2e53e5cfb6660ba9b8c0a
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: f092a0dcf312b42a6c8e7734c190f4c8
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_022.jpg
-    Size: (200, 140)
     Checksum: 1bcfb486e6bccc97039bde65e048c0af
-  - P-CC1_FROS - P-CC1_FROS - Skiing Car _proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: 7593a0889ff7d406ddeb9b9a0b63837a
 
 Film: P-CC2_FROS_CC
 Status: success
-Images extracted: 34
+Images extracted: 17
 Images:
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_000.jpg
     Size: (200, 140)
     Checksum: b25ea03cdda39d922ca54cea226f82bb
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: b1322f55975222cb631d564b940dafc1
+    Checksum: 7e91aa09bbfdb3ea4cbac44ca14afdc4
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 7e91aa09bbfdb3ea4cbac44ca14afdc4
+    Checksum: 43d5bf7a7d24c2b4e9d5f2a776ea4740
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 5eac2e1902988bc5c1ff328f62fdb678
+    Checksum: 85e0457c1ab92f56f4bd4c006a8ca97b
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 43d5bf7a7d24c2b4e9d5f2a776ea4740
+    Checksum: 9754e7b15a575fc547aa248865c7a92b
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: c590243f6c49a8247a0e6fa9f10a8be5
+    Checksum: 16885afaadfc0df98324337fe450fe4d
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 85e0457c1ab92f56f4bd4c006a8ca97b
+    Checksum: 8b7eac624c790a88512d60eca50a542a
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 54feadda12ed60381951263395978587
+    Checksum: ef4d806409c9f6ec63308acf52fd2bcb
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 9754e7b15a575fc547aa248865c7a92b
+    Checksum: 255b29d21adebe211838ee0cce018c51
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 0b2726ecdb4893cf14c3247e616179fb
+    Checksum: b46d8f37c5a69fceae67046ace6ba9d8
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 16885afaadfc0df98324337fe450fe4d
+    Checksum: a37c3027e8edbadd0b71ab2b80ad5da9
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: d0f77d36e6ffefc5f7c52f6c17816097
+    Checksum: 7c368944b23c282364069df8b13e0d85
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: 8b7eac624c790a88512d60eca50a542a
+    Checksum: 8b983d729dde5c150ea4fef86dc4d56b
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: 3c9b1877d4d2a84e8e0cddfd7f6e9940
+    Checksum: c001dd598539880015e493401c3136cf
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_014.jpg
     Size: (200, 140)
-    Checksum: ef4d806409c9f6ec63308acf52fd2bcb
+    Checksum: 64544efdfdacd835d6e06b7c6ed47a6d
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_015.jpg
     Size: (200, 140)
-    Checksum: 524296f7322a713f9bd6ab2771862591
+    Checksum: 659343f012ea5364a8d5adbc62084676
   - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_016.jpg
     Size: (200, 140)
-    Checksum: 255b29d21adebe211838ee0cce018c51
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 8e13168dbdb28aea767388a85d7d8825
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: b46d8f37c5a69fceae67046ace6ba9d8
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: a2a0512cf87722bd4078a5fa6c94bf23
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: a37c3027e8edbadd0b71ab2b80ad5da9
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: 7fab44512a9440172cb568abfd7c4f7f
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 7c368944b23c282364069df8b13e0d85
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: accc84280d18d4ab9413c3ffcb454dd8
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: 8b983d729dde5c150ea4fef86dc4d56b
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: b1fcec36ed035229af2c001ee9cef4b1
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_026.jpg
-    Size: (200, 140)
-    Checksum: c001dd598539880015e493401c3136cf
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: 1275ecb2b5dff53b9f22e74f2c6b56cb
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_028.jpg
-    Size: (200, 140)
-    Checksum: 64544efdfdacd835d6e06b7c6ed47a6d
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_029.jpg
-    Size: (200, 140)
-    Checksum: 9eadf94eb7d0b66b517ff1ab3a6bb3df
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_030.jpg
-    Size: (200, 140)
-    Checksum: 659343f012ea5364a8d5adbc62084676
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_031.jpg
-    Size: (200, 140)
-    Checksum: f1ae0367d7f7b4186f692afbd2b19d1f
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_032.jpg
-    Size: (200, 140)
     Checksum: 3044732020f9b81ed56973c051654ab5
-  - P-CC2_FROS_CC - P-CC2_FROS_CC - Michigan_proper_image_033.jpg
-    Size: (200, 140)
-    Checksum: 8c0dead3f0f0fdf6e1651d2616468854
 
 Film: PA-01_FROS
 Status: success
-Images extracted: 24
+Images extracted: 12
 Images:
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_000.jpg
     Size: (200, 140)
     Checksum: d71b478ae93dbeb7d3005bc069a411c2
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: a50ff1ed4255bf46a83ea96ff953ee49
+    Checksum: d5029903eadc948f86bc7495b34d93ff
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: d5029903eadc948f86bc7495b34d93ff
+    Checksum: 7b6094bfbf1ecf4e6252421dd9246315
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: b3b9981181e9af64ca7839273e7998d3
+    Checksum: 804a332f67d3e98449c6b5b761ca47c2
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 7b6094bfbf1ecf4e6252421dd9246315
+    Checksum: c4f70ff3549809c86cea0f6bc6fac73f
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 903521eeabbc81ba242227385c1f79fa
+    Checksum: c9055d0e5e500365ab4404cde2523aa5
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 804a332f67d3e98449c6b5b761ca47c2
+    Checksum: 5455d35648b9e1f47be7212fd47b3f6d
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 2a59af3d41c91ccbb3fc68a4eefb81ea
+    Checksum: 367ff814f527068f117330478fa74439
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: c4f70ff3549809c86cea0f6bc6fac73f
+    Checksum: 35713461d728b4357a276b8fdbe6901a
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: a95d5a257261212af8dcadf863951e2f
+    Checksum: ac706be486eb59e87c5c0c04ac41482d
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: c9055d0e5e500365ab4404cde2523aa5
+    Checksum: 0135effe69f14913466c28d9e85dab88
   - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 77dd3334140933713e8391ffadfe9cbf
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 5455d35648b9e1f47be7212fd47b3f6d
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: d689b46196b3fd7b038bf46b44b60ed6
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 367ff814f527068f117330478fa74439
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: ff008f3d81d011485a4d0d2c8bb287e9
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 35713461d728b4357a276b8fdbe6901a
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 3795014eb37620d6715841f96534cdab
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: ac706be486eb59e87c5c0c04ac41482d
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: b6d25292db450a913f8dff780f8a3609
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 0135effe69f14913466c28d9e85dab88
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: 4c018a6480ae94269acbcfd6c41391d6
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_022.jpg
-    Size: (200, 140)
     Checksum: 68bc10b6cb24bb274934024f469e3b82
-  - PA-01_FROS - PA-01_FROS - Kids Christ_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: bfdca3e32de97b5dc0e0c23b2557550b
 
 Film: PA-02_FROS
 Status: success
-Images extracted: 28
+Images extracted: 14
 Images:
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 3b8a2b0c4a36624d615acb1dadb1f5b1
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: cd7954b51ab2ac0899fa1a76039c9776
+    Checksum: f40f91b33025a14891f89b9fc433fa65
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: f40f91b33025a14891f89b9fc433fa65
+    Checksum: 2ec2ae0b778bc3ca5e44c6cfc6f22d93
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 9ba09fb17a86662a314feee2e6dda20b
+    Checksum: a488c3f81ebc7b137cc3311f1736515c
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 2ec2ae0b778bc3ca5e44c6cfc6f22d93
+    Checksum: a06620c3fff1d1c649a4bcd4ca81f233
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: a50fe8826aadabd3880b890a5ef9fb41
+    Checksum: 0709917554f15ccaa3965944189fa44e
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: a488c3f81ebc7b137cc3311f1736515c
+    Checksum: ffa0a8e70b70e53fccb9243b9fcab42e
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: b733647f89483f85b2606ef4b2a6b2ba
+    Checksum: 2c16cf37fed57259d627773758f30503
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: a06620c3fff1d1c649a4bcd4ca81f233
+    Checksum: 8e4589aed082de0a23b27e76b7c9aaac
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 9811913a2afd48607a6aa6e09f7766c4
+    Checksum: dc5684ef7913b9685015ebbc189726cb
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 0709917554f15ccaa3965944189fa44e
+    Checksum: 7cbb76d9b80aed4ecddac42d822d17e4
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 006f25620e1fb484bf9a37a285807c65
+    Checksum: be322b19d169b4adc3647501c66b88a3
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: ffa0a8e70b70e53fccb9243b9fcab42e
+    Checksum: 8d6c8a81981da8459662e5c05f91aaa8
   - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: 16007e8356b2a7d93a88ae429fad4dff
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 2c16cf37fed57259d627773758f30503
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 58de64c957e9b5858eed6f0eb893ac52
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 8e4589aed082de0a23b27e76b7c9aaac
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 8c24051c0a255ab1cfb1285723cf7d37
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: dc5684ef7913b9685015ebbc189726cb
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 20e35f2c616a78292af0c961e5c82968
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 7cbb76d9b80aed4ecddac42d822d17e4
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: 07dbd41e0f8d35a7bcbf9dec01ef1abb
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: be322b19d169b4adc3647501c66b88a3
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: 8f8bdaf469b880518d19c0d2e3e35bf4
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: 8d6c8a81981da8459662e5c05f91aaa8
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: ec5f346111d98421d79cf6680d926a26
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_026.jpg
-    Size: (200, 140)
     Checksum: 99964e7b30f950f7506812ac1355fa5e
-  - PA-02_FROS - PA-02_FROS - John Jr and_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: 3dfc29d2598a6014fdfbb5e4324c7fad
 
 Film: PA-03_FROS
 Status: success
-Images extracted: 38
+Images extracted: 19
 Images:
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 87ccd616f708d2f262e40198424b90c9
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: e25a5b2f114524235e1bd3e7bedf4f0a
+    Checksum: df226aa11153af4aafbeb943202bddf7
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: df226aa11153af4aafbeb943202bddf7
+    Checksum: 561d2e2447302af46bd8bc0aa922edcb
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: ed0c8f62babf647a9e81678bbd4e9f92
+    Checksum: 7db48203782e54c33b0bc8f4babf38c5
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 561d2e2447302af46bd8bc0aa922edcb
+    Checksum: ed19074faa7712be7200e104782f496a
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: c894bf50ba9ef685ef6197f76ae03782
+    Checksum: bb2a305f0e2c5cb659b50513c033bdc5
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 7db48203782e54c33b0bc8f4babf38c5
+    Checksum: 0f72692d823ac32fea5410418d59b1a8
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: ac6d5d64f568605247b1a82f95cc4923
+    Checksum: eb81c0de92137a56b00009032780fc08
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: ed19074faa7712be7200e104782f496a
+    Checksum: 2c46a8b59216c7c608cb6db2d9c6d03b
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: d00cdadbb91bbfb7466a33d3e249a658
+    Checksum: 4d700fa7539924e776c45e3063aae6d5
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: bb2a305f0e2c5cb659b50513c033bdc5
+    Checksum: 2e33b05a33b4b84f6da740bd7b64451d
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 9140f7b824757acce968dfa7cf09395b
+    Checksum: 91a5eec9f2683f47220592dc532522e2
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: 0f72692d823ac32fea5410418d59b1a8
+    Checksum: fcef7d31d012ac6a7250105eaa66315c
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: d474f7026a14877dcbcc7ba23af775bd
+    Checksum: 1ea6fd66c5a49f425f8ae4f100e2a983
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_014.jpg
     Size: (200, 140)
-    Checksum: eb81c0de92137a56b00009032780fc08
+    Checksum: 7fba781415c4ad41fe0f55e111aeb4df
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_015.jpg
     Size: (200, 140)
-    Checksum: 47ad696cf53679e3f5abf4eccbb74a05
+    Checksum: 52fdb5364a7600934df64942c68b3306
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_016.jpg
     Size: (200, 140)
-    Checksum: 2c46a8b59216c7c608cb6db2d9c6d03b
+    Checksum: ae2935562d632264a0e5fbf48cd24a3b
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_017.jpg
     Size: (200, 140)
-    Checksum: 5a91ebfc3c425ac31147e4efc27fd237
+    Checksum: 7a53e8435a70024255f7f40e782f0a0c
   - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_018.jpg
     Size: (200, 140)
-    Checksum: 4d700fa7539924e776c45e3063aae6d5
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: fb30f37535b974e00317430ca716e23f
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 2e33b05a33b4b84f6da740bd7b64451d
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: 65122b5dfda1b96797a4f4a140112c07
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 91a5eec9f2683f47220592dc532522e2
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: 89599604464004d72905f68916240ec7
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: fcef7d31d012ac6a7250105eaa66315c
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: 053b664be7a7e7185cd0186a0d2b09ee
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_026.jpg
-    Size: (200, 140)
-    Checksum: 1ea6fd66c5a49f425f8ae4f100e2a983
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: b77ddcb2e11489e8eb16b86d14554975
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_028.jpg
-    Size: (200, 140)
-    Checksum: 7fba781415c4ad41fe0f55e111aeb4df
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_029.jpg
-    Size: (200, 140)
-    Checksum: 123132bd3a8d3f20d99c8364cfdb036b
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_030.jpg
-    Size: (200, 140)
-    Checksum: 52fdb5364a7600934df64942c68b3306
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_031.jpg
-    Size: (200, 140)
-    Checksum: 24718f45ea061a0188a527c2687e2294
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_032.jpg
-    Size: (200, 140)
-    Checksum: ae2935562d632264a0e5fbf48cd24a3b
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_033.jpg
-    Size: (200, 140)
-    Checksum: 885625cad83a1ddea129f9ff63edcae1
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_034.jpg
-    Size: (200, 140)
-    Checksum: 7a53e8435a70024255f7f40e782f0a0c
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_035.jpg
-    Size: (200, 140)
-    Checksum: 1446db45b1fac31d1bdea0a28bc83716
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_036.jpg
-    Size: (200, 140)
     Checksum: 7c44a76e9dc84aa7610a9ca72cb583d6
-  - PA-03_FROS - PA-03_FROS - Myers and G_proper_image_037.jpg
-    Size: (200, 140)
-    Checksum: a7ccf527579d65b28eb8f444021cbba2
 
 Film: PB-01_FROS
 Status: success
-Images extracted: 20
+Images extracted: 10
 Images:
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_000.jpg
     Size: (200, 140)
     Checksum: 11237c140b5c5bb0fb87d081b626af1b
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 5aa0c9b754f81bd2c5854f22a17aef35
+    Checksum: c6d32ca19e7423eaf8d1a6e3c203ca14
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_002.jpg
     Size: (200, 140)
-    Checksum: c6d32ca19e7423eaf8d1a6e3c203ca14
+    Checksum: a261ab1429fb3e2a31ccac2e987119fe
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 27c31be74ee04195b4c2a609a87e83b7
+    Checksum: 151646f12166c200aec8b834714ab800
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_004.jpg
     Size: (200, 140)
-    Checksum: a261ab1429fb3e2a31ccac2e987119fe
+    Checksum: 44b384764a03c1ac18c7a662f01db901
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 5aebe59acf3b89b142f117a16d39ee64
+    Checksum: e88c48f8b558b23ecf99023fe5f18af7
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 151646f12166c200aec8b834714ab800
+    Checksum: 7bf20779f24639b7b59403f37fefb440
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 5cdc10b960daf6aedfe61d83cfe48eb6
+    Checksum: 3f9788dab3c2fd2629acb468e1824f27
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 44b384764a03c1ac18c7a662f01db901
+    Checksum: 22e45987cc1674dd0d8625e19b7f8c1c
   - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_009.jpg
     Size: (200, 140)
-    Checksum: fe0e559e25dec2e2927f0b8d657c435f
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: e88c48f8b558b23ecf99023fe5f18af7
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: f570091954a35da551cdc2cf40cfcfe8
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 7bf20779f24639b7b59403f37fefb440
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 6cbd96451bec121bb4fdcbfd60f28755
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 3f9788dab3c2fd2629acb468e1824f27
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 104469f453773f1a22aa5fad0013250a
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 22e45987cc1674dd0d8625e19b7f8c1c
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 993e1ed9105368eef03a73888175f295
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_018.jpg
-    Size: (200, 140)
     Checksum: ee7205aae9ca550abbdd829b3c66d43b
-  - PB-01_FROS - PB-01_FROS - Lake Ocean _proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 72d4812a1e68e9bf0ad12175de90a8b7
 
 Film: PB-04_FROS
 Status: success
-Images extracted: 28
+Images extracted: 14
 Images:
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 959b738dc9cebeabc8df42f4433a716f
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 2f97fc470b079c31825c9b0559e614a8
+    Checksum: 6d59ae24714959542311d692003034ef
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 6d59ae24714959542311d692003034ef
+    Checksum: 785f7bd074933642cf6ffd59f59dce81
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: e25640c04fc4e5239f60554f69c7f5ac
+    Checksum: 525ff623920142e92b087d0b8f06d8e6
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 785f7bd074933642cf6ffd59f59dce81
+    Checksum: 832b30e918c8213ac3b6aeac1858fc9a
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: d8a8173602b2a4327f6edfdc1bf320d5
+    Checksum: 4ca81cdcabf315ec212b62b9b20c3fb0
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 525ff623920142e92b087d0b8f06d8e6
+    Checksum: ae82c2d0a13f849a0b97c6ff947e6771
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 83d38c033522cc156ec2c26c7d32ab45
+    Checksum: dfda451737d77de5da443b9fab1e6905
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 832b30e918c8213ac3b6aeac1858fc9a
+    Checksum: 7602878a1eefa8d3bcfd4cf75d25c0c5
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 3bb985c255e4d80ecbe6ff14c3d88f1a
+    Checksum: 941e6c63086505eca4ffb86e1139802c
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 4ca81cdcabf315ec212b62b9b20c3fb0
+    Checksum: 82005504059f5de9ae81c73e2866c037
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 1799761a66f2b049ed5a0fee55323246
+    Checksum: 1f6c7ad5293359e349aa8afba8227147
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_012.jpg
     Size: (200, 140)
-    Checksum: ae82c2d0a13f849a0b97c6ff947e6771
+    Checksum: 4d28cbb22bb76c328ad2895ad2ad4916
   - PB-04_FROS - PB-04_FROS - Western Par_proper_image_013.jpg
     Size: (200, 140)
-    Checksum: 1e6a576514deee933ebb1e9bfefef7ec
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: dfda451737d77de5da443b9fab1e6905
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 3718cbe5fc28ca6dde8f80e0a4591ff4
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 7602878a1eefa8d3bcfd4cf75d25c0c5
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 96858e7b21f947ec5f8034397f6937cd
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: 941e6c63086505eca4ffb86e1139802c
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 53f7b16d4061bca14d902a7842ab3833
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 82005504059f5de9ae81c73e2866c037
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: c4dff9ac8e290995e2475c7677f9d5bd
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_022.jpg
-    Size: (200, 140)
-    Checksum: 1f6c7ad5293359e349aa8afba8227147
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: 97ebd2e294ff42fcf6813ffc19e74434
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_024.jpg
-    Size: (200, 140)
-    Checksum: 4d28cbb22bb76c328ad2895ad2ad4916
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_025.jpg
-    Size: (200, 140)
-    Checksum: 3d1138f923ab948b12e5ba8b12274dfb
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_026.jpg
-    Size: (200, 140)
     Checksum: 87409583a30743bc076c8939d3f2219b
-  - PB-04_FROS - PB-04_FROS - Western Par_proper_image_027.jpg
-    Size: (200, 140)
-    Checksum: 45bde784c298b63f3938d1cfa112d960
 
 Film: PB-05_FROS
 Status: success
-Images extracted: 20
+Images extracted: 10
 Images:
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 76448fc5293ad82d8c46cdc5bc8bc0d4
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 85be5abc95b32597c7ab657eefade7db
+    Checksum: 4544e925476b9ab946aa2767a8381c14
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 4544e925476b9ab946aa2767a8381c14
+    Checksum: 1441b5c44fadb1ce68844d93f7c71f7c
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 05e93becc304d14e61565bb64f6ad439
+    Checksum: 1ef35ae161985ee1d8d2cf420db9911b
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 1441b5c44fadb1ce68844d93f7c71f7c
+    Checksum: 2cfeb18355cc8cd789ddb8b03e245474
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 953035ed93a7460aefbaeaaf2ab9306b
+    Checksum: de23ad8a796f1c3fe55d5cc12e5e4575
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 1ef35ae161985ee1d8d2cf420db9911b
+    Checksum: 43b9540e7dab1a8c640901e77cea5e5e
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: bde180f025bde41e8a7f951c01f06333
+    Checksum: 8b2edd25bfdda20ad4fd3d6c46844c3f
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 2cfeb18355cc8cd789ddb8b03e245474
+    Checksum: 58f93eadbe636cc32386556129919aa0
   - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: be626de557127528b1688c30f0a1b4f6
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: de23ad8a796f1c3fe55d5cc12e5e4575
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 8121ed8a9f978d5559d70b24cee45a22
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 43b9540e7dab1a8c640901e77cea5e5e
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 96f2b56056720e8dc7d6504770f4bda1
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 8b2edd25bfdda20ad4fd3d6c46844c3f
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: eeb9b67a059cd5f79daa08a25eded4b5
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 58f93eadbe636cc32386556129919aa0
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 33907487a9b3b732868c8979ddf2cb87
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_018.jpg
-    Size: (200, 140)
     Checksum: 1e74026cd9c3605e9ec1bd0fe025641a
-  - PB-05_FROS - PB-05_FROS - Hume Lake P_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 1720a8e208e9e5c6e9e1f6b5d84959a9
 
 Film: PB-06_FROS
 Status: success
-Images extracted: 18
+Images extracted: 9
 Images:
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 255f48a71e89273109e1051a7169c823
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 937366a04ae8f155526b24507fea4a1c
+    Checksum: 8ade3c58ba451ac96d379450f635af3e
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 8ade3c58ba451ac96d379450f635af3e
+    Checksum: 10bd69ffa0f718fac4ce38220826a2d8
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 80691fb79cb0ca5a32e9a829ccbb3788
+    Checksum: 6d186a55847700b0518c7bcbb7c1d30d
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 10bd69ffa0f718fac4ce38220826a2d8
+    Checksum: 90e6bfe711165416ff251991ebb777b3
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 7defee1bafe0b203a70255054e0efc59
+    Checksum: cac092078587d97e616e231fbbfc10b2
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 6d186a55847700b0518c7bcbb7c1d30d
+    Checksum: ac3abc96333011be338632a782513c86
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 6130dd7c44d6715151db00a87e2ce519
+    Checksum: 42009d4b5abb2b1d99bd2d7b31aec7ca
   - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 90e6bfe711165416ff251991ebb777b3
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: 5067f7b930205d0b716be2ea7d5a2128
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: cac092078587d97e616e231fbbfc10b2
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: d678ee77bb60c258fa4cdc5dfe842cef
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: ac3abc96333011be338632a782513c86
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 72ccccb7da3b423c74ca26cdcab266b6
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 42009d4b5abb2b1d99bd2d7b31aec7ca
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 00064bde61304c7e46c2abc7f612c068
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_016.jpg
-    Size: (200, 140)
     Checksum: e0cb00dff758af13ca8429b22a0b2669
-  - PB-06_FROS - PB-06_FROS - Yosemity, F_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 3a0776c272b0d355f75990582967130c
 
 Film: PB-07_FROS
 Status: success
-Images extracted: 12
+Images extracted: 6
 Images:
   - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_000.jpg
     Size: (200, 140)
     Checksum: bad64d4bbe4063c4692ff4bfee93553b
   - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: edd7b64ce97a85e861943181940ba6f0
+    Checksum: 5ea94aed9e239a2d4f50affb15da060e
   - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 5ea94aed9e239a2d4f50affb15da060e
+    Checksum: 8807353457b5e93ffc52e48153368884
   - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 3be356b67f50e565581a710dc8f20a0d
+    Checksum: a720f8569278573749408876177431ea
   - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 8807353457b5e93ffc52e48153368884
+    Checksum: c2add34b12b2f614e9eee4ee7678bf59
   - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 886dd62702626f8259ae4edd6ebd7c87
-  - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_006.jpg
-    Size: (200, 140)
-    Checksum: a720f8569278573749408876177431ea
-  - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_007.jpg
-    Size: (200, 140)
-    Checksum: c28752f4f77ff82c32575f601bef3778
-  - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_008.jpg
-    Size: (200, 140)
-    Checksum: c2add34b12b2f614e9eee4ee7678bf59
-  - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: 1caf87ba18daac63ca2e1f5c53d8e667
-  - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_010.jpg
-    Size: (200, 140)
     Checksum: a4402651fac71f760b2c4c9801d041fd
-  - PB-07_FROS - PB-07_FROS - Parade Wago_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 8f35f3b0ec0911c1efbb8544f3919aa7
 
 Film: PB-08_FROS
 Status: success
-Images extracted: 18
+Images extracted: 9
 Images:
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_000.jpg
     Size: (200, 140)
     Checksum: f00aa04c81a6db90e81ea155c84c2c9d
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 2a632f820226e61ea7f38b134278c60b
+    Checksum: 0f504462dd88f71826e2c504228463e1
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: 0f504462dd88f71826e2c504228463e1
+    Checksum: 2c74b276315d51738bd56dc088ada7e8
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: bbf3d61b41d977c60d6d2082e42da795
+    Checksum: 37fba859502d7446a740b12dd92bea93
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 2c74b276315d51738bd56dc088ada7e8
+    Checksum: 0851cb9673485f3b8af49ade2af0b95d
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: fc183fbd364606672ce3607ae10fe0b0
+    Checksum: e39f1ecf135bbcf7ac376678cd816dcb
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 37fba859502d7446a740b12dd92bea93
+    Checksum: 2c171b7ecb5775eb70103e69c1ec98f7
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 850c22405247817677ee5d15ef6c937f
+    Checksum: 81ca755d080ee6335a1da7e1aa5a1496
   - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 0851cb9673485f3b8af49ade2af0b95d
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: 2aacd729a04997ad6c97d968abcc925c
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: e39f1ecf135bbcf7ac376678cd816dcb
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 9a35d3666fc3498f86a8315523fcc82e
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 2c171b7ecb5775eb70103e69c1ec98f7
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 947c93ddedee3624b2eb1653a7a227fa
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 81ca755d080ee6335a1da7e1aa5a1496
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 2e8e8addaae3e20ddbdfbc517f271531
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_016.jpg
-    Size: (200, 140)
     Checksum: 3d6b8812b88819eefcfd0d97108516dd
-  - PB-08_FROS - PB-08_FROS - Snow Tubing_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 1587c2f73b6f0f74250c13e30503320c
 
 Film: PB-14_FROS
 Status: success
-Images extracted: 16
+Images extracted: 8
 Images:
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_000.jpg
     Size: (200, 140)
     Checksum: ad5c274825a0cefa31401c54cbdcb35b
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 68c5c11366c0a9ade899ae8a5ea1e947
+    Checksum: f2fdd5b91c9cc1568cdfa04be1f344ff
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_002.jpg
     Size: (200, 140)
-    Checksum: f2fdd5b91c9cc1568cdfa04be1f344ff
+    Checksum: aa725c59860177aade5c808065785f3a
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 4398f1faab4b6c71fd0c5a2eba079ace
+    Checksum: 7eec41f0ae940bfb81eea159312faae7
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_004.jpg
     Size: (200, 140)
-    Checksum: aa725c59860177aade5c808065785f3a
+    Checksum: 6972ffc7528d19e05b30eb11b9449f89
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 9fec55cae082b17632a71f54a4ff6579
+    Checksum: cf6a4373502d6180d80d323dbe07ed6a
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 7eec41f0ae940bfb81eea159312faae7
+    Checksum: cd0633a3a15dacd8e8e5c9c29f86d93c
   - PB-14_FROS - PB-14_FROS - Marineland _proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 08740e82c63023897711832b98941d84
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_008.jpg
-    Size: (200, 140)
-    Checksum: 6972ffc7528d19e05b30eb11b9449f89
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_009.jpg
-    Size: (200, 140)
-    Checksum: 8939c3b40a01c9e73c0f3920bbf87772
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: cf6a4373502d6180d80d323dbe07ed6a
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: f76b4015cd2c0197617f8f57cdcd111b
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: cd0633a3a15dacd8e8e5c9c29f86d93c
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: c3255582488278ddf885ddada8f32a62
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_014.jpg
-    Size: (200, 140)
     Checksum: 7f63919c04291a689f8512f363981cc8
-  - PB-14_FROS - PB-14_FROS - Marineland _proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 5552ba9443ce7b6c5af85c86fd5ec004
 
 Film: PBA-01_FROS
 Status: success
-Images extracted: 20
+Images extracted: 10
 Images:
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_000.jpg
     Size: (200, 140)
     Checksum: 83290d863b29781b35e478b765a15eee
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 73d68bd490ab78a6782a52c7bc50cc16
+    Checksum: c990c32f081eec51477ed710f6e94957
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: c990c32f081eec51477ed710f6e94957
+    Checksum: 967974e6b40960490f26ad8503863e46
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 208b7c9dc3ecdd0580f7733a787e58b2
+    Checksum: fe7e663ca2b9c970fa1040108237b9cc
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 967974e6b40960490f26ad8503863e46
+    Checksum: 0563977c0918119439883cf86c679ec5
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: 446f498cb1219f9fc12135647e7c5e65
+    Checksum: 47402b1a768b17a5d50871f0531e0b97
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: fe7e663ca2b9c970fa1040108237b9cc
+    Checksum: 73471a1355bd9f6b0492f56240bc114e
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: b3fed0d6319e82379fe7d7ece77430dd
+    Checksum: e7231dce8ddc5d00cead74a0cd374453
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 0563977c0918119439883cf86c679ec5
+    Checksum: 462d2ae6de526104966a87c8890fbd9a
   - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: e5a9786965ad59b52c27d2f465aa9549
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_010.jpg
-    Size: (200, 140)
-    Checksum: 47402b1a768b17a5d50871f0531e0b97
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_011.jpg
-    Size: (200, 140)
-    Checksum: 17a74e312b2e635c950eb6f856fa45fb
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 73471a1355bd9f6b0492f56240bc114e
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: 49e25d3b485f3ec3e2b9365b617d41ba
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: e7231dce8ddc5d00cead74a0cd374453
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: a995b45bee26ec81ec3b2c92d033afcd
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 462d2ae6de526104966a87c8890fbd9a
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: 005fdb17239df7311ff88dc016515e17
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_018.jpg
-    Size: (200, 140)
     Checksum: b07b3d6b0596ad6420de5e4d44ced69c
-  - PBA-01_FROS - PBA-01_FROS - New Orlean_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: 5527b64b8d0abf92b90ae639e5dec283
 
 Film: PBA-02_FROS
 Status: success
-Images extracted: 24
+Images extracted: 12
 Images:
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_000.jpg
     Size: (200, 140)
     Checksum: f5f7735f10362efb12981981c16b0628
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_001.jpg
     Size: (200, 140)
-    Checksum: 1cd8475bf2ddf04e33ee17a350092c4d
+    Checksum: c19aedac801d1d840fa9587d43467439
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_002.jpg
     Size: (200, 140)
-    Checksum: c19aedac801d1d840fa9587d43467439
+    Checksum: 57eefdafc92a9f837b82d443e81a38c0
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_003.jpg
     Size: (200, 140)
-    Checksum: 292858d8b5f08e98ffccc2cb94818d53
+    Checksum: 5eea9431fb4c0f661a43c611757df640
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_004.jpg
     Size: (200, 140)
-    Checksum: 57eefdafc92a9f837b82d443e81a38c0
+    Checksum: 3ffb1fb8f1ab3e33100fbd065efa5d6a
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_005.jpg
     Size: (200, 140)
-    Checksum: ba2cfc18e314871e3afb0af2de9e3187
+    Checksum: 8eb7bb0149c1328f691f0dddc2ce0ffa
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_006.jpg
     Size: (200, 140)
-    Checksum: 5eea9431fb4c0f661a43c611757df640
+    Checksum: 172fa4212da62668f68a0fcc9dbdcc6c
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_007.jpg
     Size: (200, 140)
-    Checksum: 22aabd11fdbc79b6958d58da43cbb028
+    Checksum: 175690f77878452ab94c204758ced8c0
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_008.jpg
     Size: (200, 140)
-    Checksum: 3ffb1fb8f1ab3e33100fbd065efa5d6a
+    Checksum: 7ce6737c01850b444ff800fc66329dcc
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_009.jpg
     Size: (200, 140)
-    Checksum: 02f6687d041eaeb8db02b1a543c211bc
+    Checksum: 82d893218567b20ceed14652a982d9fe
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_010.jpg
     Size: (200, 140)
-    Checksum: 8eb7bb0149c1328f691f0dddc2ce0ffa
+    Checksum: 95d9ca0a2a4ad9cd950d2a950bf780f4
   - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_011.jpg
     Size: (200, 140)
-    Checksum: 5c1b9c4e15f6ac6dbabbc3559b598139
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_012.jpg
-    Size: (200, 140)
-    Checksum: 172fa4212da62668f68a0fcc9dbdcc6c
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_013.jpg
-    Size: (200, 140)
-    Checksum: ce9066ee1dc450b8078af5f55036e5e8
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_014.jpg
-    Size: (200, 140)
-    Checksum: 175690f77878452ab94c204758ced8c0
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_015.jpg
-    Size: (200, 140)
-    Checksum: 43b306ef799b6e575a0d2e032575249f
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_016.jpg
-    Size: (200, 140)
-    Checksum: 7ce6737c01850b444ff800fc66329dcc
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_017.jpg
-    Size: (200, 140)
-    Checksum: d20a3e7541395cf6ce7cf5aaf56dc98a
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_018.jpg
-    Size: (200, 140)
-    Checksum: 82d893218567b20ceed14652a982d9fe
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_019.jpg
-    Size: (200, 140)
-    Checksum: cc309bee802cd4e1d88181b1d2304eb8
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_020.jpg
-    Size: (200, 140)
-    Checksum: 95d9ca0a2a4ad9cd950d2a950bf780f4
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_021.jpg
-    Size: (200, 140)
-    Checksum: fa225de39fbefd5f09341c2bd04c647d
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_022.jpg
-    Size: (200, 140)
     Checksum: 07bfac1bc56a1d41fa54fd31ff5ff66b
-  - PBA-02_FROS - PBA-02_FROS - John 3rd b_proper_image_023.jpg
-    Size: (200, 140)
-    Checksum: 36b2d6ca412fbd41055e1df6881c29ab
 
 Film: RLA-01_FROS
 Status: success
-Images extracted: 8
+Images extracted: 4
 Images:
   - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_000.jpg
     Size: (200, 126)
     Checksum: 92e908e631fa292a36f5844b0935b7c5
   - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_001.jpg
     Size: (200, 126)
-    Checksum: 408d9d4bc07bedab313a8a688627bf31
+    Checksum: 3225882b3d4f86dbcf93f9f0037d1aa2
   - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_002.jpg
     Size: (200, 126)
-    Checksum: 3225882b3d4f86dbcf93f9f0037d1aa2
+    Checksum: 59b3b8c5602c57ce15bde0019594c046
   - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_003.jpg
     Size: (200, 126)
-    Checksum: 21ea2feb1802390f3a7079909360e9a4
-  - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_004.jpg
-    Size: (200, 126)
-    Checksum: 59b3b8c5602c57ce15bde0019594c046
-  - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_005.jpg
-    Size: (200, 126)
-    Checksum: afcbe465b3b0d031e52a9a7d48d2af2b
-  - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_006.jpg
-    Size: (200, 126)
     Checksum: d4ce2773958603920463cd80faf101da
-  - RLA-01_FROS - SLB-01_FROS - Unknown Fa_proper_image_007.jpg
-    Size: (200, 126)
-    Checksum: e4180ec5818428b565ca52ffcb7947aa
 
 Film: RLA-02_FROS
 Status: success
-Images extracted: 8
+Images extracted: 4
 Images:
   - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_000.jpg
     Size: (200, 126)
     Checksum: 0859f99d7d3fcd9234f3bbb238f869ce
   - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_001.jpg
     Size: (200, 126)
-    Checksum: 0eab71d12424c957d2f218dcfcbd08b6
+    Checksum: 04743b55fe6c69105c17d71d121ddd4b
   - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_002.jpg
     Size: (200, 126)
-    Checksum: 04743b55fe6c69105c17d71d121ddd4b
+    Checksum: 8d4c22226b44729aa213dc38aa89dba4
   - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_003.jpg
     Size: (200, 126)
-    Checksum: 943fdd6803a483b37f8126198308d093
-  - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_004.jpg
-    Size: (200, 126)
-    Checksum: 8d4c22226b44729aa213dc38aa89dba4
-  - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_005.jpg
-    Size: (200, 126)
-    Checksum: 2fd53d68e0520d16bc61aa467f053907
-  - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_006.jpg
-    Size: (200, 126)
     Checksum: 6c00a9e6c9cebea9040525194e32662b
-  - RLA-02_FROS - RLA-02_FROS - Unknown Fa_proper_image_007.jpg
-    Size: (200, 126)
-    Checksum: 5d89bb9ba291e6fce50bc7c436c8eedd
 
 Film: RLB-01_FROS
 Status: success
-Images extracted: 2
+Images extracted: 1
 Images:
   - RLB-01_FROS - SLB-01_FROS - Family Swi_proper_image_000.jpg
     Size: (200, 126)
     Checksum: b5f1999dd4f934628cd37d934ea2e9f5
-  - RLB-01_FROS - SLB-01_FROS - Family Swi_proper_image_001.jpg
-    Size: (200, 126)
-    Checksum: 997682e92cf5f1d6d232121ebe470897
 
 Film: SL-71X_FROS
 Status: success
-Images extracted: 4
+Images extracted: 2
 Images:
   - SL-71X_FROS - SL-71X_FROS - 71 Christm_proper_image_000.jpg
     Size: (200, 139)
     Checksum: dbb29eb7f9465d9aa7518cd3f7628635
   - SL-71X_FROS - SL-71X_FROS - 71 Christm_proper_image_001.jpg
     Size: (200, 139)
-    Checksum: fc683913befb925672cb25a84f66adcc
-  - SL-71X_FROS - SL-71X_FROS - 71 Christm_proper_image_002.jpg
-    Size: (200, 139)
     Checksum: 59dc6d36378f4f5e760d930f8cfcf5cc
-  - SL-71X_FROS - SL-71X_FROS - 71 Christm_proper_image_003.jpg
-    Size: (200, 139)
-    Checksum: 4e973ea79af090e1f03d4b4f67162402
 
 Film: SL-72_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - SL-72_FROS - SL-72_FROS - Disneyland_proper_image_000.jpg
     Size: (200, 139)
     Checksum: d7a187fa8ce3f3519a9d37f2646eab2c
   - SL-72_FROS - SL-72_FROS - Disneyland_proper_image_001.jpg
     Size: (200, 139)
-    Checksum: 61f9727068fbf0beb4ed4bd1e3982394
+    Checksum: 6965b0e5cd6f42c513131ea8f5d1d72c
   - SL-72_FROS - SL-72_FROS - Disneyland_proper_image_002.jpg
     Size: (200, 139)
-    Checksum: 6965b0e5cd6f42c513131ea8f5d1d72c
-  - SL-72_FROS - SL-72_FROS - Disneyland_proper_image_003.jpg
-    Size: (200, 139)
-    Checksum: 6c77415a29b006b0d86b2830a755250c
-  - SL-72_FROS - SL-72_FROS - Disneyland_proper_image_004.jpg
-    Size: (200, 139)
     Checksum: 840b1110005f050eb751bbe6a45f53ea
-  - SL-72_FROS - SL-72_FROS - Disneyland_proper_image_005.jpg
-    Size: (200, 139)
-    Checksum: e6ad0977aa8a96ca884b6fc60bb4ba98
 
 Film: SLB-01_FROS
 Status: success
-Images extracted: 4
+Images extracted: 2
 Images:
   - SLB-01_FROS - SLB-01_FROS - Jerusalem_proper_image_000.jpg
     Size: (200, 139)
     Checksum: cb0225942c47f1bdd9cf1fd81353d417
   - SLB-01_FROS - SLB-01_FROS - Jerusalem_proper_image_001.jpg
     Size: (200, 139)
-    Checksum: a66e0fba8fe969037304568b71369477
-  - SLB-01_FROS - SLB-01_FROS - Jerusalem_proper_image_002.jpg
-    Size: (200, 139)
     Checksum: 5d4474d27c109533e39d76e316265943
-  - SLB-01_FROS - SLB-01_FROS - Jerusalem_proper_image_003.jpg
-    Size: (200, 139)
-    Checksum: 51c6b570dee8d40cfd1b9a5024536073
 
 Film: SLB-02_FROS
 Status: success
-Images extracted: 6
+Images extracted: 3
 Images:
   - SLB-02_FROS - SLB-02_FROS - Reed Ave H_proper_image_000.jpg
     Size: (200, 139)
     Checksum: 8808c155502fe01f3cb3bfd38351cf6d
   - SLB-02_FROS - SLB-02_FROS - Reed Ave H_proper_image_001.jpg
     Size: (200, 139)
-    Checksum: 57edcab2a093fae86831b0687a616155
+    Checksum: 946f8cee4780b4b35bbc00e4ae52b9ac
   - SLB-02_FROS - SLB-02_FROS - Reed Ave H_proper_image_002.jpg
     Size: (200, 139)
-    Checksum: 946f8cee4780b4b35bbc00e4ae52b9ac
-  - SLB-02_FROS - SLB-02_FROS - Reed Ave H_proper_image_003.jpg
-    Size: (200, 139)
-    Checksum: 70127686d595d959eb5d1f26887bd095
-  - SLB-02_FROS - SLB-02_FROS - Reed Ave H_proper_image_004.jpg
-    Size: (200, 139)
     Checksum: 7001841983ce8eff9d77fbce55e40348
-  - SLB-02_FROS - SLB-02_FROS - Reed Ave H_proper_image_005.jpg
-    Size: (200, 139)
-    Checksum: c6e7db5ce9dca99fdd9e3e7e6592e776
 

@@ -53,7 +53,7 @@ class Command(BaseCommand):
             self.stdout.write(f"\nProcessing film: {film.file_id} - {film.title}")
             
             # Find proper images for this film
-            # Pattern: {film_id} - {sheet_name}_proper_image_{number}.jpg
+            # Pattern: {film_id} - {film_id} - {sheet_name}_proper_image_{number}.jpg
             proper_images = []
             for image_file in proper_dir.iterdir():
                 if (image_file.name.startswith(f"{film.file_id} - ") and 
@@ -69,6 +69,8 @@ class Command(BaseCommand):
                 continue
             
             self.stdout.write(f"  Found {len(proper_images)} proper images")
+            if proper_images:
+                self.stdout.write(f"  Sample image: {proper_images[0].name}")
             
             # Update chapters with proper thumbnail URLs
             updated_chapters = 0
@@ -78,10 +80,12 @@ class Command(BaseCommand):
                         old_url = chapter.thumbnail_url
                         new_url = f"/static/thumbnails/chapters_proper/{proper_images[idx].name}"
                         
+                        self.stdout.write(f"  Chapter {idx + 1}: {chapter.title}")
+                        self.stdout.write(f"    Old: {old_url}")
+                        self.stdout.write(f"    New: {new_url}")
+                        
                         if old_url != new_url:
-                            self.stdout.write(f"  Chapter {idx + 1}: {chapter.title}")
-                            self.stdout.write(f"    Old: {old_url}")
-                            self.stdout.write(f"    New: {new_url}")
+                            self.stdout.write(f"    UPDATING")
                             
                             if not dry_run:
                                 chapter.thumbnail_url = new_url
@@ -89,6 +93,8 @@ class Command(BaseCommand):
                             
                             updated_chapters += 1
                             total_updated += 1
+                        else:
+                            self.stdout.write(f"    ALREADY CORRECT")
                     else:
                         self.stdout.write(f"  Chapter {idx + 1}: No matching proper image (keeping existing)")
             
