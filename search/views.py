@@ -40,9 +40,11 @@ def add_aggregated_metadata_to_films(films):
 def overall_search(request):
     """Overall search across all content"""
     query = request.GET.get('q', '').strip()
+    is_ajax = request.GET.get('ajax') == '1' or request.headers.get('X-Requested-With') == 'XMLHttpRequest'
     
     if not query:
-        return render(request, 'search/overall.html', {'query': query})
+        template = 'search/overall_ajax.html' if is_ajax else 'search/overall.html'
+        return render(request, template, {'query': query})
     
     # Search films - SQLite compatible
     films = Film.objects.exclude(youtube_id__startswith='placeholder_').filter(
@@ -89,7 +91,9 @@ def overall_search(request):
             'tags': tags.count(),
         }
     }
-    return render(request, 'search/overall.html', context)
+    
+    template = 'search/overall_ajax.html' if is_ajax else 'search/overall.html'
+    return render(request, template, context)
 
 
 def people_search(request):

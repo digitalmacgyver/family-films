@@ -37,3 +37,31 @@ footer {
         height: 150px !important;
     }
 }
+
+/* Make film tiles clickable */
+.clickable-film-tile {
+    cursor: pointer;
+    display: block;
+}
+
+.clickable-film-tile .film-thumbnail-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.clickable-film-tile .film-thumbnail-container::after {
+    content: '\F4F4';  /* Bootstrap play-circle-fill icon */
+    font-family: 'bootstrap-icons';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0);
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
+.clickable-film-tile:hover .film-thumbnail-container::after {
+    color: rgba(255, 255, 255, 0.8);
+}

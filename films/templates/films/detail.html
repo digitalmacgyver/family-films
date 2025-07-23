@@ -97,7 +97,7 @@
         <div class="youtube-player mb-4">
             <iframe 
                 id="youtube-player"
-                src="{{ film.get_youtube_embed_url }}?enablejsapi=1&origin={{ request.scheme }}://{{ request.get_host }}"
+                src="{{ film.get_youtube_embed_url }}?enablejsapi=1&origin={{ request.scheme }}://{{ request.get_host }}{% if request.GET.autoplay %}&autoplay=1{% endif %}"
                 title="{{ film.title }}"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -122,7 +122,7 @@
                 {% for film in films %}
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100 film-card">
-                            <a href="{% url 'films:detail' film.file_id %}" class="text-decoration-none">
+                            <a href="{% url 'films:detail' film.file_id %}?autoplay=1" class="text-decoration-none clickable-film-tile">
                                 <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
                                     {% if film.has_animated_thumbnail %}
                                         {% if film.has_chapter_thumbnails %}
@@ -173,6 +173,7 @@
                                     {% endif %}
                                 </div>
                             </a>
+                            <a href="{% url 'films:detail' film.file_id %}?autoplay=1" class="text-decoration-none">
                             <div class="card-body d-flex flex-column">
                                 <h6 class="card-title">{{ film.title|truncatechars:50 }}</h6>
                                 
@@ -244,14 +245,12 @@
                                 {% endif %}
                                 
                                 <div class="mt-auto">
-                                    <a href="{% url 'films:detail' film.file_id %}" class="btn btn-primary btn-sm">
-                                        <i class="bi bi-play-circle"></i> Watch Film
-                                    </a>
                                     {% if film.chapters.count > 0 %}
-                                        <small class="text-muted ms-2">{{ film.chapters.count }} chapters</small>
+                                        <small class="text-muted">{{ film.chapters.count }} chapters</small>
                                     {% endif %}
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
                 {% endfor %}

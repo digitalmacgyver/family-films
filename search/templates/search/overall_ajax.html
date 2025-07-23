@@ -1,0 +1,181 @@
+{% if query %}
+<div class="search-results">
+<div class="mb-4">
+    <h3>Search Results for "{{ query }}"</h3>
+</div>
+
+<!-- Films Results -->
+{% if films %}
+    <div class="mb-5">
+        <h4><i class="bi bi-film"></i> Films ({{ films|length }})</h4>
+        <div class="row">
+            {% for film in films|slice:":6" %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 film-card">
+                        <a href="{% url 'films:detail' film.file_id %}?autoplay=1" class="text-decoration-none clickable-film-tile">
+                        <div class="film-thumbnail-container" data-file-id="{{ film.file_id }}">
+                            {% if film.has_animated_thumbnail %}
+                                <div class="animated-thumbnail" 
+                                     data-sprite-url="{{ film.preview_sprite_url }}"
+                                     data-frame-count="{{ film.preview_frame_count }}"
+                                     data-frame-interval="{{ film.preview_frame_interval }}"
+                                     data-sprite-width="{{ film.preview_sprite_width }}"
+                                     data-sprite-height="{{ film.preview_sprite_height }}">
+                                    <img src="{{ film.thumbnail_url }}" class="card-img-top static-thumbnail" alt="{{ film.title }}">
+                                    <div class="sprite-overlay"></div>
+                                </div>
+                            {% else %}
+                                <img src="{{ film.thumbnail_url }}" class="card-img-top" alt="{{ film.title }}">
+                            {% endif %}
+                        </div>
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h6 class="card-title">{{ film.title|truncatechars:50 }}</h6>
+                            
+                            <div class="film-metadata mb-2">
+                                {% if film.years %}
+                                    <small class="text-muted"><i class="bi bi-calendar"></i> {{ film.years }}</small><br>
+                                {% endif %}
+                                {% if film.duration %}
+                                    <small class="text-muted"><i class="bi bi-clock"></i> {{ film.duration }}</small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if films|length > 6 %}
+            <div class="text-center">
+                <a href="{% url 'films:catalog' %}?q={{ query }}" class="btn btn-outline-primary">
+                    View All {{ films|length }} Films
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+<!-- Chapters Results -->
+{% if chapters %}
+    <div class="mb-5">
+        <h4><i class="bi bi-list-ol"></i> Chapters ({{ chapters|length }})</h4>
+        <div class="list-group">
+            {% for chapter in chapters|slice:":5" %}
+                <a href="{% url 'films:detail' chapter.film.file_id %}#chapter-{{ chapter.id }}" 
+                   class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">{{ chapter.film.title }}</h6>
+                        <small class="text-muted">{{ chapter.start_time }}</small>
+                    </div>
+                    <p class="mb-1">{{ chapter.title }}</p>
+                    {% if chapter.description %}
+                        <small class="text-muted">{{ chapter.description|truncatechars:100 }}</small>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+        {% if chapters|length > 5 %}
+            <div class="text-center mt-3">
+                <small class="text-muted">Showing first 5 of {{ chapters|length }} chapters</small>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+<!-- People Results -->
+{% if people %}
+    <div class="mb-5">
+        <h4><i class="bi bi-people"></i> People ({{ people|length }})</h4>
+        <div class="row">
+            {% for person in people|slice:":6" %}
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">{{ person.full_name }}</h6>
+                            <small class="text-muted">{{ person.film_count }} film{{ person.film_count|pluralize }}</small>
+                            <div class="mt-2">
+                                <a href="{% url 'people:detail' person.pk %}" class="btn btn-sm btn-outline-primary">
+                                    View Films
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if people|length > 6 %}
+            <div class="text-center">
+                <a href="{% url 'search:people' %}?q={{ query }}" class="btn btn-outline-primary">
+                    View All {{ people|length }} People
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+<!-- Locations Results -->
+{% if locations %}
+    <div class="mb-5">
+        <h4><i class="bi bi-geo-alt"></i> Locations ({{ locations|length }})</h4>
+        <div class="row">
+            {% for location in locations|slice:":6" %}
+                <div class="col-lg-4 col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">{{ location.name }}</h6>
+                            <small class="text-muted">{{ location.film_count }} film{{ location.film_count|pluralize }}</small>
+                            <div class="mt-2">
+                                <a href="{% url 'locations:detail' location.pk %}" class="btn btn-sm btn-outline-primary">
+                                    View Films
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if locations|length > 6 %}
+            <div class="text-center">
+                <a href="{% url 'search:locations' %}?q={{ query }}" class="btn btn-outline-primary">
+                    View All {{ locations|length }} Locations
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+<!-- Tags Results -->
+{% if tags %}
+    <div class="mb-5">
+        <h4><i class="bi bi-tags"></i> Tags ({{ tags|length }})</h4>
+        <div class="d-flex flex-wrap gap-2">
+            {% for tag in tags|slice:":10" %}
+                <a href="{% url 'films:catalog' %}?tag={{ tag.tag }}" class="badge bg-secondary text-decoration-none">
+                    {{ tag.tag }} ({{ tag.film_count }})
+                </a>
+            {% endfor %}
+        </div>
+        {% if tags|length > 10 %}
+            <div class="text-center mt-3">
+                <a href="{% url 'search:tags' %}?q={{ query }}" class="btn btn-outline-primary">
+                    View All {{ tags|length }} Tags
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+<!-- No Results -->
+{% if not films and not chapters and not people and not locations and not tags %}
+    <div class="text-center py-5">
+        <i class="bi bi-search display-1 text-muted"></i>
+        <h3 class="mt-3">No Results Found</h3>
+        <p class="text-muted">Try different keywords or check your spelling.</p>
+    </div>
+{% endif %}
+</div>
+{% else %}
+<div class="search-results">
+    <!-- Empty results when no query -->
+</div>
+{% endif %}
