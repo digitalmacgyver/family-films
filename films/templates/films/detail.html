@@ -368,27 +368,25 @@
                                 {% if is_admin %}
                                     <div class="metadata-editor" id="editor-{{ chapter.id }}">
                                         <form class="chapter-metadata-form" data-chapter-id="{{ chapter.id }}">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label class="form-label">People</label>
-                                                    <div class="people-selector" data-chapter-id="{{ chapter.id }}">
-                                                        <input type="text" class="form-control people-search" placeholder="Search people...">
-                                                        <div class="selected-people mt-2"></div>
-                                                    </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">People</label>
+                                                <div class="people-selector" data-chapter-id="{{ chapter.id }}">
+                                                    <input type="text" class="form-control people-search" placeholder="Search people...">
+                                                    <div class="selected-people mt-2"></div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label">Locations</label>
-                                                    <div class="locations-selector" data-chapter-id="{{ chapter.id }}">
-                                                        <input type="text" class="form-control locations-search" placeholder="Search locations...">
-                                                        <div class="selected-locations mt-2"></div>
-                                                    </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Locations</label>
+                                                <div class="locations-selector" data-chapter-id="{{ chapter.id }}">
+                                                    <input type="text" class="form-control locations-search" placeholder="Search locations...">
+                                                    <div class="selected-locations mt-2"></div>
                                                 </div>
-                                                <div class="col-md-4">
-                                                    <label class="form-label">Tags</label>
-                                                    <div class="tags-selector" data-chapter-id="{{ chapter.id }}">
-                                                        <input type="text" class="form-control tags-input" placeholder="Add tags...">
-                                                        <div class="selected-tags mt-2"></div>
-                                                    </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Tags</label>
+                                                <div class="tags-selector" data-chapter-id="{{ chapter.id }}">
+                                                    <input type="text" class="form-control tags-input" placeholder="Add tags...">
+                                                    <div class="selected-tags mt-2"></div>
                                                 </div>
                                             </div>
                                             <div class="mt-3">
