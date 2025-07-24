@@ -7,7 +7,7 @@ from main.models import Location, Film
 def locations_list(request):
     """Browse all locations in the database"""
     locations = Location.objects.annotate(
-        film_count=Count('film')
+        film_count=Count('film', distinct=True) + Count('chapter__film', distinct=True)
     ).filter(film_count__gt=0).order_by('name')
     
     # Pagination
@@ -25,7 +25,11 @@ def locations_list(request):
 def location_detail(request, pk):
     """Individual location page"""
     location = get_object_or_404(Location, pk=pk)
-    films = Film.objects.filter(locations=location).exclude(youtube_id__startswith='placeholder_').prefetch_related('people', 'locations', 'tags')
+    # Get films where location appears directly or in chapters
+    from django.db.models import Q
+    films = Film.objects.filter(
+        Q(locations=location) | Q(chapters__locations=location)
+    ).exclude(youtube_id__startswith='placeholder_').distinct().prefetch_related('people', 'locations', 'tags')
     
     # Pagination
     paginator = Paginator(films, 12)

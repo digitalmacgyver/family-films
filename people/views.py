@@ -10,7 +10,7 @@ def people_directory(request):
     sort_by = request.GET.get('sort', 'last_name')  # Default to last name
     
     people = Person.objects.annotate(
-        film_count=Count('film')
+        film_count=Count('film', distinct=True) + Count('chapter__film', distinct=True)
     ).filter(film_count__gt=0)
     
     if sort_by == 'first_name':
@@ -41,7 +41,11 @@ def people_directory(request):
 def person_detail(request, pk):
     """Individual person page"""
     person = get_object_or_404(Person, pk=pk)
-    films = Film.objects.filter(people=person).exclude(youtube_id__startswith='placeholder_').prefetch_related('people', 'locations', 'tags')
+    # Get films where person appears directly or in chapters
+    from django.db.models import Q
+    films = Film.objects.filter(
+        Q(people=person) | Q(chapters__people=person)
+    ).exclude(youtube_id__startswith='placeholder_').distinct().prefetch_related('people', 'locations', 'tags')
     
     # Pagination
     paginator = Paginator(films, 12)
