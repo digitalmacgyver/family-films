@@ -1,8 +1,0 @@
-We need to come back to the animated image thumbnails generation -
-it's going very badly and the source system has given up on pulling
-actual images from the source files.
-
---
-
-http://127.0.0.1:8000/accounts/logout/
-
