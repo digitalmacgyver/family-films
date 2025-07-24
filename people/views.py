@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from django.db.models import Count
+from django.db.models import Count, Q
 from main.models import Person, Film
 
 
@@ -9,21 +9,32 @@ def people_directory(request):
     # Get sort preference
     sort_by = request.GET.get('sort', 'last_name')  # Default to last name
     
-    people = Person.objects.annotate(
-        film_count=Count('film', distinct=True) + Count('chapter__film', distinct=True)
-    ).filter(film_count__gt=0)
+    # Get people that have any film associations (direct or via chapters)
+    people = Person.objects.filter(
+        Q(film__isnull=False) | Q(chapter__isnull=False)
+    ).distinct()
+    
+    # Calculate accurate film counts for each person to avoid double-counting
+    for person in people:
+        films = Film.objects.filter(
+            Q(people=person) | Q(chapters__people=person)
+        ).exclude(youtube_id__startswith='placeholder_').distinct()
+        person.film_count = films.count()
+    
+    # Filter out people with no films after excluding placeholders
+    people = [person for person in people if person.film_count > 0]
     
     if sort_by == 'first_name':
         # Sort by first name
-        people = people.order_by('first_name', 'last_name')
+        people.sort(key=lambda p: (p.first_name.lower(), p.last_name.lower()))
     else:
         # Default: Sort by last name (empty last names first), then first name
         # This puts people without last names at the beginning under "#"
-        people = people.extra(
-            select={
-                'has_last_name': "CASE WHEN last_name = '' OR last_name IS NULL THEN 0 ELSE 1 END"
-            }
-        ).order_by('has_last_name', 'last_name', 'first_name')
+        people.sort(key=lambda p: (
+            1 if p.last_name.strip() else 0,  # Empty last names first
+            p.last_name.lower(), 
+            p.first_name.lower()
+        ))
     
     # Pagination
     paginator = Paginator(people, 100)

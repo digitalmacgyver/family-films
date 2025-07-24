@@ -1,14 +1,22 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from django.db.models import Count
+from django.db.models import Count, Q
 from main.models import Location, Film
 
 
 def locations_list(request):
     """Browse all locations in the database"""
-    locations = Location.objects.annotate(
-        film_count=Count('film', distinct=True) + Count('chapter__film', distinct=True)
-    ).filter(film_count__gt=0).order_by('name')
+    # Get locations that have any film associations (direct or via chapters)
+    locations = Location.objects.filter(
+        Q(film__isnull=False) | Q(chapter__isnull=False)
+    ).distinct().order_by('name')
+    
+    # Calculate accurate film counts for each location
+    for location in locations:
+        films = Film.objects.filter(
+            Q(locations=location) | Q(chapters__locations=location)
+        ).exclude(youtube_id__startswith='placeholder_').distinct()
+        location.film_count = films.count()
     
     # Pagination
     paginator = Paginator(locations, 100)
