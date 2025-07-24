@@ -1,0 +1,20 @@
+current_name, new_names, replace
+Mary-Louse:Beattie (nee Hayward), Mary-Louise:Beattie (nee Hayward), 1
+Mary-Louise:Beattie nee Hayward, Mary-Lousie:Beattie (nee Hayward), 1
+Bob:and Marjorie Lindner (nee Hayward) and children, Bob:Lindner|Marjorie:Lindner (nee Hayward)|John-Bob:Lindner|Phil:Lindner|Paul:Lindner|Steven:Lindner|Luke:Lindner, 1
+her:children, Marjorie:Lindner (nee Hayward)|John-Bob:Lindner|Phil:Lindner|Paul:Lindner|Steven:Lindner|Luke:Lindner, 1
+his:children, James:Hayward|Judy:Wren|Stan:Wren|Molly:Wren|Nate:Wren, 1
+their:children Marjorie (married Bob Lindner), Bob:Lindner|Marjorie:Lindner (nee Hayward)|John-Bob:Lindner|Phil:Lindner|Paul:Lindner|Steven:Lindner|Luke:Lindner, 1
+Arlene:Wren (nee Myre, Arlene:Wren (nee Myre), 1
+his:family, Earl:Hayward|Rosabell:Hayward|Bob:Lindner|Marjorie:Lindner (nee Hayward)|John-Bob:Lindner|Phil:Lindner|Paul:Lindner|Steven:Lindner|Luke:Lindner, 1
+"Irwin's:Family", "Irwin:Wren|Oscar:Myre|Oscar (Bobby):Myre Jr.|Arlen:Wren (nee Myre)|David:Myre|Gloria:Myre|Josephine:Hayward (nee Myre)|John:Hayward Jr.|Joy:Hofer (nee Hayward)|Mark:Hayward|Judy:Wren|Stan:Wren|Molly:Wren|Oscar:Myre III", 1
+their:family, Irwin:Wren|Arlen:Wren (nee Myre)|Judy:Wren|Stan:Wren|Molly:Wren, 1
+their:grandchildren, Bob:Lindner|Marjorie:Lindner (nee Hayward)|John-Bob:Lindner|Phil:Lindner|Paul:Lindner|Steven:Lindner|Luke:Lindner|Mary-Louise:Beattie|Victor:Beattie|Mary Ann:Beattie|David:Beattie|Victor:Beattie Jr., 1
+Josephine:Hayward, Josephine:Hayward (nee Myre), 1
+John:Josephine Hayward, John:Hayward Sr.|Josephine:Hayward (nee Myre), 1
+Also:Irwin, Earl:Hayward|Josephine:Hayward (nee Myre)|Rosabell:Hayward, 1
+"maybe, Josephine's parents", "Irwin:Wren|Arlene:Wren (nee Myre)", 1
+Oscar:Jr., Oscar (Bobby):Myre Jr., 1
+Arlene:Peachy Myre, Arlene Peachy:Myre, 1
+their:various children (husbands Bob Lindner, Bob:Lindner|Marjorie:Lindner (nee Hayward)|John-Bob:Lindner|Phil:Lindner|Paul:Lindner|Steven:Lindner|Luke:Lindner, 1
+Arlene:Wren, Arlene:Wren (nee Myre), 1
