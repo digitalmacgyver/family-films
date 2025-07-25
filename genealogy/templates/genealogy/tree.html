@@ -1,0 +1,335 @@
+{% extends "genealogy/base.html" %}
+
+{% block page_title %}{{ person.full_name }} - Family Tree{% endblock %}
+
+{% block genealogy_css %}
+<style>
+.family-tree-container {
+    min-height: 600px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    background: #f8f9fa;
+    position: relative;
+    overflow: auto;
+}
+
+.tree-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.person-info-card {
+    background: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+#family-tree svg {
+    font-family: inherit;
+}
+
+.tree-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+</style>
+{% endblock %}
+
+{% block genealogy_content %}
+<div class="row">
+    <div class="col-12">
+        <!-- Person Info Header -->
+        <div class="person-info-card p-4 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="mb-2">{{ person.full_name }}</h1>
+                    <div class="person-details text-muted">
+                        {% if person.birth_date %}
+                            <span class="me-3">
+                                <i class="bi bi-calendar"></i> Born {{ person.birth_date|date:"M d, Y" }}
+                            </span>
+                        {% endif %}
+                        {% if person.death_date %}
+                            <span class="me-3">
+                                <i class="bi bi-calendar-x"></i> Died {{ person.death_date|date:"M d, Y" }}
+                            </span>
+                        {% endif %}
+                        {% if person.spouse %}
+                            <span class="me-3">
+                                <i class="bi bi-heart text-danger"></i> 
+                                Married to <a href="{% url 'genealogy:tree' person.spouse.pk %}">{{ person.spouse.full_name }}</a>
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="btn-group" role="group">
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'genealogy:person_edit' person.pk %}" class="btn btn-outline-primary">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                        {% endif %}
+                        {% if person.notes %}
+                        <a href="{% url 'genealogy:biography' person.pk %}" class="btn btn-outline-success">
+                            <i class="bi bi-journal-text"></i> Biography
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'people:detail' person.pk %}" class="btn btn-outline-info">
+                            <i class="bi bi-person"></i> Person Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Family Tree -->
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">
+                    <i class="bi bi-diagram-3"></i> Family Tree
+                </h3>
+                <div class="tree-controls">
+                    <button id="zoom-in" class="btn btn-sm btn-outline-secondary me-1" title="Zoom In">
+                        <i class="bi bi-zoom-in"></i>
+                    </button>
+                    <button id="zoom-out" class="btn btn-sm btn-outline-secondary me-1" title="Zoom Out">
+                        <i class="bi bi-zoom-out"></i>
+                    </button>
+                    <button id="reset-zoom" class="btn btn-sm btn-outline-secondary" title="Reset View">
+                        <i class="bi bi-aspect-ratio"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div id="family-tree-container" class="family-tree-container">
+                    <div class="tree-loading">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div class="mt-2 text-muted">Loading family tree...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Family Info -->
+        <div class="row mt-4">
+            {% with parents=person.get_parents %}
+            {% if parents.0 or parents.1 %}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-people"></i> Parents</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if parents.0 %}
+                        <div class="mb-2">
+                            <strong>Father:</strong> 
+                            <a href="{% url 'genealogy:tree' parents.0.pk %}">{{ parents.0.full_name }}</a>
+                        </div>
+                        {% endif %}
+                        {% if parents.1 %}
+                        <div>
+                            <strong>Mother:</strong> 
+                            <a href="{% url 'genealogy:tree' parents.1.pk %}">{{ parents.1.full_name }}</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endwith %}
+
+            {% with children=person.get_children %}
+            {% if children %}
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-people-fill"></i> Children</h5>
+                    </div>
+                    <div class="card-body">
+                        {% for child in children %}
+                        <div class="mb-1">
+                            <a href="{% url 'genealogy:tree' child.pk %}">{{ child.full_name }}</a>
+                            {% if child.birth_date %}
+                                <small class="text-muted">({{ child.birth_date|date:"Y" }})</small>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block genealogy_js %}
+{{ tree_data|json_script:"tree-data" }}
+<script src="https://unpkg.com/d3@5/dist/d3.min.js"></script>
+<script>
+// Family tree data from Django
+const treeData = JSON.parse(document.getElementById('tree-data').textContent);
+const personId = {{ person.pk }};
+
+// Basic family tree implementation (placeholder for family-chart integration)
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Family tree data loaded:', treeData);
+    
+    const container = document.getElementById('family-tree-container');
+    const loading = container.querySelector('.tree-loading');
+    
+    if (!container) {
+        console.error('Tree container not found');
+        return;
+    }
+    
+    if (!treeData) {
+        console.error('Tree data is missing');
+        return;
+    }
+    
+    // Remove loading indicator
+    setTimeout(() => {
+        if (loading) {
+            loading.remove();
+        }
+        try {
+            renderSimpleTree(container, treeData);
+            console.log('Tree rendered successfully');
+        } catch (error) {
+            console.error('Error rendering tree:', error);
+            container.innerHTML = '<div class="alert alert-danger">Error loading family tree</div>';
+        }
+    }, 500);
+});
+
+function renderSimpleTree(container, data) {
+    // Simple HTML-based tree for now (will be replaced with family-chart)
+    console.log('Rendering tree with data:', data);
+    
+    // Ensure data has required properties
+    const parents = data.parents || [];
+    const children = data.children || [];
+    const siblings = data.siblings || [];
+    const person = data.person || {};
+    const spouse = data.spouse;
+    
+    const treeHtml = `
+        <div class="simple-tree p-4">
+            <div class="text-center">
+                <!-- Parents -->
+                ${parents.length > 0 ? `
+                <div class="parents-row mb-4">
+                    ${parents.map(parent => `
+                        <div class="tree-person parent" data-person-id="${parent.id}">
+                            <div class="card mx-2" style="width: 150px; display: inline-block;">
+                                <div class="card-body text-center p-2">
+                                    <h6 class="card-title mb-1">${parent.name}</h6>
+                                    <small class="text-muted">${parent.relation}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                
+                <!-- Current Person -->
+                <div class="current-person mb-4">
+                    <div class="card mx-auto bg-primary text-white" style="width: 200px;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1">${person.name || 'Unknown'}</h5>
+                            <small>Current Focus</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spouse -->
+                ${spouse ? `
+                <div class="spouse-row mb-4">
+                    <div class="tree-person spouse" data-person-id="${spouse.id}">
+                        <div class="card bg-info text-white mx-auto" style="width: 180px;">
+                            <div class="card-body text-center p-2">
+                                <h6 class="card-title mb-1">${spouse.name}</h6>
+                                <small>Spouse</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ` : ''}
+                
+                <!-- Siblings -->
+                ${siblings.length > 0 ? `
+                <div class="siblings-row mb-4">
+                    <h6 class="mb-3">Siblings</h6>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        ${siblings.map(sibling => `
+                            <div class="tree-person sibling mx-1 mb-2" data-person-id="${sibling.id}">
+                                <div class="card border-warning" style="width: 120px;">
+                                    <div class="card-body text-center p-2">
+                                        <h6 class="card-title mb-0 small">${sibling.name}</h6>
+                                        <small class="text-muted">Sibling</small>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+                
+                <!-- Children -->
+                ${children.length > 0 ? `
+                <div class="children-row">
+                    <h6 class="mb-3">Children</h6>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        ${children.map(child => `
+                            <div class="tree-person child mx-1 mb-2" data-person-id="${child.id}">
+                                <div class="card border-success" style="width: 120px;">
+                                    <div class="card-body text-center p-2">
+                                        <h6 class="card-title mb-0 small">${child.name}</h6>
+                                        <small class="text-muted">Child</small>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                ` : ''}
+            </div>
+        </div>
+    `;
+    
+    container.innerHTML = treeHtml;
+    
+    // Add click handlers for navigation
+    container.querySelectorAll('.tree-person').forEach(element => {
+        element.style.cursor = 'pointer';
+        element.addEventListener('click', function() {
+            const personId = this.dataset.personId;
+            if (personId) {
+                window.location.href = `/genealogy/tree/${personId}/`;
+            }
+        });
+    });
+}
+
+// Zoom controls (placeholder functionality)
+document.getElementById('zoom-in')?.addEventListener('click', function() {
+    console.log('Zoom in clicked');
+});
+
+document.getElementById('zoom-out')?.addEventListener('click', function() {
+    console.log('Zoom out clicked');
+});
+
+document.getElementById('reset-zoom')?.addEventListener('click', function() {
+    console.log('Reset zoom clicked');
+});
+</script>
+{% endblock %}

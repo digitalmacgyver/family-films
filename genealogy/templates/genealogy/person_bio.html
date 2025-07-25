@@ -1,0 +1,305 @@
+{% extends "genealogy/base.html" %}
+
+{% block page_title %}Biography - {{ person.full_name }}{% endblock %}
+
+{% block genealogy_css %}
+<style>
+.biography-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.biography-meta {
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+}
+
+.life-events {
+    background: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.life-events .timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.life-events .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.3rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #007bff;
+    border-radius: 50%;
+}
+
+.life-events .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0.875rem;
+    top: 1rem;
+    bottom: -1rem;
+    width: 2px;
+    background: #dee2e6;
+}
+</style>
+{% endblock %}
+
+{% block genealogy_content %}
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Person Header -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="mb-2">{{ person.full_name }}</h1>
+                        <div class="text-muted">
+                            {% if person.birth_date %}
+                                <span class="me-3">
+                                    <i class="bi bi-calendar"></i> Born {{ person.birth_date|date:"F j, Y" }}
+                                </span>
+                            {% endif %}
+                            {% if person.death_date %}
+                                <span class="me-3">
+                                    <i class="bi bi-calendar-x"></i> Died {{ person.death_date|date:"F j, Y" }}
+                                </span>
+                            {% endif %}
+                            {% if person.get_age_at_death %}
+                                <span class="text-info">
+                                    <i class="bi bi-hourglass-split"></i> Lived {{ person.get_age_at_death }} years
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <div class="btn-group" role="group">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'genealogy:biography_edit' person.pk %}" class="btn btn-outline-primary">
+                                <i class="bi bi-pencil"></i> Edit Biography
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'genealogy:tree' person.pk %}" class="btn btn-outline-info">
+                                <i class="bi bi-diagram-3"></i> Family Tree
+                            </a>
+                            <a href="{% url 'people:detail' person.pk %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-person"></i> Person Page
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biography Content -->
+        {% if person.notes %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3 class="mb-0">
+                    <i class="bi bi-journal-text"></i> Biography
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="biography-content">
+                    {{ person.notes|linebreaks }}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <div class="py-4">
+                    <i class="bi bi-journal-x display-1 text-muted mb-3"></i>
+                    <h4>No Biography Available</h4>
+                    <p class="text-muted mb-3">
+                        This person doesn't have biographical information recorded yet.
+                    </p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'genealogy:biography_edit' person.pk %}" class="btn btn-primary">
+                        <i class="bi bi-plus-lg"></i> Add Biography
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Life Events Timeline -->
+        <div class="card life-events">
+            <div class="card-header">
+                <h4 class="mb-0">
+                    <i class="bi bi-clock-history"></i> Life Events
+                </h4>
+            </div>
+            <div class="card-body">
+                {% if person.birth_date or person.death_date or person.spouse %}
+                <div class="timeline">
+                    {% if person.birth_date %}
+                    <div class="timeline-item">
+                        <div class="fw-bold">Birth</div>
+                        <div class="text-muted">{{ person.birth_date|date:"F j, Y" }}</div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if person.spouse %}
+                    <div class="timeline-item">
+                        <div class="fw-bold">Marriage</div>
+                        <div class="text-muted">
+                            Married to <a href="{% url 'genealogy:biography' person.spouse.pk %}">{{ person.spouse.full_name }}</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% with children=person.get_children %}
+                    {% if children %}
+                    <div class="timeline-item">
+                        <div class="fw-bold">Children</div>
+                        <div class="text-muted">
+                            {% for child in children %}
+                                <a href="{% url 'genealogy:biography' child.pk %}">{{ child.full_name }}</a>
+                                {% if child.birth_date %}({{ child.birth_date|date:"Y" }}){% endif %}
+                                {% if not forloop.last %}<br>{% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    
+                    {% if person.death_date %}
+                    <div class="timeline-item">
+                        <div class="fw-bold">Death</div>
+                        <div class="text-muted">{{ person.death_date|date:"F j, Y" }}</div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-3">
+                    <i class="bi bi-clock display-4 mb-2"></i>
+                    <p class="mb-0">No life events recorded</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <!-- Family Quick Info -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-people"></i> Family
+                </h5>
+            </div>
+            <div class="card-body">
+                {% with parents=person.get_parents %}
+                {% if parents.0 or parents.1 %}
+                <div class="mb-3">
+                    <h6 class="text-muted mb-2">Parents</h6>
+                    {% if parents.0 %}
+                    <div class="mb-1">
+                        <i class="bi bi-person me-1"></i>
+                        <a href="{% url 'genealogy:biography' parents.0.pk %}">{{ parents.0.full_name }}</a>
+                        <small class="text-muted">(Father)</small>
+                    </div>
+                    {% endif %}
+                    {% if parents.1 %}
+                    <div class="mb-1">
+                        <i class="bi bi-person me-1"></i>
+                        <a href="{% url 'genealogy:biography' parents.1.pk %}">{{ parents.1.full_name }}</a>
+                        <small class="text-muted">(Mother)</small>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                {% if person.spouse %}
+                <div class="mb-3">
+                    <h6 class="text-muted mb-2">Spouse</h6>
+                    <div class="mb-1">
+                        <i class="bi bi-heart text-danger me-1"></i>
+                        <a href="{% url 'genealogy:biography' person.spouse.pk %}">{{ person.spouse.full_name }}</a>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% with children=person.get_children %}
+                {% if children %}
+                <div class="mb-3">
+                    <h6 class="text-muted mb-2">Children</h6>
+                    {% for child in children %}
+                    <div class="mb-1">
+                        <i class="bi bi-person-plus me-1"></i>
+                        <a href="{% url 'genealogy:biography' child.pk %}">{{ child.full_name }}</a>
+                        {% if child.birth_date %}
+                            <small class="text-muted">({{ child.birth_date|date:"Y" }})</small>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                {% if not person.get_parents.0 and not person.get_parents.1 and not person.spouse and not person.get_children %}
+                <div class="text-center text-muted py-3">
+                    <i class="bi bi-people display-4 mb-2"></i>
+                    <p class="mb-0 small">No family relationships recorded</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Related Films -->
+        {% if person.films.exists %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-film"></i> Featured in Films
+                </h5>
+            </div>
+            <div class="card-body">
+                {% for film in person.films.all|slice:":5" %}
+                <div class="mb-2">
+                    <a href="{% url 'films:detail' film.pk %}" class="text-decoration-none">
+                        {{ film.title }}
+                    </a>
+                    {% if film.date_created %}
+                        <small class="text-muted">({{ film.date_created|date:"Y" }})</small>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% if person.films.count > 5 %}
+                <div class="mt-2">
+                    <a href="{% url 'people:detail' person.pk %}" class="btn btn-sm btn-outline-primary">
+                        View All {{ person.films.count }} Films
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Biography Meta -->
+        <div class="card biography-meta">
+            <div class="card-body">
+                <h6 class="card-title">
+                    <i class="bi bi-info-circle"></i> Information
+                </h6>
+                <small class="text-muted">
+                    {% if person.notes %}
+                        Biography last updated: {{ person.modified|date:"M j, Y" }}
+                    {% else %}
+                        No biographical information available.
+                    {% endif %}
+                    <br>
+                    Person record created: {{ person.created|date:"M j, Y" }}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

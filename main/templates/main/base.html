@@ -22,8 +22,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'main:home' %}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'genealogy:home' %}">Genealogy</a>
+                    </li>
                 </ul>
-                <form class="d-flex" method="get" action="{% url 'main:search' %}">
+                <form class="d-flex" method="get" action="{% url 'search:overall' %}">
                     <input class="form-control me-2" type="search" name="q" placeholder="Search" value="{{ request.GET.q }}">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>

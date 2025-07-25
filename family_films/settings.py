@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'people',
     'locations',
     'search',
+    'genealogy',
 ]
 
 MIDDLEWARE = [
@@ -169,6 +170,12 @@ if 'DYNO' in os.environ:
     ALLOWED_HOSTS = ['*']
     # Set CSRF trusted origins for Heroku
     CSRF_TRUSTED_ORIGINS = ['https://family-films-5e88b75c353b.herokuapp.com']
+else:
+    # Local development CSRF trusted origins
+    CSRF_TRUSTED_ORIGINS = [
+        'http://127.0.0.1:8000',
+        'http://localhost:8000',
+    ]
 
 # Static files configuration for Heroku
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

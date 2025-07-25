@@ -27,6 +27,7 @@ urlpatterns = [
     path('people/', include('people.urls')),
     path('locations/', include('locations.urls')),
     path('search/', include('search.urls')),
+    path('genealogy/', include('genealogy.urls')),
 ]
 
 if settings.DEBUG:

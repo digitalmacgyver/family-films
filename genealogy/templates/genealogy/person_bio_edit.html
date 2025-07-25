@@ -1,0 +1,374 @@
+{% extends "genealogy/base.html" %}
+
+{% block page_title %}Edit Biography - {{ person.full_name }}{% endblock %}
+
+{% block genealogy_css %}
+<style>
+.biography-form textarea {
+    min-height: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+.writing-tips {
+    background: #f8f9fa;
+    border-left: 4px solid #28a745;
+}
+
+.character-count {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.biography-preview {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+</style>
+{% endblock %}
+
+{% block genealogy_content %}
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Person Header -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <i class="bi bi-journal-text fs-1 text-success"></i>
+                    </div>
+                    <div>
+                        <h2 class="mb-1">{{ person.full_name }}</h2>
+                        <p class="text-muted mb-0">Edit biographical information and life story</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biography Edit Form -->
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">
+                        <i class="bi bi-pencil"></i> Biography Editor
+                    </h4>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <input type="radio" class="btn-check" name="editor-mode" id="write-mode" checked>
+                        <label class="btn btn-outline-primary" for="write-mode">
+                            <i class="bi bi-pencil"></i> Write
+                        </label>
+                        <input type="radio" class="btn-check" name="editor-mode" id="preview-mode">
+                        <label class="btn btn-outline-secondary" for="preview-mode">
+                            <i class="bi bi-eye"></i> Preview
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="post" id="biography-form" class="biography-form">
+                    {% csrf_token %}
+                    
+                    <!-- Write Mode -->
+                    <div id="write-content">
+                        <div class="mb-3">
+                            <label for="{{ form.notes.id_for_label }}" class="form-label">
+                                <i class="bi bi-journal-text"></i> Biography
+                            </label>
+                            {{ form.notes }}
+                            {% if form.notes.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.notes.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="d-flex justify-content-between mt-1">
+                                <div class="form-text">
+                                    Write about {{ person.full_name }}'s life, achievements, personality, and memorable moments.
+                                </div>
+                                <div class="character-count">
+                                    <span id="char-count">{{ form.notes.value|length|default:0 }}</span> characters
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview Mode -->
+                    <div id="preview-content" style="display: none;">
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="bi bi-eye"></i> Biography Preview
+                            </label>
+                            <div class="biography-preview p-3">
+                                <div id="preview-text" class="biography-content">
+                                    {% if person.notes %}
+                                        {{ person.notes|linebreaks }}
+                                    {% else %}
+                                        <em class="text-muted">No biography content to preview</em>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <a href="{% url 'genealogy:biography' person.pk %}" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Cancel
+                            </a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-outline-success me-2" id="save-draft">
+                                <i class="bi bi-cloud-arrow-up"></i> Save Draft
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-lg"></i> Save Biography
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Writing Tips -->
+        <div class="card mt-4 writing-tips">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-lightbulb"></i> Writing Tips
+                </h6>
+            </div>
+            <div class="card-body">
+                <p class="mb-2"><strong>Creating a meaningful biography:</strong></p>
+                <ul class="mb-0 small">
+                    <li><strong>Personal details:</strong> Include birth/death dates, places lived, occupation</li>
+                    <li><strong>Family connections:</strong> Mention relationships to other family members</li>
+                    <li><strong>Life events:</strong> Key moments, achievements, challenges overcome</li>
+                    <li><strong>Personality:</strong> Character traits, interests, hobbies, values</li>
+                    <li><strong>Legacy:</strong> How they influenced others or what they're remembered for</li>
+                    <li><strong>Stories:</strong> Specific anecdotes that capture who they were</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <!-- Quick Family Reference -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-people"></i> Family Reference
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted mb-3">Quick reference for writing about family relationships:</p>
+                
+                {% with parents=person.get_parents %}
+                {% if parents.0 or parents.1 %}
+                <div class="mb-3">
+                    <h6 class="small fw-bold text-muted">PARENTS</h6>
+                    {% if parents.0 %}
+                    <div class="small mb-1">
+                        <strong>Father:</strong> {{ parents.0.full_name }}
+                        {% if parents.0.birth_date %}(b. {{ parents.0.birth_date|date:"Y" }}){% endif %}
+                    </div>
+                    {% endif %}
+                    {% if parents.1 %}
+                    <div class="small mb-1">
+                        <strong>Mother:</strong> {{ parents.1.full_name }}
+                        {% if parents.1.birth_date %}(b. {{ parents.1.birth_date|date:"Y" }}){% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                {% if person.spouse %}
+                <div class="mb-3">
+                    <h6 class="small fw-bold text-muted">SPOUSE</h6>
+                    <div class="small mb-1">
+                        <strong>Married to:</strong> {{ person.spouse.full_name }}
+                        {% if person.spouse.birth_date %}(b. {{ person.spouse.birth_date|date:"Y" }}){% endif %}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% with children=person.get_children %}
+                {% if children %}
+                <div class="mb-3">
+                    <h6 class="small fw-bold text-muted">CHILDREN</h6>
+                    {% for child in children %}
+                    <div class="small mb-1">
+                        {{ child.full_name }}
+                        {% if child.birth_date %}(b. {{ child.birth_date|date:"Y" }}){% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+
+                {% if not person.get_parents.0 and not person.get_parents.1 and not person.spouse and not person.get_children %}
+                <div class="text-center text-muted py-2">
+                    <small>No family relationships recorded yet</small>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Basic Information -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-info-circle"></i> Basic Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="small">
+                    {% if person.birth_date %}
+                    <div class="mb-2">
+                        <strong>Born:</strong> {{ person.birth_date|date:"F j, Y" }}
+                    </div>
+                    {% endif %}
+                    {% if person.death_date %}
+                    <div class="mb-2">
+                        <strong>Died:</strong> {{ person.death_date|date:"F j, Y" }}
+                    </div>
+                    {% endif %}
+                    {% if person.get_age_at_death %}
+                    <div class="mb-2">
+                        <strong>Age at death:</strong> {{ person.get_age_at_death }} years
+                    </div>
+                    {% endif %}
+                    <div class="mb-2">
+                        <strong>Record created:</strong> {{ person.created|date:"M j, Y" }}
+                    </div>
+                    {% if person.notes %}
+                    <div class="mb-2">
+                        <strong>Biography last updated:</strong> {{ person.modified|date:"M j, Y" }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Films -->
+        {% if person.films.exists %}
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-film"></i> Featured in Films
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted mb-2">{{ person.first_name }} appears in these films:</p>
+                {% for film in person.films.all|slice:":3" %}
+                <div class="small mb-1">
+                    {{ film.title }}
+                    {% if film.date_created %}({{ film.date_created|date:"Y" }}){% endif %}
+                </div>
+                {% endfor %}
+                {% if person.films.count > 3 %}
+                <div class="small text-muted mt-2">
+                    ...and {{ person.films.count|add:-3 }} more films
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block genealogy_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add Bootstrap classes to form fields
+    const textarea = document.querySelector('#biography-form textarea');
+    if (textarea) {
+        textarea.classList.add('form-control');
+    }
+
+    // Character counter
+    const charCount = document.getElementById('char-count');
+    if (textarea && charCount) {
+        textarea.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+    }
+
+    // Mode switching
+    const writeMode = document.getElementById('write-mode');
+    const previewMode = document.getElementById('preview-mode');
+    const writeContent = document.getElementById('write-content');
+    const previewContent = document.getElementById('preview-content');
+    const previewText = document.getElementById('preview-text');
+
+    writeMode.addEventListener('change', function() {
+        if (this.checked) {
+            writeContent.style.display = 'block';
+            previewContent.style.display = 'none';
+        }
+    });
+
+    previewMode.addEventListener('change', function() {
+        if (this.checked) {
+            writeContent.style.display = 'none';
+            previewContent.style.display = 'block';
+            
+            // Update preview content
+            const content = textarea.value;
+            if (content.trim()) {
+                // Simple line break conversion for preview
+                previewText.innerHTML = content.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+                if (!previewText.innerHTML.startsWith('<p>')) {
+                    previewText.innerHTML = '<p>' + previewText.innerHTML + '</p>';
+                }
+            } else {
+                previewText.innerHTML = '<em class="text-muted">No biography content to preview</em>';
+            }
+        }
+    });
+
+    // Save draft functionality
+    const saveDraftBtn = document.getElementById('save-draft');
+    saveDraftBtn.addEventListener('click', function() {
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="bi bi-hourglass-split"></i> Saving...';
+        this.disabled = true;
+        
+        // Simulate save (in real implementation, this would make an AJAX call)
+        setTimeout(() => {
+            this.innerHTML = '<i class="bi bi-check"></i> Draft Saved';
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.disabled = false;
+            }, 2000);
+        }, 1000);
+    });
+
+    // Form submission
+    const form = document.getElementById('biography-form');
+    form.addEventListener('submit', function(e) {
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.innerHTML = '<i class="bi bi-hourglass-split"></i> Saving...';
+        submitButton.disabled = true;
+    });
+
+    // Auto-save (optional feature)
+    let autoSaveTimeout;
+    if (textarea) {
+        textarea.addEventListener('input', function() {
+            clearTimeout(autoSaveTimeout);
+            autoSaveTimeout = setTimeout(() => {
+                // Auto-save implementation would go here
+                console.log('Auto-saving biography...');
+            }, 5000); // Auto-save after 5 seconds of inactivity
+        });
+    }
+});
+</script>
+{% endblock %}

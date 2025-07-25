@@ -1,0 +1,159 @@
+{% extends "genealogy/base.html" %}
+
+{% block page_title %}Genealogy Home{% endblock %}
+
+{% block genealogy_content %}
+<div class="row">
+    <div class="col-12">
+        <div class="hero-section text-center py-5 mb-5 bg-light rounded">
+            <h1 class="display-4 mb-3">
+                <i class="bi bi-diagram-3 text-primary"></i>
+                Family Genealogy
+            </h1>
+            <p class="lead mb-4">
+                Explore family relationships, view interactive family trees, and preserve biographical information for future generations.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#browse-people" class="btn btn-primary btn-lg">
+                    <i class="bi bi-people"></i> Browse Family Members
+                </a>
+                {% if featured_people %}
+                <a href="{% url 'genealogy:tree' featured_people.0.pk %}" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-diagram-3"></i> View Family Tree
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="browse-people">
+            <h2 class="mb-4">
+                <i class="bi bi-people"></i> Family Members
+            </h2>
+            
+            {% if featured_people %}
+            <div class="row">
+                {% for person in featured_people %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card person-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{% url 'genealogy:tree' person.pk %}" class="text-decoration-none">
+                                    {{ person.full_name }}
+                                </a>
+                            </h5>
+                            <div class="person-details text-muted small mb-3">
+                                {% if person.birth_date %}
+                                    <div><i class="bi bi-calendar"></i> Born: {{ person.birth_date|date:"M d, Y" }}</div>
+                                {% endif %}
+                                {% if person.death_date %}
+                                    <div><i class="bi bi-calendar-x"></i> Died: {{ person.death_date|date:"M d, Y" }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="relationship-info mb-3">
+                                {% if person.father or person.mother %}
+                                    <small class="text-success">
+                                        <i class="bi bi-diagram-2-fill"></i> Has parent information
+                                    </small><br>
+                                {% endif %}
+                                {% if person.spouse %}
+                                    <small class="text-info">
+                                        <i class="bi bi-heart-fill"></i> Married to {{ person.spouse.full_name }}
+                                    </small><br>
+                                {% endif %}
+                                {% with children=person.get_children %}
+                                {% if children %}
+                                    <small class="text-warning">
+                                        <i class="bi bi-people-fill"></i> {{ children.count }} child{{ children.count|pluralize }}
+                                    </small>
+                                {% endif %}
+                                {% endwith %}
+                            </div>
+                            
+                            <div class="d-flex gap-2">
+                                <a href="{% url 'genealogy:tree' person.pk %}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-diagram-3"></i> Family Tree
+                                </a>
+                                {% if person.notes %}
+                                <a href="{% url 'genealogy:biography' person.pk %}" class="btn btn-sm btn-outline-success">
+                                    <i class="bi bi-journal-text"></i> Biography
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="{% url 'people:directory' %}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-right"></i> View All People
+                </a>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <h4>No Family Information Yet</h4>
+                <p>Start building your family tree by adding relationship information to people in the database.</p>
+                <a href="{% url 'people:directory' %}" class="btn btn-primary">
+                    <i class="bi bi-people"></i> Browse People
+                </a>
+            </div>
+            {% endif %}
+        </section>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="sidebar">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-info-circle"></i> Getting Started
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Build your family tree by:</p>
+                    <ol class="small">
+                        <li>Browse to a person's page in the <a href="{% url 'people:directory' %}">People directory</a></li>
+                        <li>Click "Edit Relationships" to add parents and spouse</li>
+                        <li>Click "Edit Biography" to add biographical information</li>
+                        <li>View the interactive family tree to explore connections</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-gear"></i> Features
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-diagram-3 text-primary"></i>
+                            Interactive family trees
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-heart text-danger"></i>
+                            Parent and spouse relationships
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-journal-text text-success"></i>
+                            Biographical information
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-search text-info"></i>
+                            Connected to film database
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

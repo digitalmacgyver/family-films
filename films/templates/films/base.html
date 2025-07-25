@@ -10,6 +10,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/animated-thumbnails.css' %}">
+    <link rel="stylesheet" href="{% static 'genealogy/css/genealogy.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -28,6 +29,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'people:directory' %}">People</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'genealogy:home' %}">Genealogy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'locations:list' %}">Locations</a>

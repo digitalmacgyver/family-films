@@ -30,11 +30,218 @@ class Person(models.Model):
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
     
+    def full_name_reversed(self):
+        """Return name in 'LASTNAME, FIRSTNAME' format"""
+        return f"{self.last_name}, {self.first_name}"
+    
     def is_hayward_family(self):
         return self.hayward_index is not None
     
     def get_absolute_url(self):
         return reverse('people:detail', kwargs={'pk': self.pk})
+    
+    def get_age_at_death(self):
+        """Calculate age at death if both birth and death dates are available"""
+        if self.birth_date and self.death_date:
+            return self.death_date.year - self.birth_date.year
+        return None
+    
+    # Genealogy methods
+    def get_parents(self):
+        """Return tuple of (father, mother)"""
+        return (self.father, self.mother)
+    
+    def get_children(self):
+        """Return queryset of all children"""
+        return Person.objects.filter(
+            models.Q(father=self) | models.Q(mother=self)
+        ).order_by('birth_date', 'first_name')
+    
+    def get_siblings(self):
+        """Return queryset of siblings (same parents, excluding self)"""
+        if not self.father and not self.mother:
+            return Person.objects.none()
+        
+        siblings_query = models.Q()
+        if self.father:
+            siblings_query |= models.Q(father=self.father)
+        if self.mother:
+            siblings_query |= models.Q(mother=self.mother)
+        
+        return Person.objects.filter(siblings_query).exclude(pk=self.pk).distinct().order_by('birth_date', 'first_name')
+    
+    def get_ancestors(self, generations=3):
+        """Return hierarchical dict of ancestors up to specified generations"""
+        if generations <= 0:
+            return {}
+        
+        ancestors = {}
+        if self.father:
+            ancestors['father'] = {
+                'person': self.father,
+                'ancestors': self.father.get_ancestors(generations - 1)
+            }
+        if self.mother:
+            ancestors['mother'] = {
+                'person': self.mother,
+                'ancestors': self.mother.get_ancestors(generations - 1)
+            }
+        
+        return ancestors
+    
+    def get_descendants(self, generations=3):
+        """Return hierarchical dict of descendants up to specified generations"""
+        if generations <= 0:
+            return {}
+        
+        descendants = {}
+        children = self.get_children()
+        
+        for child in children:
+            descendants[child.pk] = {
+                'person': child,
+                'descendants': child.get_descendants(generations - 1)
+            }
+        
+        return descendants
+    
+    def get_family_tree_data(self, center_person=True):
+        """Return JSON-serializable family tree data"""
+        data = {
+            'person': {
+                'id': self.pk,
+                'name': self.full_name(),
+                'birth_date': self.birth_date.isoformat() if self.birth_date else None,
+                'death_date': self.death_date.isoformat() if self.death_date else None,
+                'notes_preview': self.notes[:100] + '...' if len(self.notes) > 100 else self.notes
+            }
+        }
+        
+        # Add parents
+        parents = []
+        if self.father:
+            parents.append({
+                'id': self.father.pk,
+                'name': self.father.full_name(),
+                'relation': 'father',
+                'birth_date': self.father.birth_date.isoformat() if self.father.birth_date else None,
+                'death_date': self.father.death_date.isoformat() if self.father.death_date else None,
+            })
+        if self.mother:
+            parents.append({
+                'id': self.mother.pk,
+                'name': self.mother.full_name(),
+                'relation': 'mother',
+                'birth_date': self.mother.birth_date.isoformat() if self.mother.birth_date else None,
+                'death_date': self.mother.death_date.isoformat() if self.mother.death_date else None,
+            })
+        data['parents'] = parents
+        
+        # Add spouse
+        if self.spouse:
+            data['spouse'] = {
+                'id': self.spouse.pk,
+                'name': self.spouse.full_name(),
+                'birth_date': self.spouse.birth_date.isoformat() if self.spouse.birth_date else None,
+                'death_date': self.spouse.death_date.isoformat() if self.spouse.death_date else None,
+            }
+        else:
+            data['spouse'] = None
+        
+        # Add children
+        children = []
+        for child in self.get_children():
+            children.append({
+                'id': child.pk,
+                'name': child.full_name(),
+                'birth_date': child.birth_date.isoformat() if child.birth_date else None,
+                'death_date': child.death_date.isoformat() if child.death_date else None,
+            })
+        data['children'] = children
+        
+        # Add siblings
+        siblings = []
+        for sibling in self.get_siblings():
+            siblings.append({
+                'id': sibling.pk,
+                'name': sibling.full_name(),
+                'birth_date': sibling.birth_date.isoformat() if sibling.birth_date else None,
+                'death_date': sibling.death_date.isoformat() if sibling.death_date else None,
+            })
+        data['siblings'] = siblings
+        
+        return data
+    
+    def clean(self):
+        """Validate person relationships"""
+        from django.core.exceptions import ValidationError
+        
+        # Prevent self-reference
+        if self.father == self:
+            raise ValidationError("Person cannot be their own father")
+        if self.mother == self:
+            raise ValidationError("Person cannot be their own mother")
+        if self.spouse == self:
+            raise ValidationError("Person cannot be their own spouse")
+        
+        # Basic circular relationship check for parents
+        if self.father and self._check_circular_ancestry(self.father):
+            raise ValidationError("Circular ancestry detected with father")
+        if self.mother and self._check_circular_ancestry(self.mother):
+            raise ValidationError("Circular ancestry detected with mother")
+    
+    def _check_circular_ancestry(self, ancestor, visited=None):
+        """Check for circular ancestry relationships"""
+        if visited is None:
+            visited = set()
+        
+        if ancestor.pk in visited:
+            return True
+        
+        visited.add(ancestor.pk)
+        
+        # Check if this person appears as an ancestor of the proposed ancestor
+        if ancestor.father and ancestor.father.pk == self.pk:
+            return True
+        if ancestor.mother and ancestor.mother.pk == self.pk:
+            return True
+        
+        # Recursively check ancestors
+        if ancestor.father and self._check_circular_ancestry(ancestor.father, visited.copy()):
+            return True
+        if ancestor.mother and self._check_circular_ancestry(ancestor.mother, visited.copy()):
+            return True
+        
+        return False
+    
+    def save(self, *args, **kwargs):
+        """Override save to handle bidirectional spouse relationships"""
+        # Get the original spouse before saving (if this is an update)
+        original_spouse = None
+        if self.pk:
+            try:
+                original_spouse = Person.objects.get(pk=self.pk).spouse
+            except Person.DoesNotExist:
+                pass
+        
+        # Save the current instance first
+        super().save(*args, **kwargs)
+        
+        # Handle spouse relationship changes
+        current_spouse = self.spouse
+        
+        # If spouse changed, update relationships
+        if original_spouse != current_spouse:
+            # Clear old spouse relationship (set their spouse to None)
+            if original_spouse and original_spouse.spouse == self:
+                original_spouse.spouse = None
+                # Use update to avoid triggering save() recursion
+                Person.objects.filter(pk=original_spouse.pk).update(spouse=None)
+            
+            # Set new spouse relationship (set their spouse to self)
+            if current_spouse and current_spouse.spouse != self:
+                # Use update to avoid triggering save() recursion
+                Person.objects.filter(pk=current_spouse.pk).update(spouse=self.pk)
 
 
 class Location(models.Model):

@@ -1,0 +1,201 @@
+{% extends "genealogy/base.html" %}
+
+{% block page_title %}Edit Relationships - {{ person.full_name }}{% endblock %}
+
+{% block genealogy_content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <!-- Person Info Header -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <div class="me-3">
+                        <i class="bi bi-person-circle fs-1 text-primary"></i>
+                    </div>
+                    <div>
+                        <h2 class="mb-1">{{ person.full_name }}</h2>
+                        <p class="text-muted mb-0">Edit family relationships and basic information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relationship Edit Form -->
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">
+                    <i class="bi bi-diagram-2"></i> Family Relationships
+                </h4>
+            </div>
+            <div class="card-body">
+                <form method="post" id="relationship-form">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <!-- Father Field -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.father.id_for_label }}" class="form-label">
+                                <i class="bi bi-person"></i> Father
+                            </label>
+                            {{ form.father }}
+                            {% if form.father.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.father.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="form-text">Select the father from existing people in the database.</div>
+                        </div>
+
+                        <!-- Mother Field -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.mother.id_for_label }}" class="form-label">
+                                <i class="bi bi-person"></i> Mother
+                            </label>
+                            {{ form.mother }}
+                            {% if form.mother.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.mother.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="form-text">Select the mother from existing people in the database.</div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Spouse Field -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.spouse.id_for_label }}" class="form-label">
+                                <i class="bi bi-heart"></i> Spouse
+                            </label>
+                            {{ form.spouse }}
+                            {% if form.spouse.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.spouse.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="form-text">Select the spouse from existing people in the database.</div>
+                        </div>
+
+                        <!-- Basic Info Fields -->
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="{{ form.birth_date.id_for_label }}" class="form-label">
+                                    <i class="bi bi-calendar"></i> Birth Date
+                                </label>
+                                {{ form.birth_date }}
+                                {% if form.birth_date.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.birth_date.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Family Summary -->
+                    <div class="alert alert-info">
+                        <h6><i class="bi bi-info-circle"></i> Current Family Information</h6>
+                        <div class="row small">
+                            <div class="col-md-4">
+                                <strong>Father:</strong> 
+                                {% if person.father %}
+                                    <a href="{% url 'genealogy:tree' person.father.pk %}">{{ person.father.full_name }}</a>
+                                {% else %}
+                                    <em>Not specified</em>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Mother:</strong> 
+                                {% if person.mother %}
+                                    <a href="{% url 'genealogy:tree' person.mother.pk %}">{{ person.mother.full_name }}</a>
+                                {% else %}
+                                    <em>Not specified</em>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Spouse:</strong> 
+                                {% if person.spouse %}
+                                    <a href="{% url 'genealogy:tree' person.spouse.pk %}">{{ person.spouse.full_name }}</a>
+                                {% else %}
+                                    <em>Not specified</em>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% with children=person.get_children %}
+                        {% if children %}
+                            <div class="mt-2">
+                                <strong>Children:</strong> 
+                                {% for child in children %}
+                                    <a href="{% url 'genealogy:tree' child.pk %}">{{ child.full_name }}</a>{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <a href="{% url 'genealogy:tree' person.pk %}" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Cancel
+                            </a>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-lg"></i> Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Help Section -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-question-circle"></i> Tips for Editing Relationships
+                </h6>
+            </div>
+            <div class="card-body">
+                <ul class="mb-0 small">
+                    <li>All relationship fields are optional - you can leave them blank if unknown</li>
+                    <li>People must already exist in the database before you can link them as relatives</li>
+                    <li>The system prevents circular relationships (e.g., a person cannot be their own ancestor)</li>
+                    <li>Changes are saved immediately when you click "Save Changes"</li>
+                    <li>You can view the updated family tree after saving</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block genealogy_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add Bootstrap classes to form fields
+    const formFields = document.querySelectorAll('#relationship-form select, #relationship-form input');
+    formFields.forEach(field => {
+        field.classList.add('form-control');
+    });
+
+    // Form validation feedback
+    const form = document.getElementById('relationship-form');
+    form.addEventListener('submit', function(e) {
+        // Add any client-side validation here if needed
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.innerHTML = '<i class="bi bi-hourglass-split"></i> Saving...';
+        submitButton.disabled = true;
+    });
+});
+</script>
+{% endblock %}
