@@ -17,6 +17,7 @@ import argparse
 import shutil
 import requests
 import json
+import re
 from PIL import Image, ImageDraw, ImageFont
 
 # Set up Django environment
@@ -356,6 +357,48 @@ def verify_thumbnails(film_ids=None):
     print(f"❌ Missing sprites: {missing_sprites}")
     print(f"⚠️ Dimension mismatches: {dimension_mismatches}")
 
+def extract_storyboard_data(video_id):
+    """Extract YouTube storyboard data for a video (basic implementation)"""
+    print(f"=== Extracting Storyboard Data for {video_id} ===\n")
+    
+    url = f"https://www.youtube.com/watch?v={video_id}"
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+    
+    try:
+        response = requests.get(url, headers=headers, timeout=15)
+        response.raise_for_status()
+        content = response.text
+        
+        # Look for storyboard data in the page
+        storyboard_pattern = r'"playerStoryboardSpecRenderer":\s*{"spec":"([^"]+)"'
+        match = re.search(storyboard_pattern, content)
+        
+        if match:
+            storyboard_url_template = match.group(1)
+            print(f"✅ Found storyboard template: {storyboard_url_template[:100]}...")
+            
+            # Basic storyboard info extraction
+            if 'storyboard3_L' in storyboard_url_template:
+                print("📊 Level-based storyboard detected")
+                print("ℹ️  This contains multiple quality levels of timeline thumbnails")
+            else:
+                print("📊 Standard storyboard detected")
+            
+            return {
+                'template': storyboard_url_template,
+                'available': True,
+                'type': 'level-based' if 'storyboard3_L' in storyboard_url_template else 'standard'
+            }
+        else:
+            print("❌ No storyboard data found in page")
+            return {'available': False}
+            
+    except Exception as e:
+        print(f"❌ Error extracting storyboard data: {str(e)}")
+        return {'available': False, 'error': str(e)}
+
 def analyze_thumbnail_coverage():
     """Analyze overall thumbnail coverage and issues"""
     print("=== Thumbnail Coverage Analysis ===\n")
@@ -402,7 +445,7 @@ def analyze_thumbnail_coverage():
 def main():
     parser = argparse.ArgumentParser(description='Comprehensive thumbnail management tool')
     parser.add_argument('command', choices=['create-sprites', 'create-chapters', 'verify', 
-                                           'analyze', 'all'],
+                                           'analyze', 'storyboard', 'all'],
                         help='Command to run')
     parser.add_argument('--film-ids', nargs='+', help='Specific film IDs to process')
     parser.add_argument('--use-youtube', action='store_true', default=True,
@@ -472,6 +515,21 @@ def main():
         
     elif args.command == 'analyze':
         analyze_thumbnail_coverage()
+        
+    elif args.command == 'storyboard':
+        if args.film_ids:
+            for film_id in args.film_ids:
+                try:
+                    film = Film.objects.get(file_id=film_id)
+                    if not film.youtube_id.startswith('placeholder_'):
+                        extract_storyboard_data(film.youtube_id)
+                    else:
+                        print(f"Film {film_id} has placeholder YouTube ID")
+                except Film.DoesNotExist:
+                    print(f"Film {film_id} not found")
+                print()
+        else:
+            print("ERROR: --film-ids required for storyboard command")
         
     elif args.command == 'all':
         print("Running all thumbnail operations...\n")

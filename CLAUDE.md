@@ -42,6 +42,7 @@ python scripts/person_manager.py merge-duplicates --dry-run
 python scripts/person_manager.py normalize
 python scripts/person_manager.py remove-orphans
 python scripts/person_manager.py update-csv --csv-file name_cleanup.csv
+python scripts/person_manager.py analyze  # Directory analysis & missing people detection
 python scripts/person_manager.py all --dry-run
 ```
 
@@ -52,6 +53,7 @@ python scripts/location_manager.py update-csv --csv-file location_cleanup.csv
 python scripts/location_manager.py remove-orphans --dry-run
 python scripts/location_manager.py fix-specific
 python scripts/location_manager.py statistics
+python scripts/location_manager.py analyze  # Directory analysis & missing locations detection
 python scripts/location_manager.py all --dry-run
 ```
 
@@ -62,6 +64,7 @@ python scripts/thumbnail_manager.py create-sprites --use-youtube
 python scripts/thumbnail_manager.py create-chapters --film-ids P-04 P-23
 python scripts/thumbnail_manager.py verify
 python scripts/thumbnail_manager.py analyze
+python scripts/thumbnail_manager.py storyboard --film-ids P-04  # Extract YouTube storyboard data
 python scripts/thumbnail_manager.py all --placeholder-only
 ```
 

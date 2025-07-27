@@ -288,6 +288,64 @@ def fix_specific_locations(dry_run=False):
     
     print(f"\nApplied {fixes_applied} location fixes.")
 
+def analyze_locations_directory():
+    """Analyze locations directory associations and identify missing locations."""
+    print("=== Locations Directory Analysis ===\n")
+    
+    print('=== Locations Association Analysis ===')
+    
+    only_films = Location.objects.annotate(
+        film_count=Count('film'),
+        chapter_count=Count('chapter')
+    ).filter(film_count__gt=0, chapter_count=0).count()
+
+    only_chapters = Location.objects.annotate(
+        film_count=Count('film'),
+        chapter_count=Count('chapter')
+    ).filter(film_count=0, chapter_count__gt=0).count()
+
+    both = Location.objects.annotate(
+        film_count=Count('film'),
+        chapter_count=Count('chapter')
+    ).filter(film_count__gt=0, chapter_count__gt=0).count()
+
+    total_with_associations = Location.objects.annotate(
+        film_count=Count('film'),
+        chapter_count=Count('chapter')
+    ).filter(Q(film_count__gt=0) | Q(chapter_count__gt=0)).count()
+
+    print(f'Locations only associated with films: {only_films}')
+    print(f'Locations only associated with chapters: {only_chapters}')
+    print(f'Locations associated with both: {both}')  
+    print(f'Total locations with any associations: {total_with_associations}')
+
+    print('\n=== Current Locations Directory Query Results ===')
+    current_query_count = Location.objects.annotate(
+        film_count=Count('film')
+    ).filter(film_count__gt=0).count()
+    print(f'Current directory shows: {current_query_count} locations')
+
+    print('\n=== Proposed Fixed Query Results ===')
+    fixed_query_count = Location.objects.annotate(
+        film_count=Count('film', distinct=True) + Count('chapter__film', distinct=True)
+    ).filter(film_count__gt=0).count()
+    print(f'Fixed directory would show: {fixed_query_count} locations')
+    print(f'Missing locations: {fixed_query_count - current_query_count}')
+
+    # Show some examples of missing locations
+    if fixed_query_count > current_query_count:
+        print('\n=== Examples of Missing Locations (Chapter-only) ===')
+        missing_locations = Location.objects.annotate(
+            film_count=Count('film'),
+            chapter_count=Count('chapter')
+        ).filter(film_count=0, chapter_count__gt=0)[:10]
+        
+        for location in missing_locations:
+            chapter_count = ChapterLocations.objects.filter(location=location).count()
+            print(f'- "{location.name}": {chapter_count} chapters')
+    else:
+        print('\n=== No missing locations found ===')
+
 def show_location_statistics():
     """Print comprehensive location statistics."""
     print("=== Location Statistics ===\n")
@@ -368,7 +426,7 @@ def show_location_statistics():
 def main():
     parser = argparse.ArgumentParser(description='Comprehensive location management tool')
     parser.add_argument('command', choices=['update-csv', 'remove-orphans', 'fix-specific', 
-                                           'statistics', 'all'],
+                                           'statistics', 'analyze', 'all'],
                         help='Command to run')
     parser.add_argument('--csv-file', default='location_cleanup.csv', 
                         help='CSV file for update-csv command')
@@ -385,6 +443,8 @@ def main():
         fix_specific_locations(dry_run=args.dry_run)
     elif args.command == 'statistics':
         show_location_statistics()
+    elif args.command == 'analyze':
+        analyze_locations_directory()
     elif args.command == 'all':
         # Run all cleanup operations in order
         print("Running all location cleanup operations...\n")

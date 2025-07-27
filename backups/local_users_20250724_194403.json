@@ -1,0 +1,56 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$8RdCefhZE7VYmUnB5382Ke$8q9G2EY28tqZk2SXGdUQQ18GmnNKs62QzIBvYIH9jJY=",
+    "last_login": "2025-07-25T02:17:37.183Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@example.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-07-03T00:02:13.783Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$beA2jFtAmvw5TL41kp5zE1$5waBlBoe97V6I+lPMla6uQD96mVnuC5jFosUCzedje4=",
+    "last_login": "2025-07-25T02:38:36.647Z",
+    "is_superuser": false,
+    "username": "mjhayward+ff@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-07-03T20:27:06Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$P8kA2HJ7nR3V7zJDIaXmhf$zyPBXdB27io1/jWhKNzhtGfjuCslZPnx+D1xp4QJHdY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "john.hayward@wheaton.edu",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-07-25T02:18:24Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
