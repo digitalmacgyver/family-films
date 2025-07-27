@@ -75,6 +75,16 @@ python scripts/data_manager.py report --output-file report.json
 python scripts/data_manager.py all --dry-run
 ```
 
+### 6. `excel_manager.py` - Excel/XLS File Management
+**Use for:** Image extraction from XLS files, Excel conversion, chapter sheet analysis
+```bash
+python scripts/excel_manager.py extract-images --file chapter.xls --output-dir thumbnails/
+python scripts/excel_manager.py test-extraction --file chapter.xls --analysis-mode
+python scripts/excel_manager.py convert-xlsx --file chapter.xls --output-file chapter.xlsx
+python scripts/excel_manager.py analyze-structure --file chapter.xls
+python scripts/excel_manager.py batch-process --chapter-sheets-dir /path/to/sheets
+```
+
 ## Script Usage Guidelines
 
 1. **ALWAYS check if an existing consolidated script can handle the task** before writing new code
@@ -90,4 +100,10 @@ python scripts/data_manager.py all --dry-run
 - When debugging very specific edge cases requiring custom analysis
 
 **Remember: These consolidated scripts represent 40+ individual scripts that were merged. They contain extensive functionality that covers nearly all routine data management tasks.**
+
+## Additional Specialized Tools
+
+### Core XLS Image Extractor
+- **`xls_image_extractor.py`** (root directory) - Core binary XLS image extraction used by Django import_chapter_metadata command
+- This is the production tool used for extracting chapter thumbnails from Excel files in chapter_sheets/ directory
 
