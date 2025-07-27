@@ -18,10 +18,11 @@ A front end UI to browse family films served from YouTube, with features to set 
 
 # Script Operations
 - When asked to do some task, such as generating thumbnail images or copying data from local development databases to production, first search to see if there is an existing utility script designed for this purpose. If there is, refine that script with any changes due to recent code updates and use that script rather than starting from scratch.
+- **All new ad-hoc scripts and debugging tools must be created in the scripts/ directory.** This includes one-time data fixes, experimental analysis tools, migration scripts, and debugging utilities that are not part of the core web application functionality.
 
 # Consolidated Management Scripts
 
-The scripts directory has been cleaned up and consolidated into 5 comprehensive management tools. **ALWAYS use these existing scripts rather than creating new ones** for the following tasks:
+The scripts directory has been cleaned up and consolidated into 7 comprehensive management tools. **ALWAYS use these existing scripts rather than creating new ones** for the following tasks:
 
 ## Available Management Scripts
 
@@ -79,13 +80,21 @@ python scripts/data_manager.py all --dry-run
 ```
 
 ### 6. `excel_manager.py` - Excel/XLS File Management
-**Use for:** Image extraction from XLS files, Excel conversion, chapter sheet analysis
+**Use for:** Image extraction from XLS files, batch processing, validation
 ```bash
-python scripts/excel_manager.py extract-images --file chapter.xls --output-dir thumbnails/
-python scripts/excel_manager.py test-extraction --file chapter.xls --analysis-mode
-python scripts/excel_manager.py convert-xlsx --file chapter.xls --output-file chapter.xlsx
-python scripts/excel_manager.py analyze-structure --file chapter.xls
-python scripts/excel_manager.py batch-process --chapter-sheets-dir /path/to/sheets
+python scripts/excel_manager.py input.xls -o output_dir/
+python scripts/excel_manager.py chapter_sheets/ --batch -o thumbnails/
+python scripts/excel_manager.py chapter.xls  # Extract to same directory
+```
+
+### 7. `genealogy_manager.py` - Genealogy Data Management
+**Use for:** Family tree relationships, genealogy sync, data validation
+```bash
+python scripts/genealogy_manager.py export --output-file backups/genealogy.json
+python scripts/genealogy_manager.py sync --data-file genealogy.json --dry-run
+python scripts/genealogy_manager.py validate  # Check relationship integrity
+python scripts/genealogy_manager.py report --output-file genealogy_report.json
+python scripts/genealogy_manager.py all  # Export, validate, and report
 ```
 
 ## Script Usage Guidelines
@@ -102,7 +111,7 @@ python scripts/excel_manager.py batch-process --chapter-sheets-dir /path/to/shee
 - When working with non-standard data formats not supported
 - When debugging very specific edge cases requiring custom analysis
 
-**Remember: These consolidated scripts represent 40+ individual scripts that were merged. They contain extensive functionality that covers nearly all routine data management tasks.**
+**Remember: These consolidated scripts represent 43+ individual scripts that were merged. They contain extensive functionality that covers nearly all routine data management tasks, including genealogy family tree management.**
 
 ## Additional Specialized Tools
 
