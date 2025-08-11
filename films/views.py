@@ -12,10 +12,10 @@ from main.models import Film, Chapter, Person, Location, Tag
 
 def film_catalog(request):
     """Film catalog page with animated thumbnails and filtering"""
-    # Only show films with actual YouTube content (not placeholders)
+    # Show all films including placeholders (Batch D imports need manual YouTube mapping)
     films = Film.objects.select_related().prefetch_related(
         'people', 'locations', 'tags', 'chapters'
-    ).exclude(youtube_id__startswith='placeholder_')
+    )
     
     # Search functionality - SQLite compatible - includes chapter content
     search_query = request.GET.get('q', '').strip()
