@@ -119,3 +119,30 @@ python scripts/genealogy_manager.py all  # Export, validate, and report
 - **`xls_image_extractor.py`** (root directory) - Core binary XLS image extraction used by Django import_chapter_metadata command
 - This is the production tool used for extracting chapter thumbnails from Excel files in chapter_sheets/ directory
 
+# MANDATORY Production Sync Procedure
+
+## CRITICAL: Database Sync Requirements
+
+**When syncing development database to production, you MUST follow this exact procedure:**
+
+### Required Script and Command
+**ALWAYS use:** `scripts/sync_to_production.py`
+**ALWAYS run:** `echo "YES" | python scripts/sync_to_production.py`
+
+### Why This Exact Command is Required
+1. **Essential-0 Dyno Compatibility**: Production uses essential-0 dynos which cannot use standard-2x dynos
+2. **Stdin Data Loading**: Script uses `cat database_export.json | heroku run --no-tty -- python manage.py loaddata --format=json -` method
+3. **Automatic Confirmation**: The `echo "YES"` automatically confirms the destructive database reset
+4. **Proper Verification**: Script includes essential-0 compatible verification commands
+
+### What You MUST NOT Do
+- ❌ Never run `heroku run --size=standard-2x` (not available on essential-0 plan)
+- ❌ Never try to upload files to Heroku filesystem (ephemeral, won't work)
+- ❌ Never manually run `heroku pg:reset` without the sync script
+- ❌ Never skip the verification step
+
+### Documentation Reference
+Complete procedure documented in: `design_docs/PRODUCTION_SYNC_PROCEDURE.md`
+
+**This procedure is MANDATORY. Deviation will cause sync failures.**
+
