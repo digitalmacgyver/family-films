@@ -66,16 +66,17 @@ def main():
     ):
         return False
     
-    # Step 5: Load data to Heroku
+    # Step 5: Load data to Heroku using stdin
+    print("\nLoading data to Heroku via stdin...")
     if not run_command(
-        "heroku run --size=standard-2x python manage.py loaddata database_export.json",
+        "cat database_export.json | heroku run --no-tty -- python manage.py loaddata --format=json -",
         "Loading data to Heroku (this may take several minutes)"
     ):
         return False
     
     # Step 6: Verify data was loaded
     if not run_command(
-        "heroku run python manage.py shell -c \"from main.models import Person, Location, Film; print(f'People: {Person.objects.count()}, Locations: {Location.objects.count()}, Films: {Film.objects.count()}')\"",
+        "heroku run -- python -c \"import os, django; os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'family_films.settings'); django.setup(); from main.models import Person, Location, Film; print(f'People: {Person.objects.count()}, Locations: {Location.objects.count()}, Films: {Film.objects.count()}')\"",
         "Verifying data was loaded"
     ):
         return False
@@ -85,9 +86,14 @@ def main():
     print("="*60)
     
     # Cleanup
-    if input("Remove local export file? (y/n): ").lower() == 'y':
-        os.remove("database_export.json")
-        print("Export file removed.")
+    try:
+        response = input("Remove local export file? (y/n): ").lower()
+        if response == 'y':
+            os.remove("database_export.json")
+            print("Export file removed.")
+    except EOFError:
+        # Handle case where input is piped (no interactive terminal)
+        print("Keeping export file (non-interactive mode).")
     
     return True
 
